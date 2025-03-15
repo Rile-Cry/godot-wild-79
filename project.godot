@@ -18,6 +18,15 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "pink",
+"res://gameplay/": "blue",
+"res://persistent/": "yellow",
+"res://ui/": "green"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
