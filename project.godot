@@ -14,6 +14,12 @@ config/name="Godot Wild 79"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
