@@ -285,4 +285,5 @@ frame_progress = 0.262033
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wy36v")
-frame_progress = 0.138547
+frame = 4
+frame_progress = 0.679345

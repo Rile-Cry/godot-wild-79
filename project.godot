@@ -31,9 +31,12 @@ enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Wwise/": "purple",
 "res://assets/": "pink",
 "res://gameplay/": "blue",
+"res://mechanics/": "red",
 "res://persistent/": "yellow",
+"res://scenes/": "gray",
 "res://ui/": "green"
 }
 
