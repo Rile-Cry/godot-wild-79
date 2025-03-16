@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=3 uid="uid://o18888l8ev0c"]
 
-[ext_resource type="Texture2D" uid="uid://dlrqvfxfmc8ya" path="res://Art/SlotMachine-Base.png" id="1_r5ng1"]
-[ext_resource type="Texture2D" uid="uid://cep0vnjw7ugo2" path="res://Art/Lever.png" id="2_4e5ja"]
+[ext_resource type="Texture2D" uid="uid://dlrqvfxfmc8ya" path="res://assets/images/SlotMachine-Base.png" id="1_r5ng1"]
+[ext_resource type="Texture2D" uid="uid://cep0vnjw7ugo2" path="res://assets/images/Lever.png" id="2_4e5ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4e5ja"]
 atlas = ExtResource("1_r5ng1")
