@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=78 format=3 uid="uid://b8qj4vqtrv3n6"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://d3hcd2440bvw8" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://crph8lodjemr8" path="res://assets/images/Swap-Button.png" id="7_0pqam"]
 [ext_resource type="Texture2D" uid="uid://dyqhvkl28wpfi" path="res://assets/images/Up-Down-Button.png" id="8_6hw4d"]
 [ext_resource type="Texture2D" uid="uid://dh5ipd4w1poqt" path="res://assets/images/Options-Button.png" id="9_4m825"]
+[ext_resource type="Texture2D" uid="uid://duyv1nyjx45v6" path="res://assets/images/reel-spin.png" id="10_d88kc"]
+[ext_resource type="Texture2D" uid="uid://gesbtlhvrku6" path="res://assets/images/warrior-attack.png" id="11_kpaja"]
+[ext_resource type="Texture2D" uid="uid://dvbc83x25bc71" path="res://assets/images/archer-idle.png" id="12_gee1i"]
+[ext_resource type="Texture2D" uid="uid://bcghm6xgh7687" path="res://assets/images/rogue-idle.png" id="13_ocpw7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxfdu"]
 atlas = ExtResource("3_7u70w")
@@ -365,6 +369,108 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qov7j"]
+atlas = ExtResource("10_d88kc")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h8s5"]
+atlas = ExtResource("10_d88kc")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6bbp"]
+atlas = ExtResource("10_d88kc")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34nt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qov7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h8s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6bbp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tvtj"]
+atlas = ExtResource("11_kpaja")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ys1k"]
+atlas = ExtResource("11_kpaja")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7po4u"]
+atlas = ExtResource("11_kpaja")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7hq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tvtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ys1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7po4u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1e46"]
+atlas = ExtResource("12_gee1i")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ind5r"]
+atlas = ExtResource("12_gee1i")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sq333"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1e46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ind5r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7rro"]
+atlas = ExtResource("13_ocpw7")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3ner"]
+atlas = ExtResource("13_ocpw7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfdt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7rro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3ner")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="Mockup" type="Node2D"]
 position = Vector2(160, 90)
 
@@ -377,30 +483,51 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.985064
+frame_progress = 0.128052
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.68462
+frame_progress = 0.82761
 
 [node name="Screen" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("5_63445")
 
 [node name="Symbols" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("6_h6veu")
 
 [node name="SwapButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
-frame_progress = 0.718238
+frame_progress = 0.233167
 
 [node name="UpDownButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
-frame_progress = 0.285758
+frame_progress = 0.800698
 
 [node name="OptionsButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qov7j")
 autoplay = "default"
-frame_progress = 0.749233
+frame_progress = 0.264163
+
+[node name="ReelSpin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_34nt1")
+frame_progress = 0.595855
+
+[node name="Warrior" type="AnimatedSprite2D" parent="."]
+position = Vector2(-38, -44)
+sprite_frames = SubResource("SpriteFrames_p7hq7")
+frame_progress = 0.286868
+
+[node name="Archer" type="AnimatedSprite2D" parent="."]
+position = Vector2(-18, -52)
+sprite_frames = SubResource("SpriteFrames_sq333")
+frame_progress = 0.0571946
+
+[node name="Rogue" type="AnimatedSprite2D" parent="."]
+position = Vector2(-51, -52)
+sprite_frames = SubResource("SpriteFrames_xfdt5")
+frame_progress = 0.96661
