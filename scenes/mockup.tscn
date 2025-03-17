@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=58 format=3 uid="uid://b8qj4vqtrv3n6"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://d3hcd2440bvw8" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cep0vnjw7ugo2" path="res://assets/images/Lever.png" id="4_h6veu"]
 [ext_resource type="Texture2D" uid="uid://nfb7vq6g6lcm" path="res://assets/images/mockup-screen.png" id="5_63445"]
 [ext_resource type="Texture2D" uid="uid://bpms2usp5s0f1" path="res://assets/images/mockup-symbols.png" id="6_h6veu"]
+[ext_resource type="Texture2D" uid="uid://crph8lodjemr8" path="res://assets/images/Swap-Button.png" id="7_0pqam"]
+[ext_resource type="Texture2D" uid="uid://dyqhvkl28wpfi" path="res://assets/images/Up-Down-Button.png" id="8_6hw4d"]
+[ext_resource type="Texture2D" uid="uid://dh5ipd4w1poqt" path="res://assets/images/Options-Button.png" id="9_4m825"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxfdu"]
 atlas = ExtResource("3_7u70w")
@@ -282,6 +285,72 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4se8r"]
+atlas = ExtResource("7_0pqam")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ncp"]
+atlas = ExtResource("7_0pqam")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhhqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4se8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ncp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hme8"]
+atlas = ExtResource("8_6hw4d")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cg8h"]
+atlas = ExtResource("8_6hw4d")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2ulw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hme8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cg8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptnv2"]
+atlas = ExtResource("9_4m825")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exlsi"]
+atlas = ExtResource("9_4m825")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qov7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptnv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exlsi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="Mockup" type="Node2D"]
 position = Vector2(160, 90)
 
@@ -294,15 +363,30 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.223223
+frame_progress = 0.0514412
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.922749
+frame_progress = 0.750975
 
 [node name="Screen" type="Sprite2D" parent="."]
 texture = ExtResource("5_63445")
 
 [node name="Symbols" type="Sprite2D" parent="."]
 texture = ExtResource("6_h6veu")
+
+[node name="SwapButton" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jhhqc")
+autoplay = "default"
+frame_progress = 0.424965
+
+[node name="UpDownButton" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g2ulw")
+autoplay = "default"
+frame_progress = 0.992504
+
+[node name="OptionsButton" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qov7j")
+autoplay = "default"
+frame_progress = 0.455959
