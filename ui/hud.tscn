@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://eawwr1w7805d" path="res://ui/hud.gd" id="1_rbyyf"]
 
+[sub_resource type="Animation" id="Animation_276te"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 918)]
+}
+
 [sub_resource type="Animation" id="Animation_rbyyf"]
 resource_name = "startup"
 length = 2.0
@@ -18,30 +33,14 @@ tracks/0/keys = {
 "values": [Vector2(0, 1500), Vector2(0, 918)]
 }
 
-[sub_resource type="Animation" id="Animation_276te"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 918)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_546lt"]
 _data = {
 &"RESET": SubResource("Animation_276te"),
 &"startup": SubResource("Animation_rbyyf")
 }
 
-[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("actions_container", "anim_player")]
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_rbyyf")
-actions_container = NodePath("")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="ButtonContainer" type="Control" parent="."]
