@@ -363,12 +363,12 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.0514412
+frame_progress = 0.990349
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.750975
+frame_progress = 0.689883
 
 [node name="Screen" type="Sprite2D" parent="."]
 texture = ExtResource("5_63445")
@@ -379,14 +379,14 @@ texture = ExtResource("6_h6veu")
 [node name="SwapButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
-frame_progress = 0.424965
+frame_progress = 0.618859
 
 [node name="UpDownButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
-frame_progress = 0.992504
+frame_progress = 0.186396
 
 [node name="OptionsButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qov7j")
 autoplay = "default"
-frame_progress = 0.455959
+frame_progress = 0.649853
