@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=46 format=3 uid="uid://b8qj4vqtrv3n6"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://d3hcd2440bvw8" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://buhyjca2c7lba" path="res://assets/images/SlotMachine-Lights.png" id="3_7u70w"]
 [ext_resource type="Texture2D" uid="uid://cep0vnjw7ugo2" path="res://assets/images/Lever.png" id="4_h6veu"]
 [ext_resource type="Texture2D" uid="uid://nfb7vq6g6lcm" path="res://assets/images/mockup-screen.png" id="5_63445"]
+[ext_resource type="Texture2D" uid="uid://bpms2usp5s0f1" path="res://assets/images/mockup-symbols.png" id="6_h6veu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxfdu"]
 atlas = ExtResource("3_7u70w")
@@ -293,12 +294,15 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.786564
+frame_progress = 0.223223
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.486089
+frame_progress = 0.922749
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Screen" type="Sprite2D" parent="."]
 texture = ExtResource("5_63445")
+
+[node name="Symbols" type="Sprite2D" parent="."]
+texture = ExtResource("6_h6veu")
