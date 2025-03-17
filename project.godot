@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+Global="*res://persistent/global.gd"
+GameGlobalEvents="*res://persistent/game_global_events.gd"
 
 [display]
 
@@ -33,8 +35,7 @@ enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
 folder_colors={
 "res://Wwise/": "purple",
 "res://assets/": "pink",
-"res://gameplay/": "blue",
-"res://mechanics/": "red",
+"res://mechanics/": "blue",
 "res://persistent/": "yellow",
 "res://scenes/": "gray",
 "res://ui/": "green"
