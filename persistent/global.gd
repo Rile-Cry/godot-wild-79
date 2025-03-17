@@ -7,12 +7,16 @@ enum Vars {
 	SCORE
 }
 
-# Global dictionary, has all the variables encapsulated for get/set access
-var _global_vars : Dictionary = {
+var _prior_runs : Array[int] = [] # Previous runs data
+var _global_vars : Dictionary = { # Global dictionary, has all the variables encapsulated for get/set access
 	Vars.MULTIPLIERS: [], # The collection of multipliers
-	Vars.PULLS: 10,
+	Vars.PULLS: 9, # The amount of pulls available to the player
 	Vars.SCORE: 0, # The score the player accrues as they play
 }
+var _rng := RandomNumberGenerator.new()
+
+func _ready() -> void:
+	pass
 
 ## The get function for accessing global variables.
 func get_var(variable: Vars, idx: int = 0):
@@ -32,7 +36,7 @@ func set_var(variable: Vars, value, modify: bool = false) -> void:
 			if modify:
 				_global_vars.set(variable, temp_var + value)
 				if variable == Vars.PULLS:
-					GameGlobalEvents
+					GameGlobalEvents.changed_pull_count()
 			else:
 				_global_vars.set(variable, value)
 		_:
@@ -54,6 +58,8 @@ func save_game() -> void:
 
 ## The function that loads a save file, assuming it exists, and sets all relavent parameters
 ## and nodes to match the values.
+
+# TODO: Get rid of this crap, only need previous run data now
 func load_game():
 	if not FileAccess.file_exists("user://data.save"):
 		return

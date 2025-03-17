@@ -1,23 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5ifhqid283n6"]
+[gd_scene load_steps=5 format=3 uid="uid://b5ifhqid283n6"]
 
 [ext_resource type="Script" uid="uid://eawwr1w7805d" path="res://ui/hud.gd" id="1_rbyyf"]
 
-[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("actions_container")]
+[sub_resource type="Animation" id="Animation_rbyyf"]
+resource_name = "startup"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.241484, 2.14355),
+"update": 0,
+"values": [Vector2(0, 1500), Vector2(0, 918)]
+}
+
+[sub_resource type="Animation" id="Animation_276te"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 918)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_546lt"]
+_data = {
+&"RESET": SubResource("Animation_276te"),
+&"startup": SubResource("Animation_rbyyf")
+}
+
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("actions_container", "anim_player")]
 script = ExtResource("1_rbyyf")
-actions_container = NodePath("ActionsContainer")
+actions_container = NodePath("")
+anim_player = NodePath("AnimationPlayer")
 
 [node name="ButtonContainer" type="Control" parent="."]
 layout_mode = 3
-anchor_left = 0.67
-anchor_top = 0.67
-anchor_right = 0.97
-anchor_bottom = 0.97
-offset_left = -40.0
-offset_top = -40.0
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,70 +60,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer/VBoxContainer"]
+[node name="ChangeHeroButton" type="Button" parent="ButtonContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Change Hero"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpButton" type="Button" parent="ButtonContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
+text = "Change UP"
 
-[node name="UpButton" type="Button" parent="ButtonContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "UP"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ButtonContainer/VBoxContainer"]
+[node name="DownButton" type="Button" parent="ButtonContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
+text = "Change Down"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer/VBoxContainer/HBoxContainer2"]
+[node name="MoveButton" type="Button" parent="ButtonContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "Move"
 
-[node name="DownButton" type="Button" parent="ButtonContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Down"
-
-[node name="RightButton" type="Button" parent="ButtonContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Left"
-
-[node name="ActionButton" type="Button" parent="ButtonContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Actions"
-
-[node name="ActionsContainer" type="PanelContainer" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ActionsContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ActionsContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="CloseActions" type="Button" parent="ActionsContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Close Menu"
-
-[connection signal="pressed" from="ButtonContainer/VBoxContainer/HBoxContainer/UpButton" to="." method="_on_up_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/VBoxContainer/HBoxContainer2/HBoxContainer/DownButton" to="." method="_on_down_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/VBoxContainer/HBoxContainer2/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/VBoxContainer/HBoxContainer2/ActionButton" to="." method="_on_actions_button_pressed"]
-[connection signal="pressed" from="ActionsContainer/MarginContainer/VBoxContainer/CloseActions" to="." method="_on_close_actions_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_546lt")
+}
