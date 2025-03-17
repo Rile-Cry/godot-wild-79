@@ -60,6 +60,7 @@ func save_game() -> void:
 ## and nodes to match the values.
 
 # TODO: Get rid of this crap, only need previous run data now
+
 func load_game():
 	if not FileAccess.file_exists("user://data.save"):
 		return
