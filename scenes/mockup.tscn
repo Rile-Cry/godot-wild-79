@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=60 format=3 uid="uid://b8qj4vqtrv3n6"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://d3hcd2440bvw8" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
@@ -307,22 +307,36 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hme8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhhqc"]
 atlas = ExtResource("8_6hw4d")
 region = Rect2(0, 0, 320, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cg8h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hme8"]
 atlas = ExtResource("8_6hw4d")
 region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cg8h"]
+atlas = ExtResource("8_6hw4d")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2ulw"]
+atlas = ExtResource("8_6hw4d")
+region = Rect2(960, 0, 320, 180)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2ulw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jhhqc")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0hme8")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3cg8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2ulw")
 }],
 "loop": true,
 "name": &"default",
@@ -363,12 +377,12 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.990349
+frame_progress = 0.985064
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.689883
+frame_progress = 0.68462
 
 [node name="Screen" type="Sprite2D" parent="."]
 texture = ExtResource("5_63445")
@@ -379,14 +393,14 @@ texture = ExtResource("6_h6veu")
 [node name="SwapButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
-frame_progress = 0.618859
+frame_progress = 0.718238
 
 [node name="UpDownButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
-frame_progress = 0.186396
+frame_progress = 0.285758
 
 [node name="OptionsButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qov7j")
 autoplay = "default"
-frame_progress = 0.649853
+frame_progress = 0.749233
