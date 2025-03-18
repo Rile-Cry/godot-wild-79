@@ -1,9 +1,10 @@
-[gd_scene load_steps=91 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=92 format=3 uid="uid://b8qj4vqtrv3n6"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
-[ext_resource type="Texture2D" uid="uid://d3hcd2440bvw8" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
+[ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://buhyjca2c7lba" path="res://assets/images/SlotMachine-Lights.png" id="3_7u70w"]
-[ext_resource type="Texture2D" uid="uid://cep0vnjw7ugo2" path="res://assets/images/Lever.png" id="4_h6veu"]
+[ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="3_d88kc"]
+[ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="4_h6veu"]
 [ext_resource type="Texture2D" uid="uid://nfb7vq6g6lcm" path="res://assets/images/mockup-screen.png" id="5_63445"]
 [ext_resource type="Texture2D" uid="uid://bpms2usp5s0f1" path="res://assets/images/mockup-symbols.png" id="6_h6veu"]
 [ext_resource type="Texture2D" uid="uid://crph8lodjemr8" path="res://assets/images/Swap-Button.png" id="7_0pqam"]
@@ -584,57 +585,73 @@ animations = [{
 }]
 
 [node name="Mockup" type="Node2D"]
-position = Vector2(160, 90)
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_vq05u")
 
 [node name="SlotMachine" type="Sprite2D" parent="."]
+z_index = 3
 texture = ExtResource("2_4flgv")
 
+[node name="ScreenBackground" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -47)
+texture = ExtResource("3_d88kc")
+
 [node name="Lights" type="AnimatedSprite2D" parent="."]
+z_index = 4
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.0469388
+frame = 21
+frame_progress = 0.263098
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
 frame_progress = 0.746079
 
 [node name="Screen" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 texture = ExtResource("5_63445")
 
 [node name="Symbols" type="Sprite2D" parent="."]
 visible = false
+z_index = 3
 texture = ExtResource("6_h6veu")
 
 [node name="SwapButton" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
 frame_progress = 0.919718
 
 [node name="UpDownButton" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
 frame_progress = 0.488001
 
 [node name="OptionsButton" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_qov7j")
 autoplay = "default"
 frame_progress = 0.950634
 
 [node name="ReelSpin" type="AnimatedSprite2D" parent="."]
+z_index = 4
 position = Vector2(1, -4)
 sprite_frames = SubResource("SpriteFrames_34nt1")
 frame_progress = 0.431629
 
 [node name="character-select" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(-6, -1)
 texture = ExtResource("11_py03c")
 
 [node name="Warrior" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-53, -50)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_p7hq7")
@@ -643,6 +660,7 @@ autoplay = "idle"
 frame_progress = 0.19357
 
 [node name="Archer" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-28, -48)
 sprite_frames = SubResource("SpriteFrames_sq333")
 animation = &"attack"
@@ -650,6 +668,7 @@ autoplay = "attack"
 frame_progress = 0.230682
 
 [node name="Rogue" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-1, -52)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_xfdt5")
