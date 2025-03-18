@@ -1,46 +1,52 @@
 extends Node2D
 
-# Player pressed spin key
-# Reels started to move between slots vertically
-# After some move it stops
 
-#TODO: Add multiple reels 
-#TODO: Rename variable names
+var num_1 = 20
+var num_2 = 87
+
 var slots_array = []
-var i = 0
-var n = 0
-var j = 0
+var reels_array = []
 var timer 
-var rng = RandomNumberGenerator.new()
+var is_spinning 
+var end_locaiton
+var spawn_location
+
+# 910x 1200px end location
+#
 
 func _ready() -> void:
-	slots_array = [%Slot_1, %Slot_2, %Slot_3]
-	global_position = slots_array[0].global_position   
-	timer = %Timer
-
+	reels_array = [%Apple_1, %Banana_1, %Cherry_1, %Apple_2, %Banana_2]
+	slots_array = [%Slot_1, %Slot_2, %Slot_3, %Slot_4, %Slot_5]
+	timer = %SpinTimer
+	end_locaiton = %EndLocation
+	spawn_location = %SpawnLocation
 	
-func _process(delta: float) -> void:
-	pass
+	for i in reels_array.size():
+		reels_array[i].global_position = slots_array[i].global_position
 
-#Player input
+func _process(delta: float) -> void:
+		SpinWheel()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spin"):
-		n = rng.randi_range(5, 40)
-		print(n)
-		i += 1
-		global_position = slots_array[i % 3].global_position
-		timer.start(0.1)
-		j = 0
+		is_spinning = true
+		timer.start(5)
+		
 
-# when player pressed spin first move reel
-# after first move start a timer. 
-# when timer ends move again
-# after then start time again 
-# this continues for x times 
+func SpinWheel():
+	if is_spinning:
+		global_position += Vector2(0, 10) * timer.time_left
+		
+		if global_position.y >= end_locaiton.global_position.y: 
+			global_position.y = spawn_location.global_position.y
 
-func _on_timer_timeout() -> void:
-	i += 1
-	global_position = slots_array[i % 3].global_position
-	if j < n:
-		timer.start(0.1)
-		j += 1
+
+func _on_spin_timer_timeout() -> void:
+	is_spinning = false
+	print(ReelFitting())
+
+func ReelFitting() -> int:
+	var deadzone = int(slots_array[0].global_position.y / slots_array[0].texture.get_height()) % int(reels_array[0].global_position.y) 
+	position.y += 1
+	return deadzone
+	
