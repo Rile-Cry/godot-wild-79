@@ -16,7 +16,6 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 	Vars.TILE_DIST: 0, # How far the player has moved from the start
 }
 var _move_weights : Array[float] = [1.0, 2.0]
-var _rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
 var _weights : Array[float] = [
 	25.0, # Base tile weights
 ]

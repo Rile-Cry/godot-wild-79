@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://ddog5fqf2gwoc"]
+
+[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_0dvqo"]
+
+[resource]
+script = ExtResource("1_0dvqo")
+card_name = &"Multiplier"
+card_texture_position = 10
+card_type = 2
+card_position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bxpy5u73imb5d"

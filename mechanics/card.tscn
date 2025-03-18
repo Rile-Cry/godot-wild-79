@@ -1,10 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://mweucb5rqhwt"]
+[gd_scene load_steps=17 format=3 uid="uid://mweucb5rqhwt"]
 
 [ext_resource type="Script" uid="uid://bqxi7hocttua2" path="res://mechanics/card.gd" id="1_tkrur"]
 [ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="2_bn4p2"]
+[ext_resource type="Resource" uid="uid://cc1dkhspuniy2" path="res://mechanics/cards/one.tres" id="3_7ox74"]
+[ext_resource type="Texture2D" uid="uid://b55ltkl1yje6k" path="res://assets/images/cards.png" id="3_xax22"]
+[ext_resource type="Resource" uid="uid://bx55t78tsy7p" path="res://mechanics/cards/two.tres" id="4_iio3a"]
+[ext_resource type="Resource" uid="uid://1hrjsm644jgx" path="res://mechanics/cards/three.tres" id="5_6h2ll"]
+[ext_resource type="Resource" uid="uid://h47qjlnwmjes" path="res://mechanics/cards/four.tres" id="6_yvrqi"]
+[ext_resource type="Resource" uid="uid://ck615cdrurtvq" path="res://mechanics/cards/five.tres" id="7_jmssg"]
+[ext_resource type="Resource" uid="uid://cgfcgb2oad8gc" path="res://mechanics/cards/six.tres" id="8_c3203"]
+[ext_resource type="Resource" uid="uid://b4ysn3o80iky0" path="res://mechanics/cards/seven.tres" id="9_ftplg"]
+[ext_resource type="Resource" uid="uid://b5x6j0edpjdvg" path="res://mechanics/cards/eight.tres" id="10_k65jc"]
+[ext_resource type="Resource" uid="uid://ddrx3j25s1c4d" path="res://mechanics/cards/nine.tres" id="11_j2qjl"]
+[ext_resource type="Resource" uid="uid://bhfnhrcuegwo" path="res://mechanics/cards/treasure.tres" id="12_vywf3"]
+[ext_resource type="Resource" uid="uid://ddog5fqf2gwoc" path="res://mechanics/cards/multiply.tres" id="13_ig5gw"]
+[ext_resource type="Resource" uid="uid://dhg34kkxfs6mp" path="res://mechanics/cards/bomb.tres" id="14_btbkf"]
+[ext_resource type="Resource" uid="uid://bi5sfmil46hsx" path="res://mechanics/cards/bar.tres" id="15_xca55"]
 
-[node name="Card" type="Node2D"]
+[node name="Card" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_tkrur")
-cards = Array[ExtResource("2_bn4p2")]([null])
+cards = Array[ExtResource("2_bn4p2")]([ExtResource("3_7ox74"), ExtResource("4_iio3a"), ExtResource("5_6h2ll"), ExtResource("6_yvrqi"), ExtResource("7_jmssg"), ExtResource("8_c3203"), ExtResource("9_ftplg"), ExtResource("10_k65jc"), ExtResource("11_j2qjl"), ExtResource("12_vywf3"), ExtResource("13_ig5gw"), ExtResource("14_btbkf"), ExtResource("15_xca55")])
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_xax22")
+hframes = 13

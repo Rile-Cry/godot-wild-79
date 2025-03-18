@@ -1,11 +1,11 @@
 extends Node
 
 var current_map : Array[Array]
-var map_size := Vector2(17, 17)
-var map_position := Vector2(0, 9)
+var map_size := Vector2i(17, 17)
+var map_position := Vector2i(0, 9)
 
 ## Grabs the number at a specific position
-func get_position(pos: Vector2) -> int:
+func get_position(pos: Vector2i) -> int:
 	return current_map[pos.x][pos.y]
 
 ## Grabs the current map position
@@ -24,4 +24,4 @@ func generate_current_map() -> void:
 ## This is where the [method _generate_current_map] checks against the weight table
 ## to either generate a basic number or an event card, etc.
 func _check_weight_table() -> int:
-	return Global._rng.randi_range(0, 9)
+	return randi_range(0, 12)

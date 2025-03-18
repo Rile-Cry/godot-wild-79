@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://bx55t78tsy7p"]
+
+[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_cmfko"]
+
+[resource]
+script = ExtResource("1_cmfko")
+card_name = &"Two"
+card_texture_position = 1
+card_type = 0
+card_position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bxpy5u73imb5d"

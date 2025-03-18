@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://h47qjlnwmjes"]
+
+[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_ndvgv"]
+
+[resource]
+script = ExtResource("1_ndvgv")
+card_name = &"Three"
+card_texture_position = 3
+card_type = 0
+card_position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bxpy5u73imb5d"
