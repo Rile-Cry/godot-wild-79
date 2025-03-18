@@ -4,7 +4,8 @@ extends Node
 enum Vars {
 	MULTIPLIERS,
 	PULLS,
-	SCORE
+	SCORE,
+	TILE_DIST
 }
 
 var _prior_runs : Array[int] = [] # Previous runs data
@@ -12,8 +13,13 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 	Vars.MULTIPLIERS: [], # The collection of multipliers
 	Vars.PULLS: 9, # The amount of pulls available to the player
 	Vars.SCORE: 0, # The score the player accrues as they play
+	Vars.TILE_DIST: 0, # How far the player has moved from the start
 }
-var _rng := RandomNumberGenerator.new()
+var _move_weights : Array[float] = [1.0, 2.0]
+var _rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
+var _weights : Array[float] = [
+	25.0, # Base tile weights
+]
 
 func _ready() -> void:
 	pass
@@ -45,21 +51,21 @@ func set_var(variable: Vars, value, modify: bool = false) -> void:
 ## Produces the Dictionary containing all the global variables.
 func save() -> Dictionary:
 	var save_dict : Dictionary = {}
-	for variable in _global_vars.keys():
-		save_dict.set(variable, _global_vars.get(variable))
+	var i : int = 0
+	for run in _prior_runs:
+		save_dict[i] = run
+		i += 1
 	
 	return save_dict
 
 ## The actual save function that writes all relevant save data to a file.
 func save_game() -> void:
-	var save_file := FileAccess.open("user://data.save", FileAccess.WRITE)
+	var save_file := FileAccess.open("user://old_runs.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(save())
 	save_file.store_line(json_string)
 
 ## The function that loads a save file, assuming it exists, and sets all relavent parameters
 ## and nodes to match the values.
-
-# TODO: Get rid of this crap, only need previous run data now
 func load_game():
 	if not FileAccess.file_exists("user://data.save"):
 		return
@@ -84,5 +90,5 @@ func load_game():
 		return
 	
 	# Actually loading in the variables.
-	for variable in loaded_data.keys():
-		set_var(variable, loaded_data.get(variable))
+	for run in loaded_data:
+		_prior_runs.append(run)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://mweucb5rqhwt"]
+
+[ext_resource type="Script" uid="uid://bqxi7hocttua2" path="res://mechanics/card.gd" id="1_tkrur"]
+[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="2_bn4p2"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_tkrur")
+cards = Array[ExtResource("2_bn4p2")]([null])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
