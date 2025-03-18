@@ -483,12 +483,12 @@ texture = ExtResource("2_4flgv")
 [node name="Lights" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4se8r")
 autoplay = "default"
-frame_progress = 0.128052
+frame_progress = 0.165614
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53ncp")
 autoplay = "default"
-frame_progress = 0.82761
+frame_progress = 0.86517
 
 [node name="Screen" type="Sprite2D" parent="."]
 visible = false
@@ -501,33 +501,33 @@ texture = ExtResource("6_h6veu")
 [node name="SwapButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
-frame_progress = 0.233167
+frame_progress = 0.736925
 
 [node name="UpDownButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
-frame_progress = 0.800698
+frame_progress = 0.304457
 
 [node name="OptionsButton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qov7j")
 autoplay = "default"
-frame_progress = 0.264163
+frame_progress = 0.767921
 
 [node name="ReelSpin" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_34nt1")
-frame_progress = 0.595855
+frame_progress = 0.670988
 
 [node name="Warrior" type="AnimatedSprite2D" parent="."]
 position = Vector2(-38, -44)
 sprite_frames = SubResource("SpriteFrames_p7hq7")
-frame_progress = 0.286868
+frame_progress = 0.798131
 
 [node name="Archer" type="AnimatedSprite2D" parent="."]
 position = Vector2(-18, -52)
 sprite_frames = SubResource("SpriteFrames_sq333")
-frame_progress = 0.0571946
+frame_progress = 0.568457
 
 [node name="Rogue" type="AnimatedSprite2D" parent="."]
 position = Vector2(-51, -52)
 sprite_frames = SubResource("SpriteFrames_xfdt5")
-frame_progress = 0.96661
+frame_progress = 0.974125
