@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spin"):
 		is_spinning = true
-		timer.start(5)
+		timer.start(2)
 		
 
 func SpinWheel():
@@ -44,9 +44,18 @@ func SpinWheel():
 func _on_spin_timer_timeout() -> void:
 	is_spinning = false
 	print(ReelFitting())
+	global_position.y += ReelFitting()
 
 func ReelFitting() -> int:
-	var deadzone = int(slots_array[0].global_position.y / slots_array[0].texture.get_height()) % int(reels_array[0].global_position.y) 
-	position.y += 1
+	#var deadzone = int(slots_array[0].global_position.y / slots_array[0].texture.get_height()) % int(reels_array[0].global_position.y) 
+	#position.y += 1
+	#return deadzone
+	print(slots_array[0].texture.get_height() * slots_array[0].get_scale())
+	var temp_vec = Vector2(slots_array[0].texture.get_height() * slots_array[0].get_scale())
+	var center = temp_vec.y/2
+	print(slots_array[0].global_position.y)
+	print(reels_array[0].global_position.y)
+	var deadzone = int(reels_array[0].global_position.y) % abs(int(slots_array[0].global_position.y)/int(center))
 	return deadzone
+	
 	

@@ -51,7 +51,7 @@ scale = Vector2(2.3125, 2.3125)
 texture = ExtResource("1_2t53p")
 
 [node name="Reels" type="Node2D" parent="."]
-position = Vector2(913, 134)
+position = Vector2(913, 145)
 script = ExtResource("2_ni3dv")
 
 [node name="Apple_1" type="Sprite2D" parent="Reels"]
