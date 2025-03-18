@@ -8,6 +8,7 @@ enum Vars {
 	TILE_DIST
 }
 
+var rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
 var _prior_runs : Array[int] = [] # Previous runs data
 var _global_vars : Dictionary = { # Global dictionary, has all the variables encapsulated for get/set access
 	Vars.MULTIPLIERS: [], # The collection of multipliers

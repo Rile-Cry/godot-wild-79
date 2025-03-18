@@ -5,7 +5,10 @@ extends Node2D
 @export var sprite : Sprite2D
 
 func _ready() -> void:
-	var pos = MapManager.get_position(card_position)
-	print(pos)
+	add_to_group("cards")
 	sprite.frame = MapManager.get_position(card_position)
 	
+func randomize_card() -> void:
+	card_position.x = randi_range(0, MapManager.map_size.x - 1)
+	card_position.y = randi_range(0, MapManager.map_size.y - 1)
+	sprite.frame = MapManager.get_position(card_position)
