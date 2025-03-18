@@ -22,7 +22,7 @@ var _weights : Array[float] = [
 ]
 
 func _ready() -> void:
-	pass
+	MapManager.generate_current_map()
 
 ## The get function for accessing global variables.
 func get_var(variable: Vars, idx: int = 0):
