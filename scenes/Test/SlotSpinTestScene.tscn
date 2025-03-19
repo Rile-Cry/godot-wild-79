@@ -15,7 +15,7 @@ scale = Vector2(2.3125, 2.3125)
 
 [node name="SpawnLocation" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(919, -721)
+position = Vector2(919, -978)
 scale = Vector2(2.3125, 2.3125)
 
 [node name="Slots" type="Node2D" parent="."]
@@ -28,30 +28,30 @@ texture = ExtResource("1_2t53p")
 
 [node name="Slot_2" type="Sprite2D" parent="Slots"]
 unique_name_in_owner = true
-position = Vector2(907, 343)
+position = Vector2(907, 340)
 scale = Vector2(2.3125, 2.3125)
 texture = ExtResource("1_2t53p")
 
 [node name="Slot_3" type="Sprite2D" parent="Slots"]
 unique_name_in_owner = true
-position = Vector2(907, 560)
+position = Vector2(907, 570)
 scale = Vector2(2.3125, 2.3125)
 texture = ExtResource("1_2t53p")
 
 [node name="Slot_4" type="Sprite2D" parent="Slots"]
 unique_name_in_owner = true
-position = Vector2(907, 770)
+position = Vector2(907, 800)
 scale = Vector2(2.3125, 2.3125)
 texture = ExtResource("1_2t53p")
 
 [node name="Slot_5" type="Sprite2D" parent="Slots"]
 unique_name_in_owner = true
-position = Vector2(909, 986)
+position = Vector2(909, 1030)
 scale = Vector2(2.3125, 2.3125)
 texture = ExtResource("1_2t53p")
 
 [node name="Reels" type="Node2D" parent="."]
-position = Vector2(913, 145)
+position = Vector2(913, 115)
 script = ExtResource("2_ni3dv")
 
 [node name="Apple_1" type="Sprite2D" parent="Reels"]
@@ -65,17 +65,67 @@ texture = ExtResource("4_ni3dv")
 
 [node name="Cherry_1" type="Sprite2D" parent="Reels"]
 unique_name_in_owner = true
-position = Vector2(0, 431)
+position = Vector2(0, 453)
 texture = ExtResource("5_amgai")
 
 [node name="Apple_2" type="Sprite2D" parent="Reels"]
 unique_name_in_owner = true
-position = Vector2(0, 622)
+position = Vector2(0, 688)
 texture = ExtResource("3_amgai")
 
 [node name="Banana_2" type="Sprite2D" parent="Reels"]
 unique_name_in_owner = true
-position = Vector2(0, 840)
+position = Vector2(0, 913)
+texture = ExtResource("4_ni3dv")
+
+[node name="Apple_3" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -1103)
+texture = ExtResource("3_amgai")
+
+[node name="Banana_3" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -889)
+texture = ExtResource("4_ni3dv")
+
+[node name="Cherry_2" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -650)
+texture = ExtResource("5_amgai")
+
+[node name="Apple_4" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -415)
+texture = ExtResource("3_amgai")
+
+[node name="Banana_4" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -190)
+texture = ExtResource("4_ni3dv")
+
+[node name="Apple_5" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -2184)
+texture = ExtResource("3_amgai")
+
+[node name="Banana_5" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -1970)
+texture = ExtResource("4_ni3dv")
+
+[node name="Cherry_3" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -1731)
+texture = ExtResource("5_amgai")
+
+[node name="Apple_6" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -1496)
+texture = ExtResource("3_amgai")
+
+[node name="Banana_6" type="Sprite2D" parent="Reels"]
+unique_name_in_owner = true
+position = Vector2(0, -1271)
 texture = ExtResource("4_ni3dv")
 
 [node name="SpinTimer" type="Timer" parent="."]
