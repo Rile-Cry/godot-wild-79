@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Casino-Pixel.ttf-9dbbb4ad7ebcbeb6fbf1292173f1
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
