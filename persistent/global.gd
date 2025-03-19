@@ -23,6 +23,7 @@ var _weights : Array[float] = [
 
 func _ready() -> void:
 	MapManager.generate_current_map()
+	rng.seed = randi_range(0, 9999)
 
 ## The get function for accessing global variables.
 func get_var(variable: Vars, idx: int = 0):
