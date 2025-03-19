@@ -343,7 +343,8 @@ frame_progress = 0.18789
 [node name="Lever" type="AnimatedSprite2D" parent="Background/SlotMachineBase"]
 sprite_frames = SubResource("SpriteFrames_lqw7r")
 autoplay = "default"
-frame_progress = 0.0598358
+frame = 4
+frame_progress = 0.636773
 
 [node name="Buttons" type="Node2D" parent="Background/SlotMachineBase"]
 
