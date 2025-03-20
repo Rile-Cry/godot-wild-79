@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c68xly4nixgr2"]
+
+[ext_resource type="Shader" uid="uid://br55gmt3enkgh" path="res://assets/shaders/rainbowshade.gdshader" id="1_i8x7v"]
+
+[resource]
+shader = ExtResource("1_i8x7v")
+shader_parameter/oldColorBody1 = Color(0.0352941, 0.0392157, 0.0784314, 1)
+shader_parameter/oldColorBody2 = Color(0.647059, 0.188235, 0.188235, 1)
+shader_parameter/precision = 0.1
+shader_parameter/strength = 0.9
+shader_parameter/speed = 0.65
+shader_parameter/angle = 135.0
+shader_parameter/sprite_sheet_columns = 19
+shader_parameter/sprite_sheet_rows = 1
