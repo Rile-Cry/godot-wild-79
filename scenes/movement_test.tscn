@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchw5g3x114qf"]
+
+[ext_resource type="Script" uid="uid://vaywiqfae6eg" path="res://scenes/card_map_test.gd" id="1_755td"]
+[ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="2_08uda"]
+
+[node name="MovementTest" type="Node2D"]
+script = ExtResource("1_755td")
+card_scene = ExtResource("2_08uda")
