@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dku8djiol5kby"]
+
+[ext_resource type="Texture2D" uid="uid://dh5ipd4w1poqt" path="res://assets/images/Options-Button.png" id="1_t4jqh"]
+
+[node name="Shadertest" type="Sprite2D"]
+texture = ExtResource("1_t4jqh")
+region_rect = Rect2(0, 0, 320, 180)

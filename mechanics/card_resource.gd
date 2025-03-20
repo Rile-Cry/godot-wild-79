@@ -1,8 +1,8 @@
 class_name CardResource extends Resource
 
 ## List of CARD WEIGHTS from 3/18 - Jintachi
-#	1.0		1,2,3,4,5,6
-#	0.9		8, 9
+#	1.0		***************************
+#	0.9		1,2,3,4,5,6,8,9
 #	0.8		
 #	0.7		
 #	0.6		7
@@ -10,7 +10,8 @@ class_name CardResource extends Resource
 #	0.4		BAR
 #   0.3		TREASURE
 #   0.2		BOMB
-#   0.1		
+#   0.1		MULTIPLY
+#	0.0		***************************
 
 enum CardType {
 	BASE,

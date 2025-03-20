@@ -7,5 +7,5 @@ script = ExtResource("1_4jedn")
 card_name = &"One"
 card_texture_position = 0
 card_type = 0
-card_position = Vector2(0, 0)
+card_weight = 0.9
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"
