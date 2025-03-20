@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dku8djiol5kby"]
+[gd_scene load_steps=3 format=3 uid="uid://c13u0bfljjpgc"]
 
 [ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="1_1uhp1"]
-[ext_resource type="Texture2D" uid="uid://dkr5dk1p4i65a" path="res://assets/images/power-ups-Sheet.png" id="2_kpsho"]
+[ext_resource type="Texture2D" uid="uid://b55ltkl1yje6k" path="res://assets/images/cards.png" id="2_1uhp1"]
 
 [node name="Shadertest" type="Sprite2D"]
 material = ExtResource("1_1uhp1")
-texture = ExtResource("2_kpsho")
+texture = ExtResource("2_1uhp1")
+hframes = 9
+vframes = 5
 region_rect = Rect2(0, 0, 320, 180)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfrp8rchhy0bo"]
+
+[ext_resource type="Texture2D" uid="uid://dkr5dk1p4i65a" path="res://assets/images/power-ups-Sheet.png" id="1_l531v"]
+[ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="2_a1q4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dd14"]
+atlas = ExtResource("1_l531v")
+region = Rect2(186, 1, 65, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uodvp"]
+atlas = ExtResource("1_l531v")
+region = Rect2(186, 13, 45, 11)
+
+[node name="PowerUps" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3dd14")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+material = ExtResource("2_a1q4a")
+layout_mode = 2
+texture = SubResource("AtlasTexture_uodvp")
+stretch_mode = 2
