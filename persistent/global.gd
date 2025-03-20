@@ -17,13 +17,11 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 	Vars.TILE_DIST: 0, # How far the player has moved from the start
 }
 var _move_weights : Array[float] = [1.0, 2.0]
-var _weights : Array[float] = [
-	25.0, # Base tile weights
-]
 
 func _ready() -> void:
 	MapManager.generate_current_map()
 	rng.seed = randi_range(0, 9999)
+	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
 
 ## The get function for accessing global variables.
 func get_var(variable: Vars, idx: int = 0):
@@ -93,3 +91,7 @@ func load_game():
 	# Actually loading in the variables.
 	for run in loaded_data:
 		_prior_runs.append(run)
+
+func _on_new_seed_restart(seed: int) -> void:
+	rng.seed = seed
+	rng.state = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=52 format=3 uid="uid://d8vvrfyat3mu"]
 
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://duyv1nyjx45v6" path="res://assets/images/reel-spin.png" id="10_d88kc"]
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="11_4m825"]
 [ext_resource type="Texture2D" uid="uid://bl4ov3xflsvdm" path="res://assets/images/character-select.png" id="11_py03c"]
-[ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="13_d88kc"]
+[ext_resource type="PackedScene" uid="uid://b5jlmyoner85q" path="res://ui/side_panel.tscn" id="13_d88kc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erhge"]
 atlas = ExtResource("10_d88kc")

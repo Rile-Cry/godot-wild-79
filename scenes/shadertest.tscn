@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c13u0bfljjpgc"]
+[gd_scene load_steps=3 format=3 uid="uid://dii7drukgnk6a"]
 
 [ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="1_1uhp1"]
 [ext_resource type="Texture2D" uid="uid://b55ltkl1yje6k" path="res://assets/images/cards.png" id="2_1uhp1"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://fr05ietpp8hp"]
+
+[ext_resource type="Script" uid="uid://5ftasu34umgb" path="res://ui/debug_screen.gd" id="1_xklkw"]
+[ext_resource type="FontFile" uid="uid://ck7mhtjshyk3n" path="res://ui/fonts/Casino-Pixel.ttf" id="2_j2fff"]
+
+[node name="DebugScreen" type="CanvasLayer" node_paths=PackedStringArray("label", "restart_container", "restart_text", "restart_button")]
+layer = 2
+script = ExtResource("1_xklkw")
+label = NodePath("Control/Debug Label")
+restart_container = NodePath("Control/RestartSeedContainer")
+restart_text = NodePath("Control/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox")
+restart_button = NodePath("Control/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -23.0
+offset_right = 51.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_j2fff")
+theme_override_font_sizes/font_size = 8
+text = "Debug Mode"
+
+[node name="RestartSeedContainer" type="PanelContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/RestartSeedContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/RestartSeedContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SeedBox" type="TextEdit" parent="Control/RestartSeedContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j2fff")
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Seed (<10000)"
+context_menu_enabled = false
+emoji_menu_enabled = false
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+caret_multiple = false
+
+[node name="RestartButton" type="Button" parent="Control/RestartSeedContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j2fff")
+theme_override_font_sizes/font_size = 8
+text = "Restart"
+
+[connection signal="text_changed" from="Control/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox" to="." method="_on_text_changed"]
+[connection signal="pressed" from="Control/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]

@@ -1,5 +1,11 @@
 extends Node
 
+enum MoveType {
+	WARRIOR,
+	RANGER,
+	ROGUE
+}
+
 var current_map : Array[Array]
 var map_size := Vector2i(17, 17)
 var map_position := Vector2i(0, 8)
@@ -12,6 +18,22 @@ func get_position(pos: Vector2i) -> int:
 ## Grabs the current map position
 func get_current_position() -> int:
 	return get_position(map_position)
+
+## Moves the current map position based on chosen movement method
+func move_current_position(type: MoveType, up: bool = true) -> void:
+	match(type):
+		MoveType.WARRIOR:
+			map_position.x += 1
+		MoveType.ROGUE:
+			if up:
+				map_position += Vector2i(1, -1)
+			else:
+				map_position += Vector2i(1, 1)
+		MoveType.RANGER:
+			if up:
+				map_position += Vector2i(1, -2)
+			else:
+				map_position += Vector2i(1, 2)
 
 ## Generates a map for the game
 func generate_current_map() -> void:

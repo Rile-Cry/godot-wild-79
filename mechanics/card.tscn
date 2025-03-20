@@ -24,4 +24,5 @@ sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_xax22")
-hframes = 13
+hframes = 9
+vframes = 5

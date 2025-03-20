@@ -2,12 +2,15 @@ extends Node2D
 
 @export var cards : Array[CardResource]
 @export var card_position := Vector2i(0, 0)
-@export var card_frame : int
 @export var sprite : Sprite2D
 
 func _ready() -> void:
 	add_to_group("cards")
-	if card_frame == null:
-		sprite.frame = MapManager.get_position(card_position)
+	sprite.frame_coords = get_frame(MapManager.get_position(card_position))
+	name = "Card%s_%s" % [card_position.x, card_position.y]
+
+func get_frame(val: int = 0) -> Vector2i:
+	if val < 9:
+		return Vector2i(val, 0)
 	else:
-		sprite.frame = card_frame
+		return Vector2i(0, val - 8)

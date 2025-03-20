@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsx1e58i5bbvk"]
+[gd_scene load_steps=4 format=3 uid="uid://b5jlmyoner85q"]
 
 [ext_resource type="Texture2D" uid="uid://d0bvu1d0udjrj" path="res://assets/images/Side-Panel.png" id="1_a3p0c"]
 [ext_resource type="PackedScene" uid="uid://cfrp8rchhy0bo" path="res://ui/power_ups.tscn" id="2_qg7yf"]

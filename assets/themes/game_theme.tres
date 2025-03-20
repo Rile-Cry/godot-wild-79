@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bnrly8ofgjk1a"]
+
+[ext_resource type="FontFile" uid="uid://ck7mhtjshyk3n" path="res://ui/fonts/Casino-Pixel.ttf" id="1_rcrbt"]
+
+[resource]
+default_font = ExtResource("1_rcrbt")
+default_font_size = 6
