@@ -37,18 +37,18 @@ hue = fract(hue + fract(TIME  * speed));
 float x = 1. - abs(mod(hue / (1./ 6.), 2.) - 1.);
 vec3 rainbow;
 // cycle through the rainbow based on the current hue value
-rainbow += vec3(1., x, 0.) * when_lt(hue,1./6.);
-rainbow += vec3(x, 1., 0) * when_lt(hue,1./3.) * when_lt(1./6.,hue);
-rainbow += vec3(0, 1., x) * when_lt(hue,1./2.) * when_lt(1./3.,hue);
-rainbow += vec3(0., x, 1.) * when_lt(hue,2./3.) * when_lt(1./2.,hue);
-rainbow += vec3(x, 0., 1.) * when_lt(hue,5./6.) * when_lt(2./3.,hue);
-rainbow += vec3(1., 0., x) * when_lt(hue,1.1) * when_lt(5./6.,hue);
+rainbow += vec3(1., x, 0.) * when_lt(hue,1./6.);  // Red/Yellow
+rainbow += vec3(x, 1., 0) * when_lt(hue,1./3.) * when_lt(1./6.,hue);	// Yellow/Green
+rainbow += vec3(0, 1., x) * when_lt(hue,1./2.) * when_lt(1./3.,hue);	// Green/Blue
+rainbow += vec3(0., x, 1.) * when_lt(hue,2./3.) * when_lt(1./2.,hue);	// Blue/Purple
+rainbow += vec3(x, 0., 1.) * when_lt(hue,5./6.) * when_lt(2./3.,hue);	// Purple/Red
+rainbow += vec3(1., 0., x) * when_lt(hue,1.1) * when_lt(5./6.,hue);		// Red/Yellow
 
 vec4 currentColor = texture(TEXTURE, UV);
 // replace the current color with the rainbow color based on the strength value
 vec4 newColor1 = mix(currentColor, vec4(rainbow, currentColor.a), strength);
 // replace the second color a little less based on the strength value
-vec4 newColor2 = mix(currentColor, vec4(rainbow - vec3(0.4, 0.4, 0.4), currentColor.a), strength);
+vec4 newColor2 = mix(currentColor, vec4(rainbow - vec3(.25, .3, .25), currentColor.a), strength);
 COLOR = vec4(0.0, 0.0, 0.0, 0.0); // reset the color to 0 so we can add colors
 // Add the new rainbow color if the current pixel color matches the old color
 COLOR += newColor1 * when_lt(distance(currentColor, oldColorBody1),precision);
