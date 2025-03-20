@@ -1,8 +1,70 @@
-[gd_scene format=3 uid="uid://0nq2yk2x4llr"]
+[gd_scene load_steps=10 format=3 uid="uid://0nq2yk2x4llr"]
+
+[ext_resource type="Texture2D" uid="uid://ctjt4vr4wtwd5" path="res://assets/images/buttons/buttons.png" id="1_nl7wd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkcl6"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(148, 0, 38, 18)
+margin = Rect2(0, 2.5, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edjx0"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(186, 0, 38, 18)
+margin = Rect2(0, 2.5, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1lxv"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(72, 0, 38, 18)
+margin = Rect2(0, 2.5, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijn6y"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(110, 0, 38, 18)
+margin = Rect2(0, 2.5, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28n8x"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulsp3"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl7wd"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asmfa"]
+atlas = ExtResource("1_nl7wd")
+region = Rect2(18, 0, 18, 18)
 
 [node name="Buttons" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="InfoButton" type="TextureButton" parent="."]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_lkcl6")
+texture_pressed = SubResource("AtlasTexture_edjx0")
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_n1lxv")
+texture_pressed = SubResource("AtlasTexture_ijn6y")
+
+[node name="UpDownButton" type="TextureButton" parent="."]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_28n8x")
+texture_pressed = SubResource("AtlasTexture_ulsp3")
+
+[node name="SwapButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_nl7wd")
+texture_pressed = SubResource("AtlasTexture_asmfa")

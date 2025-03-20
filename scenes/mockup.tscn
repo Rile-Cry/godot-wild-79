@@ -1,5 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=65 format=3 uid="uid://b8qj4vqtrv3n6"]
 
+[ext_resource type="Script" uid="uid://c8520ir80kgee" path="res://scenes/mockup.gd" id="1_gee1i"]
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="3_d88kc"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="11_4m825"]
 [ext_resource type="Texture2D" uid="uid://bl4ov3xflsvdm" path="res://assets/images/character-select.png" id="11_py03c"]
 [ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="13_d88kc"]
+[ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="14_kpaja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erhge"]
 atlas = ExtResource("10_d88kc")
@@ -203,7 +205,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5svkg")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
@@ -288,7 +290,30 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Mockup" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpaja"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gee1i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocpw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt7go"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6dbgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u17q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khla4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy4si"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvyxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dup6c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wijqv"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_gee1i")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
@@ -299,6 +324,7 @@ z_index = 1
 texture = ExtResource("2_4flgv")
 
 [node name="ReelSpin" type="AnimatedSprite2D" parent="Background/SlotMachineBase"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lesqr")
 autoplay = "default"
 frame_progress = 0.0574244
@@ -309,6 +335,7 @@ position = Vector2(0, -47)
 texture = ExtResource("3_d88kc")
 
 [node name="SelectionCircle" type="Sprite2D" parent="Background/SlotMachineBase/Screen"]
+visible = false
 position = Vector2(27, 46)
 texture = ExtResource("11_py03c")
 
@@ -344,11 +371,10 @@ texture = ExtResource("7_py03c")
 
 [node name="Lever" type="AnimatedSprite2D" parent="Background/SlotMachineBase"]
 sprite_frames = SubResource("SpriteFrames_lqw7r")
-autoplay = "default"
-frame = 4
-frame_progress = 0.636773
+frame_progress = 0.606139
 
 [node name="Buttons" type="Node2D" parent="Background/SlotMachineBase"]
+visible = false
 
 [node name="RotateButton" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Buttons"]
 sprite_frames = SubResource("SpriteFrames_1fcbe")
@@ -365,3 +391,49 @@ autoplay = "default"
 frame_progress = 0.861428
 
 [node name="SidePanel" parent="." instance=ExtResource("13_d88kc")]
+offset_left = 70.0
+offset_right = 70.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 77.19
+offset_top = 153.985
+offset_right = 242.9
+offset_bottom = 174.94
+
+[node name="Buttons" parent="UI/Control" instance=ExtResource("14_kpaja")]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+offset_left = -0.190002
+offset_top = -9.4625
+offset_right = -0.190002
+offset_bottom = 8.5375
+
+[node name="SwapButton" parent="UI/Control/Buttons" index="3"]
+action_mode = 0
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 272.0
+offset_top = 101.0
+offset_right = 280.0
+offset_bottom = 109.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpaja")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gee1i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ocpw7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pt7go")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6dbgj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4u17q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_khla4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_dy4si")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tvyxi")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_dup6c")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wijqv")
+
+[connection signal="pressed" from="UI/Control/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+
+[editable path="UI/Control/Buttons"]
