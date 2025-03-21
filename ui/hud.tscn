@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5ifhqid283n6"]
+[gd_scene load_steps=19 format=3 uid="uid://b5ifhqid283n6"]
 
 [ext_resource type="Script" uid="uid://eawwr1w7805d" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="Texture2D" uid="uid://duwyx17uchidi" path="res://assets/images/Reel-Background.png" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="3_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="4_7ihmi"]
 
 [sub_resource type="Animation" id="Animation_276te"]
 length = 0.001
@@ -41,25 +42,42 @@ _data = {
 &"startup": SubResource("Animation_rbyyf")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1v5rv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q43x7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srpbi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spcu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff8ar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0eg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b00kl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_so1yu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65xic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp5xd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6vop"]
+
 [node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_rbyyf")
 anim_player = NodePath("AnimationPlayer")
 
-[node name="Slots" type="TextureRect" parent="."]
-z_index = -5
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_276te")
-expand_mode = 3
-stretch_mode = 4
+[node name="Buttons" parent="." instance=ExtResource("3_7ihmi")]
+offset_left = 464.0
+offset_top = 384.0
+offset_right = -461.0
+offset_bottom = 517.0
+
+[node name="SwapButton" parent="Buttons" index="3"]
+action_mode = 0
 
 [node name="Machine" type="TextureRect" parent="."]
-z_index = 5
-z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -70,14 +88,14 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="ButtonContainer" type="Control" parent="."]
+visible = false
 z_index = 6
 z_as_relative = false
 layout_mode = 3
 anchor_top = 0.85
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 765.0
-offset_bottom = 765.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -85,3 +103,39 @@ grow_vertical = 0
 libraries = {
 &"": SubResource("AnimationLibrary_546lt")
 }
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 272.0
+offset_top = 101.0
+offset_right = 280.0
+offset_bottom = 109.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1v5rv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q43x7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_srpbi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_spcu4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ff8ar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_m0eg6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b00kl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_so1yu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_65xic")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u6vop")
+
+[node name="LowerButtonPanel" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchor_left = 0.242
+anchor_top = 0.856
+anchor_right = 0.757
+anchor_bottom = 0.967
+offset_left = -0.639984
+offset_top = -0.480042
+offset_right = -865.44
+offset_bottom = -99.3601
+scale = Vector2(6, 6)
+
+[node name="SidePanel" parent="." instance=ExtResource("4_7ihmi")]
+z_index = -3
+
+[editable path="Buttons"]

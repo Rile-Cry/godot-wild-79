@@ -13,16 +13,24 @@ class_name CardResource extends Resource
 #   0.1		MULTIPLY
 #	0.0		***************************
 
+## TODO: Flesh out changes of card types
+# OLD ENUM
+# enum CardType {
+	#BASE,
+	#TREASURE,
+	#MULTIPLY,
+	#BOMB,
+	#BAR
+# }
+
 enum CardType {
-	BASE,
-	TREASURE,
-	MULTIPLY,
-	BOMB,
-	BAR
+	NUMBER,
+	EFFECT,
+	EVENT
 }
 
 @export var card_name : StringName = "Card Name" ## The name for the card.
-@export var card_texture_position : int = 0 ## The texture of the card.
-## What type of card it is
+@export var card_texture_position : int ## The texture of the card.
+## What type of card it is / This will also double as the Y coordinate of the spritesheet
 @export var card_type : CardType
 @export var card_weight : float = 1.0 ## Default card weight for mapping.

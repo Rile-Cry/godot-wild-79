@@ -1,9 +1,7 @@
-[gd_scene load_steps=52 format=3 uid="uid://d8vvrfyat3mu"]
+[gd_scene load_steps=40 format=3 uid="uid://b8qj4vqtrv3n6"]
 
-[ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="3_d88kc"]
-[ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="4_h6veu"]
 [ext_resource type="Texture2D" uid="uid://cisak3oeox7w5" path="res://assets/images/dot-matrix.png" id="4_kpaja"]
 [ext_resource type="Texture2D" uid="uid://crph8lodjemr8" path="res://assets/images/Swap-Button.png" id="7_0pqam"]
 [ext_resource type="Texture2D" uid="uid://duwyx17uchidi" path="res://assets/images/Reel-Background.png" id="7_py03c"]
@@ -12,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://duyv1nyjx45v6" path="res://assets/images/reel-spin.png" id="10_d88kc"]
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="11_4m825"]
 [ext_resource type="Texture2D" uid="uid://bl4ov3xflsvdm" path="res://assets/images/character-select.png" id="11_py03c"]
-[ext_resource type="PackedScene" uid="uid://b5jlmyoner85q" path="res://ui/side_panel.tscn" id="13_d88kc"]
+[ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="14_kpaja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erhge"]
 atlas = ExtResource("10_d88kc")
@@ -137,77 +135,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v73v5"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(0, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2whp5"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(320, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqijp"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(640, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0umy"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(960, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xhgxg"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(1280, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h88hh"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(1600, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4se8r"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(1920, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tglm"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(2240, 0, 320, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5svkg"]
-atlas = ExtResource("4_h6veu")
-region = Rect2(2560, 0, 320, 180)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lqw7r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v73v5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2whp5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oqijp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x0umy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xhgxg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h88hh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4se8r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tglm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5svkg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4dnq"]
 atlas = ExtResource("7_0pqam")
 region = Rect2(0, 0, 320, 180)
@@ -288,31 +215,30 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Mockup" type="Node2D"]
+[node name="Game" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="SlotMachineBase" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(160, 90)
-texture = ExtResource("1_vq05u")
-
-[node name="SlotMachineBase" type="Sprite2D" parent="Background"]
-z_index = 1
 texture = ExtResource("2_4flgv")
 
-[node name="ReelSpin" type="AnimatedSprite2D" parent="Background/SlotMachineBase"]
+[node name="ReelSpin" type="AnimatedSprite2D" parent="SlotMachineBase"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lesqr")
 autoplay = "default"
 frame_progress = 0.0574244
 
-[node name="Screen" type="Sprite2D" parent="Background/SlotMachineBase"]
+[node name="Screen" type="Sprite2D" parent="SlotMachineBase"]
 z_as_relative = false
 position = Vector2(0, -47)
 texture = ExtResource("3_d88kc")
 
-[node name="SelectionCircle" type="Sprite2D" parent="Background/SlotMachineBase/Screen"]
+[node name="SelectionCircle" type="Sprite2D" parent="SlotMachineBase/Screen"]
+visible = false
 position = Vector2(27, 46)
 texture = ExtResource("11_py03c")
 
-[node name="Warrior" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Screen/SelectionCircle"]
+[node name="Warrior" type="AnimatedSprite2D" parent="SlotMachineBase/Screen/SelectionCircle"]
 z_as_relative = false
 position = Vector2(-48, -50.18)
 scale = Vector2(0.75, 0.75)
@@ -320,48 +246,43 @@ sprite_frames = SubResource("SpriteFrames_gee1i")
 autoplay = "default"
 frame_progress = 0.654798
 
-[node name="Archer" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Screen/SelectionCircle"]
+[node name="Archer" type="AnimatedSprite2D" parent="SlotMachineBase/Screen/SelectionCircle"]
 position = Vector2(-22, -47.18)
 sprite_frames = SubResource("SpriteFrames_dy4si")
 animation = &"attack"
 autoplay = "attack"
 frame_progress = 0.375255
 
-[node name="Rogue" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Screen/SelectionCircle"]
+[node name="Rogue" type="AnimatedSprite2D" parent="SlotMachineBase/Screen/SelectionCircle"]
 position = Vector2(5, -51.18)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_vl63q")
 autoplay = "default"
 frame_progress = 0.696083
 
-[node name="MatrixFilter" type="Sprite2D" parent="Background/SlotMachineBase/Screen"]
+[node name="MatrixFilter" type="Sprite2D" parent="SlotMachineBase/Screen"]
 position = Vector2(-1, 47)
 texture = ExtResource("4_kpaja")
 
-[node name="ReelBackground" type="Sprite2D" parent="Background/SlotMachineBase"]
+[node name="ReelBackground" type="Sprite2D" parent="SlotMachineBase"]
 visible = false
 texture = ExtResource("7_py03c")
 
-[node name="Lever" type="AnimatedSprite2D" parent="Background/SlotMachineBase"]
-sprite_frames = SubResource("SpriteFrames_lqw7r")
-autoplay = "default"
-frame = 4
-frame_progress = 0.636773
+[node name="Buttons" type="Node2D" parent="SlotMachineBase"]
+visible = false
 
-[node name="Buttons" type="Node2D" parent="Background/SlotMachineBase"]
-
-[node name="RotateButton" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Buttons"]
+[node name="RotateButton" type="AnimatedSprite2D" parent="SlotMachineBase/Buttons"]
 sprite_frames = SubResource("SpriteFrames_1fcbe")
 frame_progress = 0.955934
 
-[node name="UpDownButton" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Buttons"]
+[node name="UpDownButton" type="AnimatedSprite2D" parent="SlotMachineBase/Buttons"]
 sprite_frames = SubResource("SpriteFrames_jhhqc")
 autoplay = "default"
 frame_progress = 0.627877
 
-[node name="OptionsButton" type="AnimatedSprite2D" parent="Background/SlotMachineBase/Buttons"]
+[node name="OptionsButton" type="AnimatedSprite2D" parent="SlotMachineBase/Buttons"]
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
 frame_progress = 0.861428
 
-[node name="SidePanel" parent="." instance=ExtResource("13_d88kc")]
+[node name="UI" parent="." instance=ExtResource("14_kpaja")]

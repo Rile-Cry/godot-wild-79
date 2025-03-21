@@ -63,19 +63,27 @@ func double_check_positions() -> Dictionary[int, int]:
 	
 	return pos_dict
 
+## TODO: Balance changes to the weight sections -> Changes were made to card types for efficent pulling of card textures.
 ## This is where the [method _generate_current_map] checks against the weight table
 ## to either generate a basic number or an event card, etc.
 func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
+	
 	var weight_table : Array = [
-		[0, 1, 2, 3, 4, 5], # Base numbers 1 - 6
-		[7, 8], # Base numbers 8 and 9
-		6, # Number 7
-		12, # Bar
-		9, # Treasure
-		11, # Bomb
+		[0,1,2,3,4,5,7,8],			# Base Numbers
+		[6],						# 7's BABY
+		[9,10,11,12],				# Effects
+		[]							# Events ##TODO: Add events
 	]
+	
+	## TODO: Double Check the Gaussian forumula for distance based scalars
+	# weight = -distance(value, x) / sigma^2
+	# sigma is the parameter controlling spread, ex
+	# i found 15-20 worked well without getting the number toooo massive, but we may just want linear scaling.
+	# var distance_scalar = exp(pow(-(pos.x / scalar),2))
+	
+	
 	# TODO: Implement a growing weight table later on.
-	var weights := PackedFloat32Array([10, 9, 6, 4, 3, 2])
+	var weights := PackedFloat32Array([1,.3,.2,0])
 	var result = weight_table[Global.rng.rand_weighted(weights)]
 	if pos == map_position:
 		return 0
@@ -84,3 +92,8 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 			return result[Global.rng.randi_range(0, result.size() - 1)]
 		else:
 			return result
+			
+			
+## TODO: Need to roll reels
+
+## TODO: Need to make reels invisible if they are y+/-3 * cardheight +1 (for margins)

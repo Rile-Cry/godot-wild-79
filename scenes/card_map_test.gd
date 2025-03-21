@@ -20,3 +20,4 @@ func _ready() -> void:
 			pos.y += 1
 		pos.x += 1
 	
+	

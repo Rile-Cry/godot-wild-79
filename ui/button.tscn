@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://7il5nfmfuqon"]
+
+[ext_resource type="Texture2D" uid="uid://ctjt4vr4wtwd5" path="res://assets/images/buttons/buttons.png" id="1_0dg7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7krdg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxfmk"]
+texture = ExtResource("1_0dg7g")
+region_rect = Rect2(0, 0, 36, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcioa"]
+texture = ExtResource("1_0dg7g")
+region_rect = Rect2(18, 0, 18, 18)
+
+[node name="Button" type="Button"]
+offset_right = 16.0
+offset_bottom = 8.0
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7krdg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fxfmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gcioa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fxfmk")
