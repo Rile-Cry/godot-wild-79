@@ -8,7 +8,6 @@ func _ready() -> void:
 	screen_offset = get_tree().root.get_size_with_decorations()
 	screen_offset /= MapManager.map_size
 	
-	
 	var pos := Vector2i.ZERO
 	for x in MapManager.current_map:
 		pos.y = 0
