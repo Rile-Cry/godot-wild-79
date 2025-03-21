@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr0cpwonf65c3"]
+[gd_scene load_steps=7 format=3 uid="uid://dr0cpwonf65c3"]
 
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_3cpe2"]
 [ext_resource type="Script" uid="uid://bir3u0ecvdblw" path="res://scenes/card_reel.gd" id="1_u6w62"]
 [ext_resource type="Texture2D" uid="uid://mwh445yjmg51" path="res://assets/images/reel_spin_single.png" id="3_301t5"]
+[ext_resource type="PackedScene" uid="uid://fxr2ung6b4bd" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
 
 [sub_resource type="Animation" id="Animation_qx3wd"]
 resource_name = "roll"
@@ -26,10 +27,9 @@ _data = {
 &"roll": SubResource("Animation_qx3wd")
 }
 
-[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "cards", "reel_anim", "reel_timer")]
+[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "reel_anim", "reel_timer")]
 script = ExtResource("1_u6w62")
 anim_player = NodePath("AnimationPlayer")
-cards = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7")]
 reel_anim = NodePath("ReelAnim")
 reel_timer = NodePath("Timer")
 
@@ -43,6 +43,7 @@ position = Vector2(0, -34)
 position = Vector2(0, -17)
 
 [node name="Card4" parent="." instance=ExtResource("1_3cpe2")]
+position = Vector2(0, -5.96046e-08)
 
 [node name="Card5" parent="." instance=ExtResource("1_3cpe2")]
 position = Vector2(0, 17)
@@ -58,17 +59,13 @@ visible = false
 texture = ExtResource("3_301t5")
 hframes = 4
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_left = -14.0
-offset_top = -62.0
-offset_right = 14.0
-offset_bottom = 62.0
-color = Color(0.2394, 0.198618, 0.13551, 1)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qx3wd")
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Control" parent="." instance=ExtResource("4_qx3wd")]
+offset_right = 0.0
+offset_bottom = 0.0
