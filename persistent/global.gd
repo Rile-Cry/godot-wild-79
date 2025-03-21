@@ -92,6 +92,6 @@ func load_game():
 	for run in loaded_data:
 		_prior_runs.append(run)
 
-func _on_new_seed_restart(seed: int) -> void:
-	rng.seed = seed
+func _on_new_seed_restart(new_seed: int) -> void:
+	rng.seed = new_seed
 	rng.state = 0

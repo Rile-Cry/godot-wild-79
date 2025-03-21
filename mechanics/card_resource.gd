@@ -12,17 +12,6 @@ class_name CardResource extends Resource
 #   0.2		BOMB
 #   0.1		MULTIPLY
 #	0.0		***************************
-
-## TODO: Flesh out changes of card types
-# OLD ENUM
-# enum CardType {
-	#BASE,
-	#TREASURE,
-	#MULTIPLY,
-	#BOMB,
-	#BAR
-# }
-
 enum CardType {
 	NUMBER,
 	EFFECT,

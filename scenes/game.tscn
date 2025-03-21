@@ -1,59 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6hymfrbgv62"]
+[gd_scene load_steps=8 format=3 uid="uid://c6hymfrbgv62"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b5pmn1levrx5v" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://duwyx17uchidi" path="res://assets/images/Reel-Background.png" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://fr05ietpp8hp" path="res://ui/debug_screen.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dr0cpwonf65c3" path="res://scenes/card_reel.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://od6lc0ymk0qb" path="res://assets/images/current_position_highlight.png" id="4_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://bdshh7jj3klvb" path="res://assets/images/one-armed-bandit.png" id="6_gee14"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
-atlas = ExtResource("6_gee14")
-region = Rect2(0, 0, 43, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
-atlas = ExtResource("6_gee14")
-region = Rect2(43, 0, 43, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
-atlas = ExtResource("6_gee14")
-region = Rect2(86, 0, 43, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
-atlas = ExtResource("6_gee14")
-region = Rect2(129, 0, 43, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
-atlas = ExtResource("6_gee14")
-region = Rect2(172, 0, 43, 14)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_trtic"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tnpc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtaks")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvpfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dinhu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("reels")]
 script = ExtResource("1_uwrxv")
+reels = [NodePath("Reels/Reel1"), NodePath("Reels/Reel2"), NodePath("Reels/Reel3"), NodePath("Reels/Reel4"), NodePath("Reels/Reel5")]
 
 [node name="ReelBackground" type="Sprite2D" parent="."]
 z_index = -1

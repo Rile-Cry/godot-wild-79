@@ -1,24 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr0cpwonf65c3"]
+[gd_scene load_steps=6 format=3 uid="uid://dr0cpwonf65c3"]
 
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_3cpe2"]
-[ext_resource type="Script" path="res://scenes/card_reel.gd" id="1_u6w62"]
+[ext_resource type="Script" uid="uid://bir3u0ecvdblw" path="res://scenes/card_reel.gd" id="1_u6w62"]
 [ext_resource type="Texture2D" uid="uid://mwh445yjmg51" path="res://assets/images/reel_spin_single.png" id="3_301t5"]
-
-[sub_resource type="Animation" id="Animation_u6w62"]
-resource_name = "land_jiggle"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.7),
-"transitions": PackedFloat32Array(4.14106, 0.450625, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_qx3wd"]
 resource_name = "roll"
@@ -39,14 +23,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qx3wd"]
 _data = {
-&"land_jiggle": SubResource("Animation_u6w62"),
 &"roll": SubResource("Animation_qx3wd")
 }
 
-[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "cards")]
+[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "cards", "reel_anim", "reel_timer")]
 script = ExtResource("1_u6w62")
 anim_player = NodePath("AnimationPlayer")
 cards = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7")]
+reel_anim = NodePath("ReelAnim")
+reel_timer = NodePath("Timer")
 
 [node name="Card1" parent="." instance=ExtResource("1_3cpe2")]
 position = Vector2(0, -51)
@@ -85,3 +70,5 @@ color = Color(0.2394, 0.198618, 0.13551, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_qx3wd")
 }
+
+[node name="Timer" type="Timer" parent="."]

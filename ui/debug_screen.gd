@@ -34,4 +34,4 @@ func _on_restart_pressed() -> void:
 	if restart_text.text.length() > 0:
 		GameGlobalEvents.debug_newseed.emit(restart_text.text.to_int())
 	else:
-		GameGlobalEvents.debug_restart
+		GameGlobalEvents.debug_restart.emit()

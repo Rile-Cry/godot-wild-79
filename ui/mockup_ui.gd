@@ -7,6 +7,7 @@ extends CanvasLayer
 var swap_counter = 1
 
 func _on_lever_button_pressed() -> void:
+	GameGlobalEvents.use_lever.emit()
 	lever.play("default")
 	leverPull.play()
 
@@ -22,15 +23,19 @@ func _on_info_button_pressed() -> void:
 
 
 func _on_swap_button_pressed() -> void:
-	print(swap_counter)
 	match swap_counter:
 		0:
 			characters.play("warrior")
 		1:
-			characters.play("archer")
-		2:
 			characters.play("rogue")	
+		2:
+			characters.play("archer")
 	swap_counter += 1
 	if swap_counter > 2:
 		swap_counter = 0
 	
+	GameGlobalEvents.switch_hero.emit()
+
+
+func _on_up_down_button_pressed() -> void:
+	GameGlobalEvents.toggle_direction.emit()

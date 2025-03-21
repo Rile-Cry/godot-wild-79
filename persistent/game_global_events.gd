@@ -3,7 +3,9 @@ extends Node
 signal debug_regen
 signal debug_newseed(seed: int)
 signal debug_restart
-signal move_position
+signal use_lever
+signal switch_hero
+signal toggle_direction
 signal game_over
 
 func changed_pull_count() -> void:

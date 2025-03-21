@@ -68,12 +68,27 @@ func double_check_positions() -> Dictionary[int, int]:
 ## to either generate a basic number or an event card, etc.
 func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 	
+	#var weight_table : Array = [
+	#	[0,1,2,3,4,5,7,8],			# Base Numbers
+	#	[6],						# 7's BABY
+	#	[9,10,11,12],				# Effects
+	#	[]							# Events ##TODO: Add events
+	#]
+	
 	var weight_table : Array = [
-		[0,1,2,3,4,5,7,8],			# Base Numbers
-		[6],						# 7's BABY
-		[9,10,11,12],				# Effects
-		[]							# Events ##TODO: Add events
+		[], # Numbers
+		6, # 7 Specifically
+		[], # Effects
+		[] # Events
 	]
+	for card_resource in DeckManager.card_resources.values():
+		if card_resource.card_type == CardResource.CardType.NUMBER:
+			if card_resource.card_id != 6:
+				weight_table[0].append(card_resource.id)
+		elif card_resource.card_type == CardResource.CardType.EFFECT:
+			weight_table[2].append(card_resource.id)
+		else:
+			weight_table[3].append(card_resource.id)
 	
 	## TODO: Double Check the Gaussian forumula for distance based scalars
 	# weight = -distance(value, x) / sigma^2
