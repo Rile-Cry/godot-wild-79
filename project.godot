@@ -21,8 +21,8 @@ WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
-MapManager="*res://persistent/map_manager.gd"
 DeckManager="*res://persistent/deck_manager.gd"
+MapManager="*res://persistent/map_manager.gd"
 
 [display]
 

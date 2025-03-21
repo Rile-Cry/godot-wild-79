@@ -5,9 +5,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl6uk"]
 shader = ExtResource("1_rrylx")
 shader_parameter/first_color = Color(0.74902, 0.666667, 0.541176, 0)
-shader_parameter/second_color = Color(0, 0, 0, 1)
-shader_parameter/position = 0.5
-shader_parameter/stepIntensify = 12
+shader_parameter/second_color = Color(0, 0, 0, 0.870588)
+shader_parameter/position = 0.576
+shader_parameter/stepIntensify = 7
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,25 +18,27 @@ offset_bottom = 40.0
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = -14.0
+offset_left = -15.0
 offset_top = -46.0
-offset_right = 14.0
+offset_right = 15.0
 offset_bottom = 46.0
 color = Color(0.2394, 0.198618, 0.13551, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fl6uk")
 layout_mode = 0
-offset_left = -14.0
-offset_right = 14.0
+offset_left = -15.0
+offset_top = 13.0
+offset_right = 15.0
 offset_bottom = 46.0
 color = Color(0.74902, 0.666667, 0.541176, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fl6uk")
 layout_mode = 0
-offset_left = 14.0
-offset_right = 42.0
-offset_bottom = 46.0
+offset_left = 15.0
+offset_top = -13.0
+offset_right = 45.0
+offset_bottom = 20.0
 rotation = -3.14159
 color = Color(0.74902, 0.666667, 0.541176, 1)
