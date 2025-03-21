@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2iv2yfkn0s6"]
+[gd_scene load_steps=3 format=3 uid="uid://cv2m72538x8lq"]
 
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_8r1lm"]
 [ext_resource type="Script" uid="uid://vaywiqfae6eg" path="res://scenes/card_map_test.gd" id="1_yvxkf"]
