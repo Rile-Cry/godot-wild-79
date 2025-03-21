@@ -61,4 +61,8 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 		if typeof(result) == TYPE_ARRAY:
 			return result[Global.rng.randi_range(0, result.size() - 1)]
 		else:
-			return result
+			# TODO: Add sub card-types, NUMBER,EFFECT,EVENT(TBD)
+			if result <= 8:	## Workaround until we add card types to be created
+				return result
+			else:
+				return Global.rng.randi_range(0,8) ## bring our random cards back into range once we resolve card types
