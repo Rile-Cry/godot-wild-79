@@ -82,7 +82,6 @@ position = Vector2(96, 109)
 texture = ExtResource("4_u5sy4")
 
 [node name="SlotMachine" type="Sprite2D" parent="."]
-visible = false
 z_index = 2
 position = Vector2(160, 90)
 texture = ExtResource("2_lnu2h")
@@ -91,8 +90,10 @@ texture = ExtResource("2_lnu2h")
 position = Vector2(-1, -71)
 sprite_frames = SubResource("SpriteFrames_trtic")
 autoplay = "default"
-frame_progress = 0.0481468
+frame_progress = 0.36554
 
 [node name="UI" parent="." instance=ExtResource("3_lbhrr")]
+layer = 2
 
 [node name="DebugScreen" parent="." instance=ExtResource("2_yqjtg")]
+layer = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=52 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="4_x0wgd"]
 [ext_resource type="Texture2D" uid="uid://cdggq3hf8uo07" path="res://assets/images/character-select-screen-matrix.png" id="5_cnkd0"]
 [ext_resource type="AudioStream" uid="uid://cjgd88mlhnyc" path="res://assets/audio/lever.wav" id="5_etg4v"]
+[ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -304,6 +305,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wijqv")
 layer = -3
 
 [node name="SidePanel" parent="." instance=ExtResource("2_sdems")]
+offset = Vector2(70, 0)
+transform = Transform2D(1, 0, 0, 1, 70, 0)
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
@@ -322,6 +325,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_etg4v")
 [node name="LeverPull" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_etg4v")
 volume_db = -10.0
+
+[node name="Screen" parent="." instance=ExtResource("10_u42wy")]
+offset_left = 98.0
+offset_top = 29.0
+offset_right = -222.0
+offset_bottom = -151.0
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/SwapButton" to="." method="_on_swap_button_pressed"]
