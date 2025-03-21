@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_0dvqo")
 card_name = &"Multiplier"
-card_texture_position = 1
+card_texture_position = Vector2i(1, 1)
 card_type = 1
+card_id = 10
 card_weight = 0.1
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

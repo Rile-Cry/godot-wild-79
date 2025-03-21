@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_ny2fx")
 card_name = &"Eight"
-card_texture_position = 7
+card_texture_position = Vector2i(7, 0)
 card_type = 0
+card_id = 7
 card_weight = 0.9
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

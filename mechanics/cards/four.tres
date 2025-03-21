@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_ndvgv")
 card_name = &"Three"
-card_texture_position = 3
+card_texture_position = Vector2i(3, 0)
 card_type = 0
+card_id = 3
 card_weight = 0.9
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

@@ -20,16 +20,18 @@ config/icon="res://icon.svg"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
-ScreenManager="*res://persistent/ScreenManager.gd"
+ScreenManager="*res://persistent/screen_manager.gd"
 MapManager="*res://persistent/map_manager.gd"
+DeckManager="*res://persistent/deck_manager.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=320
+window/size/viewport_height=180
 window/size/resizable=false
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
-window/stretch/scale=6.0
 window/use_soundbank_names=true
 
 [editor_plugins]

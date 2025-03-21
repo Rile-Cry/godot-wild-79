@@ -30,7 +30,8 @@ enum CardType {
 }
 
 @export var card_name : StringName = "Card Name" ## The name for the card.
-@export var card_texture_position : int ## The texture of the card.
+@export var card_texture_position : Vector2i ## The texture of the card.
 ## What type of card it is / This will also double as the Y coordinate of the spritesheet
 @export var card_type : CardType
+@export var card_id : int = 0
 @export var card_weight : float = 1.0 ## Default card weight for mapping.

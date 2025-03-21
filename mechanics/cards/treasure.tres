@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_qp575")
 card_name = &"Treasure"
-card_texture_position = 0
+card_texture_position = Vector2i(0, 1)
 card_type = 1
+card_id = 9
 card_weight = 0.3
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"
