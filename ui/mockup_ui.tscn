@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=30 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
+[ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
 [ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="2_sdems"]
+[ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="3_sdems"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpaja"]
 
@@ -25,7 +27,87 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wijqv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v73v5"]
+atlas = ExtResource("3_sdems")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2whp5"]
+atlas = ExtResource("3_sdems")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqijp"]
+atlas = ExtResource("3_sdems")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0umy"]
+atlas = ExtResource("3_sdems")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhgxg"]
+atlas = ExtResource("3_sdems")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h88hh"]
+atlas = ExtResource("3_sdems")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4se8r"]
+atlas = ExtResource("3_sdems")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tglm"]
+atlas = ExtResource("3_sdems")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5svkg"]
+atlas = ExtResource("3_sdems")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5bjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v73v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2whp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqijp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0umy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhgxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h88hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4se8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tglm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5svkg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdems"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07pr3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5bjh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etg4v"]
+
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_h5bjh")
 
 [node name="LowerButtonPanel" type="Control" parent="."]
 z_index = 1
@@ -67,5 +149,21 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wijqv")
 z_index = -1
 offset_left = 70.0
 offset_right = 70.0
+
+[node name="Lever" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_h5bjh")
+
+[node name="LeverButton" type="Button" parent="."]
+offset_left = 266.0
+offset_top = 97.0
+offset_right = 283.035
+offset_bottom = 114.1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sdems")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_07pr3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h5bjh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_etg4v")
+
+[connection signal="pressed" from="LeverButton" to="." method="_on_lever_button_pressed"]
 
 [editable path="LowerButtonPanel/Buttons"]
