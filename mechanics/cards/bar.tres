@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_pscgp")
 card_name = &"Bar"
-card_texture_position = 12
-card_type = 4
+card_texture_position = 3
+card_type = 1
 card_weight = 0.4
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

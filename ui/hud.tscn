@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5ifhqid283n6"]
+[gd_scene load_steps=19 format=3 uid="uid://b5ifhqid283n6"]
 
 [ext_resource type="Script" uid="uid://eawwr1w7805d" path="res://ui/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="3_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="4_7ihmi"]
 
 [sub_resource type="Animation" id="Animation_276te"]
 length = 0.001
@@ -67,6 +68,15 @@ _data = {
 script = ExtResource("1_rbyyf")
 anim_player = NodePath("AnimationPlayer")
 
+[node name="Buttons" parent="." instance=ExtResource("3_7ihmi")]
+offset_left = 464.0
+offset_top = 384.0
+offset_right = -461.0
+offset_bottom = 517.0
+
+[node name="SwapButton" parent="Buttons" index="3"]
+action_mode = 0
+
 [node name="Machine" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,6 +95,7 @@ layout_mode = 3
 anchor_top = 0.85
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -93,26 +104,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_546lt")
 }
 
-[node name="LowerButtonPanel" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 462.0
-offset_top = 924.0
-offset_right = 628.0
-offset_bottom = 945.0
-scale = Vector2(6, 6)
-
-[node name="Buttons" parent="LowerButtonPanel" instance=ExtResource("3_7ihmi")]
-layout_mode = 1
-offset_left = -0.190002
-offset_top = -9.4625
-offset_right = -0.190002
-offset_bottom = 8.5375
-
-[node name="SwapButton" parent="LowerButtonPanel/Buttons" index="3"]
-action_mode = 0
-
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 272.0
 offset_top = 101.0
 offset_right = 280.0
@@ -129,4 +122,20 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_65xic")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mp5xd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u6vop")
 
-[editable path="LowerButtonPanel/Buttons"]
+[node name="LowerButtonPanel" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchor_left = 0.242
+anchor_top = 0.856
+anchor_right = 0.757
+anchor_bottom = 0.967
+offset_left = -0.639984
+offset_top = -0.480042
+offset_right = -865.44
+offset_bottom = -99.3601
+scale = Vector2(6, 6)
+
+[node name="SidePanel" parent="." instance=ExtResource("4_7ihmi")]
+z_index = -3
+
+[editable path="Buttons"]
