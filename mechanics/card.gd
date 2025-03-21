@@ -4,6 +4,7 @@ extends Node2D
 @export var highlight_sprite : Sprite2D
 @export var sprite : Sprite2D
 var card_id : int = 0
+var card_width
 
 func _ready() -> void:
 	add_to_group("cards")

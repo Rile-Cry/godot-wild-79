@@ -81,6 +81,14 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 		[], # Effects
 		[] # Events
 	]
+	var weight_types := PackedFloat32Array([
+		1, # Numbers
+		.3, # 7s
+		.2, # Effects
+		0, # Events
+	])
+	var weight_effects := PackedFloat32Array([])
+	var weights_events := PackedFloat32Array([])
 	for card_resource in DeckManager.card_resources.values():
 		if card_resource.card_type == CardResource.CardType.NUMBER:
 			if card_resource.card_id != 6:
@@ -97,18 +105,16 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 	# var distance_scalar = exp(pow(-(pos.x / scalar),2))
 	
 	
-	# TODO: Implement a growing weight table later on.
-	var weights := PackedFloat32Array([1,.3,.2,0])
-	var result = weight_table[Global.rng.rand_weighted(weights)]
+	# TODO: Implement a growing weight table later on
+	var weight_idx = Global.rng.rand_weighted(weight_types)
+	var result = weight_table[weight_idx]
 	if pos == map_position:
 		return 0
 	else:
-		if typeof(result) == TYPE_ARRAY:
-			return result[Global.rng.randi_range(0, result.size() - 1)]
-		else:
-			return result
-			
-			
-## TODO: Need to roll reels
-
-## TODO: Need to make reels invisible if they are y+/-3 * cardheight +1 (for margins)
+		match(weight_idx):
+			0:
+				return result[randi_range(0, result.size() - 1)]
+			1:
+				return result
+			2:
+				

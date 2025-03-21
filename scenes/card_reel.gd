@@ -10,6 +10,7 @@ var reel_time_delta : float = 0.5
 
 func _ready() -> void:
 	_update_cards()
+	_position_cards()
 
 func update_reel(new_pos: Vector2i) -> void:
 	pos = new_pos
@@ -51,3 +52,6 @@ func _update_cards() -> void:
 	for card in cards:
 		card.update_card(Vector2i(pos.x, pos.y + i))
 		i += 1
+
+func _position_cards() -> void:
+	var card_width = 
