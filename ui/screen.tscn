@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cafssjxguemnw" path="res://assets/images/matrix.png" id="3_lg8o6"]
 
 [node name="Screen" type="Control"]
+z_index = -4
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,10 +16,11 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 124.0
-offset_bottom = 29.215
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 121.0
+offset_bottom = 26.0
 texture = ExtResource("1_6ihl1")
-stretch_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
 layout_mode = 1
@@ -42,7 +45,6 @@ text = "[color=green]$[/color]50,000"
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 123.0
+offset_bottom = 27.0
 texture = ExtResource("3_lg8o6")
-stretch_mode = 2
