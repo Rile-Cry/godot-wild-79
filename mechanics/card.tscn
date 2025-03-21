@@ -10,6 +10,8 @@ highlight_sprite = NodePath("Highlight")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(1, 0.75)
 texture = ExtResource("3_xax22")
 hframes = 9
 vframes = 2
@@ -17,4 +19,6 @@ frame = 8
 
 [node name="Highlight" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(1, 0.75)
 texture = ExtResource("17_6h2ll")

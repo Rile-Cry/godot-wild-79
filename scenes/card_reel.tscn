@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr0cpwonf65c3"]
+[gd_scene load_steps=8 format=3 uid="uid://dr0cpwonf65c3"]
 
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_3cpe2"]
 [ext_resource type="Script" uid="uid://bir3u0ecvdblw" path="res://scenes/card_reel.gd" id="1_u6w62"]
 [ext_resource type="Texture2D" uid="uid://mwh445yjmg51" path="res://assets/images/reel_spin_single.png" id="3_301t5"]
-[ext_resource type="PackedScene" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
+[ext_resource type="PackedScene" uid="uid://fxr2ung6b4bd" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
+[ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="5_fl6uk"]
 
 [sub_resource type="Animation" id="Animation_qx3wd"]
 resource_name = "roll"
@@ -35,25 +36,25 @@ reel_anim = NodePath("ReelAnim")
 reel_timer = NodePath("Timer")
 
 [node name="Card1" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, -51)
+position = Vector2(0, -39)
 
 [node name="Card2" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, -34)
+position = Vector2(0, -26)
 
 [node name="Card3" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, -17)
+position = Vector2(0, -13)
 
 [node name="Card4" parent="." instance=ExtResource("1_3cpe2")]
 position = Vector2(0, -5.96046e-08)
 
 [node name="Card5" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, 17)
+position = Vector2(0, 13)
 
 [node name="Card6" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, 34)
+position = Vector2(0, 26)
 
 [node name="Card7" parent="." instance=ExtResource("1_3cpe2")]
-position = Vector2(0, 51)
+position = Vector2(0, 39)
 
 [node name="ReelAnim" type="Sprite2D" parent="."]
 visible = false
@@ -70,3 +71,8 @@ libraries = {
 [node name="Control" parent="." instance=ExtResource("4_qx3wd")]
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="SlotMachine" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("5_fl6uk")

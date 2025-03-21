@@ -18,6 +18,7 @@ position = Vector2(160, 90)
 texture = ExtResource("2_u5sy4")
 
 [node name="Reels" type="Node2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="Reel1" parent="Reels" instance=ExtResource("3_gee14")]
 position = Vector2(96, 109)
@@ -35,7 +36,8 @@ position = Vector2(192, 109)
 position = Vector2(224, 109)
 
 [node name="PositionHighlight" type="Sprite2D" parent="."]
-position = Vector2(96, 109)
+position = Vector2(96, 110)
+scale = Vector2(1, 0.75)
 texture = ExtResource("4_u5sy4")
 
 [node name="SlotMachine" type="Sprite2D" parent="."]
