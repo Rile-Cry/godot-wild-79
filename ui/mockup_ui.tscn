@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=32 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
 [ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="2_sdems"]
+[ext_resource type="PackedScene" uid="uid://cu7fh38351p8c" path="res://ui/background.tscn" id="3_07pr3"]
 [ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="3_sdems"]
 [ext_resource type="AudioStream" uid="uid://cjgd88mlhnyc" path="res://assets/audio/lever.wav" id="5_etg4v"]
 
@@ -145,6 +146,9 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_dy4si")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_tvyxi")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_dup6c")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wijqv")
+
+[node name="Background" parent="." instance=ExtResource("3_07pr3")]
+layer = -3
 
 [node name="SidePanel" parent="." instance=ExtResource("2_sdems")]
 offset = Vector2(70, 0)
