@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_3cpe2"]
 [ext_resource type="Script" uid="uid://bir3u0ecvdblw" path="res://scenes/card_reel.gd" id="1_u6w62"]
 [ext_resource type="Texture2D" uid="uid://mwh445yjmg51" path="res://assets/images/reel_spin_single.png" id="3_301t5"]
-[ext_resource type="PackedScene" uid="uid://fxr2ung6b4bd" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
+[ext_resource type="PackedScene" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
 
 [sub_resource type="Animation" id="Animation_qx3wd"]
 resource_name = "roll"
