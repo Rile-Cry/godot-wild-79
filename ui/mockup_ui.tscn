@@ -260,10 +260,8 @@ stretch_mode = 2
 [node name="Buttons" parent="LowerButtonPanel" instance=ExtResource("1_e8yy1")]
 layout_mode = 0
 anchors_preset = 0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 0.0
 offset_right = 149.0
 offset_bottom = 19.0
 grow_horizontal = 1
@@ -333,6 +331,7 @@ offset_right = -222.0
 offset_bottom = -151.0
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="LowerButtonPanel/Buttons/UpDownButton" to="." method="_on_up_down_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/SwapButton" to="." method="_on_swap_button_pressed"]
 [connection signal="pressed" from="LeverButton" to="." method="_on_lever_button_pressed"]
 

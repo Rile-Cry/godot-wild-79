@@ -20,7 +20,7 @@ var screen_offset : Vector2i
 var y_gap := 17 as int
 var x_gap := 30 as int
 
-var half_map:= MapManager.map_size.y/2 as int
+var half_map:= roundi(MapManager.map_size.y / 2.0) as int
 
 
 @export var centerCard:=Marker2D

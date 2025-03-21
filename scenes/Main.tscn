@@ -1,9 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwkk1ve2hxy65"]
+[gd_scene load_steps=2 format=3 uid="uid://djwtl2mstgll8"]
 
 [ext_resource type="PackedScene" uid="uid://c6hymfrbgv62" path="res://scenes/game.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Game" parent="CanvasLayer" instance=ExtResource("1_o5qli")]
+[node name="Game" parent="." instance=ExtResource("1_o5qli")]

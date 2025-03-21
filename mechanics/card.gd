@@ -19,7 +19,8 @@ func update_card(pos: Vector2i = card_position) -> void:
 		card_position = pos
 	sprite.frame_coords = get_frame(MapManager.get_position_value(card_position))
 
-func higlight(id: int) -> void:
+func highlight(id: int) -> void:
+	print("Called")
 	if id == card_id:
 		highlight_sprite.show()
 	else:
