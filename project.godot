@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Wild 79"
-run/main_scene="uid://dwkk1ve2hxy65"
+run/main_scene="uid://q1evnf1m2jj5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
-MapManager="*res://persistent/map_manager.gd"
 DeckManager="*res://persistent/deck_manager.gd"
+MapManager="*res://persistent/map_manager.gd"
 
 [display]
 

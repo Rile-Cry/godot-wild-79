@@ -1,16 +1,16 @@
 extends Node2D
 
 @export var anim_player : AnimationPlayer
-@export var cards : Array[Node2D]
+@export var card_list : Array[Node2D]
 @export var reel_anim : Sprite2D
 @export var reel_timer : Timer
+var card_offset : int = 1
 var pos := Vector2i.ZERO
 var reel_id : int = 0
 var reel_time_delta : float = 0.5
 
 func _ready() -> void:
 	_update_cards()
-	_position_cards()
 
 func update_reel(new_pos: Vector2i) -> void:
 	pos = new_pos
@@ -34,24 +34,21 @@ func play_animation() -> void:
 func update_highlight(hero: int, up: bool) -> void:
 	var id : int = 0
 	if up:
-		id = cards[3 - hero].card_id
+		id = card_list[3 - hero].card_id
 	else:
-		id = cards[3 + hero].card_id
+		id = card_list[3 + hero].card_id
 	
 	get_tree().call_group("cards", "highlight", id)
 
 func _toggle_cards(hid: bool = false) -> void:
-	for card in cards:
+	for card in card_list:
 		if hid:
 			card.hide()
 		else:
 			card.show()
 
 func _update_cards() -> void:
-	var i : int = -ceil((cards.size()) / 2.)
-	for card in cards:
+	var i : int = -ceil((card_list.size()) / 2.)
+	for card in card_list:
 		card.update_card(Vector2i(pos.x, pos.y + i))
 		i += 1
-
-func _position_cards() -> void:
-	var card_width = 

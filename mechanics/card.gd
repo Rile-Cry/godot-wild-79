@@ -4,7 +4,6 @@ extends Node2D
 @export var highlight_sprite : Sprite2D
 @export var sprite : Sprite2D
 var card_id : int = 0
-var card_width
 
 func _ready() -> void:
 	add_to_group("cards")
@@ -21,7 +20,6 @@ func update_card(pos: Vector2i = card_position) -> void:
 	sprite.frame_coords = get_frame(MapManager.get_position_value(card_position))
 
 func highlight(id: int) -> void:
-	print("Called")
 	if id == card_id:
 		highlight_sprite.show()
 	else:

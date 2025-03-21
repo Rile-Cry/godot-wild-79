@@ -26,10 +26,10 @@ _data = {
 &"roll": SubResource("Animation_qx3wd")
 }
 
-[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "cards", "reel_anim", "reel_timer")]
+[node name="Reel" type="Node2D" node_paths=PackedStringArray("anim_player", "card_list", "reel_anim", "reel_timer")]
 script = ExtResource("1_u6w62")
 anim_player = NodePath("AnimationPlayer")
-cards = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7")]
+card_list = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7")]
 reel_anim = NodePath("ReelAnim")
 reel_timer = NodePath("Timer")
 

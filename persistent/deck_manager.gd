@@ -5,6 +5,7 @@ var deck_path : StringName = "res://mechanics/cards/"
 
 func _ready() -> void:
 	_load_cards()
+	MapManager.generate_current_map()
 
 func _load_cards() -> void:
 	var dir_list := ResourceLoader.list_directory(deck_path)

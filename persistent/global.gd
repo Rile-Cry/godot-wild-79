@@ -19,7 +19,6 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 var _move_weights : Array[float] = [1.0, 2.0]
 
 func _ready() -> void:
-	MapManager.generate_current_map()
 	rng.seed = randi_range(0, 9999)
 	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
 

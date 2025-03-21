@@ -47,10 +47,6 @@ func generate_current_map() -> void:
 	for v in range(0, 7):
 		base_check += debug_check[v]
 	var high_check = (debug_check[7] + debug_check[8])
-	
-	print(debug_check)
-	print(base_check)
-	print(high_check)
 
 func double_check_positions() -> Dictionary[int, int]:
 	var pos_dict : Dictionary[int, int] = {}
@@ -88,15 +84,17 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 		0, # Events
 	])
 	var weight_effects := PackedFloat32Array([])
-	var weights_events := PackedFloat32Array([])
+	var weight_events := PackedFloat32Array([])
 	for card_resource in DeckManager.card_resources.values():
 		if card_resource.card_type == CardResource.CardType.NUMBER:
 			if card_resource.card_id != 6:
-				weight_table[0].append(card_resource.id)
+				weight_table[0].append(card_resource.card_id)
 		elif card_resource.card_type == CardResource.CardType.EFFECT:
-			weight_table[2].append(card_resource.id)
+			weight_table[2].append(card_resource.card_id)
+			weight_effects.append(card_resource.card_weight)
 		else:
-			weight_table[3].append(card_resource.id)
+			weight_table[3].append(card_resource.card_id)
+			weight_events.append(card_resource.card_weight)
 	
 	## TODO: Double Check the Gaussian forumula for distance based scalars
 	# weight = -distance(value, x) / sigma^2
@@ -117,4 +115,8 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 			1:
 				return result
 			2:
-				
+				return result[Global.rng.rand_weighted(weight_effects)]
+			3:
+				return result[Global.rng.rand_weighted(weight_events)]
+			_:
+				return 0
