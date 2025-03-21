@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mweucb5rqhwt"]
+[gd_scene load_steps=18 format=3 uid="uid://mweucb5rqhwt"]
 
 [ext_resource type="Script" uid="uid://bqxi7hocttua2" path="res://mechanics/card.gd" id="1_tkrur"]
 [ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="2_bn4p2"]
@@ -17,11 +17,15 @@
 [ext_resource type="Resource" uid="uid://dhg34kkxfs6mp" path="res://mechanics/cards/bomb.tres" id="14_btbkf"]
 [ext_resource type="Resource" uid="uid://bi5sfmil46hsx" path="res://mechanics/cards/bar.tres" id="15_xca55"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iio3a"]
+atlas = ExtResource("3_xax22")
+region = Rect2(0, 0, 252, 16)
+
 [node name="Card" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_tkrur")
 cards = Array[ExtResource("2_bn4p2")]([ExtResource("3_7ox74"), ExtResource("4_iio3a"), ExtResource("5_6h2ll"), ExtResource("6_yvrqi"), ExtResource("7_jmssg"), ExtResource("8_c3203"), ExtResource("9_ftplg"), ExtResource("10_k65jc"), ExtResource("11_j2qjl"), ExtResource("12_vywf3"), ExtResource("13_ig5gw"), ExtResource("14_btbkf"), ExtResource("15_xca55")])
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_xax22")
-hframes = 13
+texture = SubResource("AtlasTexture_iio3a")
+hframes = 9
