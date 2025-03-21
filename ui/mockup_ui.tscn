@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=51 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://gdwdtbm1brcf" path="res://assets/images/character-select-screen.png" id="3_dn4vt"]
 [ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="3_sdems"]
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="4_x0wgd"]
+[ext_resource type="Texture2D" uid="uid://cdggq3hf8uo07" path="res://assets/images/character-select-screen-matrix.png" id="5_cnkd0"]
 [ext_resource type="AudioStream" uid="uid://cjgd88mlhnyc" path="res://assets/audio/lever.wav" id="5_etg4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
@@ -240,17 +241,32 @@ script = ExtResource("1_h5bjh")
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 77.19
-offset_top = 153.985
-offset_right = 242.9
-offset_bottom = 174.94
+offset_left = 77.0
+offset_top = 155.0
+offset_right = 242.71
+offset_bottom = 175.955
+
+[node name="TextureRect" type="TextureRect" parent="LowerButtonPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = 128.81
+offset_top = 1.015
+offset_right = 168.81
+offset_bottom = 41.015
+texture = ExtResource("5_cnkd0")
+stretch_mode = 2
 
 [node name="Buttons" parent="LowerButtonPanel" instance=ExtResource("1_e8yy1")]
-layout_mode = 1
-offset_left = -0.190002
-offset_top = -9.4625
-offset_right = -0.190002
-offset_bottom = 8.5375
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_right = 149.0
+offset_bottom = 19.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="SwapButton" parent="LowerButtonPanel/Buttons" index="3"]
 action_mode = 0
@@ -258,9 +274,10 @@ action_mode = 0
 [node name="CharacterSelectScreen" type="TextureRect" parent="LowerButtonPanel/Buttons"]
 layout_mode = 2
 texture = ExtResource("3_dn4vt")
+stretch_mode = 2
 
 [node name="Characters" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons"]
-position = Vector2(139, 9.5)
+position = Vector2(138.81, 9.015)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
 animation = &"warrior"
