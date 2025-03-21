@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr0cpwonf65c3"]
+
+[ext_resource type="Texture2D" uid="uid://b55ltkl1yje6k" path="res://assets/images/cards.png" id="1_3cpe2"]
+
+[node name="x0" type="Node2D"]
+
+[node name="y-3" type="Sprite2D" parent="."]
+position = Vector2(0, -51)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y-2" type="Sprite2D" parent="."]
+position = Vector2(0, -34)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y-4" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y0" type="Sprite2D" parent="."]
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y+1" type="Sprite2D" parent="."]
+position = Vector2(0, 17)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y+2" type="Sprite2D" parent="."]
+position = Vector2(0, 34)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="y+3" type="Sprite2D" parent="."]
+position = Vector2(0, 51)
+texture = ExtResource("1_3cpe2")
+hframes = 9
+vframes = 2
+frame = 8
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -14.0
+offset_top = -62.0
+offset_right = 14.0
+offset_bottom = 62.0
+color = Color(0.2394, 0.198618, 0.13551, 1)

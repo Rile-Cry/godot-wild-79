@@ -1,12 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwkk1ve2hxy65"]
-
-[ext_resource type="Script" uid="uid://dfx377e2g68vt" path="res://scenes/movement.gd" id="2_0bbpv"]
-[ext_resource type="Texture2D" uid="uid://bkhv5pwq558t0" path="res://assets/images/border.png" id="2_rvslj"]
+[gd_scene format=3 uid="uid://dwkk1ve2hxy65"]
 
 [node name="Main" type="Node"]
-
-[node name="Highlighter" type="Node" parent="."]
-script = ExtResource("2_0bbpv")
-
-[node name="CurrentReelLoc" type="Sprite2D" parent="Highlighter"]
-texture = ExtResource("2_rvslj")

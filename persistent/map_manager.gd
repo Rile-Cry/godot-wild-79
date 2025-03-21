@@ -70,3 +70,8 @@ func _check_weight_table(pos: Vector2i = Vector2i.ZERO) -> int:
 			return result[Global.rng.randi_range(0, result.size() - 1)]
 		else:
 			return result
+			
+			
+## TODO: Need to roll reels
+
+## TODO: Need to make reels invisible if they are y+/-3 * cardheight +1 (for margins)
