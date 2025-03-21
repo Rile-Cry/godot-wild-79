@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://fxr2ung6b4bd"]
+
+[ext_resource type="Shader" uid="uid://cr6j0yviyhv6s" path="res://assets/shaders/drum_shader.gdshader" id="1_rrylx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl6uk"]
+shader = ExtResource("1_rrylx")
+shader_parameter/first_color = Color(0.74902, 0.666667, 0.541176, 0)
+shader_parameter/second_color = Color(0, 0, 0, 1)
+shader_parameter/position = 0.5
+shader_parameter/stepIntensify = 12
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -14.0
+offset_top = -62.0
+offset_right = 14.0
+offset_bottom = 62.0
+color = Color(0.2394, 0.198618, 0.13551, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fl6uk")
+layout_mode = 0
+offset_left = -14.0
+offset_right = 14.0
+offset_bottom = 62.0
+color = Color(0.74902, 0.666667, 0.541176, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fl6uk")
+layout_mode = 0
+offset_left = 14.0
+offset_right = 42.0
+offset_bottom = 62.0
+rotation = -3.14159
+color = Color(0.74902, 0.666667, 0.541176, 1)
