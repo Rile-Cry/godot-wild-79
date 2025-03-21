@@ -1,6 +1,5 @@
-[gd_scene load_steps=42 format=3 uid="uid://b8qj4vqtrv3n6"]
+[gd_scene load_steps=41 format=3 uid="uid://b8qj4vqtrv3n6"]
 
-[ext_resource type="Script" uid="uid://c8520ir80kgee" path="res://scenes/mockup.gd" id="1_gee1i"]
 [ext_resource type="Texture2D" uid="uid://7rxx03jt7b1t" path="res://assets/images/Background.png" id="1_vq05u"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="3_d88kc"]
@@ -218,10 +217,9 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_gee1i")
 
 [node name="SlotMachineBase" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(160, 90)
 texture = ExtResource("2_4flgv")
 
