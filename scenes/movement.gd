@@ -3,19 +3,16 @@ extends Node
 
 ## Classes for the Y modifier of the movement component
 enum classes {
-	WARRIOR = 0,
-	ROGUE = 1,
-	ARCHER = 2
+	WARRIOR,
+	ROGUE,
+	ARCHER
 }
 
 ## TODO: 
 # Needed DATA
-# Current Coordinates, Active Character,if not war, add up / down amount to movement vector
+# Current Coordinates, Active Character, if not war, add up / down amount to movement vector
 var player_coords:=Vector2i(1,0)
 var active_class:= 0 as classes ## start as the warrior
-
-
-
 
 
 @export var card_scene : PackedScene
@@ -24,7 +21,6 @@ var y_gap := 17 as int
 var x_gap := 30 as int
 
 var half_map:= MapManager.map_size.y/2 as int
-
 
 
 @export var centerCard:=Marker2D
@@ -40,7 +36,7 @@ func _ready() -> void:
 		pos.y = 0
 		for y in x:
 			var card : Node2D = card_scene.instantiate()
-			card.card_frame = y
+			card.card_position = pos
 			add_child(card)
 			card.position = Vector2(pos.x * x_gap, pos.y * y_gap)
 			card.z_index = $SlotMachineBase.z_index-1

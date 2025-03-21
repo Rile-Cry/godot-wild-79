@@ -12,12 +12,12 @@ var map_position := Vector2i(0, 8)
 var total_traveled : int = 0
 
 ## Grabs the number at a specific position
-func get_position(pos: Vector2i) -> int:
+func get_position_value(pos: Vector2i) -> int:
 	return current_map[pos.x][pos.y]
 
 ## Grabs the current map position
-func get_current_position() -> int:
-	return get_position(map_position)
+func get_current_position_value() -> int:
+	return get_position_value(map_position)
 
 ## Moves the current map position based on chosen movement method
 func move_current_position(type: MoveType, up: bool = true) -> void:

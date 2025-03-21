@@ -1,12 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://hf3rxdrx4rr3"]
+[gd_scene load_steps=8 format=3 uid="uid://hf3rxdrx4rr3"]
 
 [ext_resource type="Script" uid="uid://b5pmn1levrx5v" path="res://scenes/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://by2iv2yfkn0s6" path="res://scenes/card_map_test.tscn" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://duwyx17uchidi" path="res://assets/images/Reel-Background.png" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://fr05ietpp8hp" path="res://ui/debug_screen.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dr0cpwonf65c3" path="res://scenes/card_reel.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://od6lc0ymk0qb" path="res://assets/images/current_position_highlight.png" id="4_u5sy4"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
 
-[node name="CardMapTest" parent="." instance=ExtResource("2_lnu2h")]
+[node name="ReelBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(160, 90)
+texture = ExtResource("2_u5sy4")
+
+[node name="Reels" type="Node2D" parent="."]
+
+[node name="Reel1" parent="Reels" instance=ExtResource("3_gee14")]
+position = Vector2(96, 109)
+
+[node name="Reel2" parent="Reels" instance=ExtResource("3_gee14")]
+position = Vector2(128, 109)
+
+[node name="Reel3" parent="Reels" instance=ExtResource("3_gee14")]
+position = Vector2(160, 109)
+
+[node name="Reel4" parent="Reels" instance=ExtResource("3_gee14")]
+position = Vector2(192, 109)
+
+[node name="Reel5" parent="Reels" instance=ExtResource("3_gee14")]
+position = Vector2(224, 109)
+
+[node name="PositionHighlight" type="Sprite2D" parent="."]
+position = Vector2(96, 109)
+texture = ExtResource("4_u5sy4")
+
+[node name="SlotMachine" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(160, 90)
+texture = ExtResource("2_lnu2h")
+
+[node name="UI" parent="." instance=ExtResource("3_lbhrr")]
 
 [node name="DebugScreen" parent="." instance=ExtResource("2_yqjtg")]
