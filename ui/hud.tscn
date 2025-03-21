@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://eawwr1w7805d" path="res://ui/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="3_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="3_546lt"]
-[ext_resource type="PackedScene" uid="uid://dsx1e58i5bbvk" path="res://ui/side_panel.tscn" id="4_7ihmi"]
+[ext_resource type="PackedScene" uid="uid://b5jlmyoner85q" path="res://ui/side_panel.tscn" id="4_7ihmi"]
 
 [sub_resource type="Animation" id="Animation_276te"]
 length = 0.001
@@ -136,6 +136,5 @@ offset_bottom = -99.3601
 scale = Vector2(6, 6)
 
 [node name="SidePanel" parent="." instance=ExtResource("4_7ihmi")]
-z_index = -3
 
 [editable path="Buttons"]
