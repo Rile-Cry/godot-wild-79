@@ -27,3 +27,5 @@ func card_action() -> void:
 				track_set = [6]
 		
 		Global.set_var(Global.Vars.SCORE, current_card_id + 1, true)
+	
+	Global.set_var(Global.Vars.PULLS, -1, true)

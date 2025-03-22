@@ -11,7 +11,7 @@ var reel_id : int = 0
 var reel_time_delta : float = 0.5
 
 signal reel_started
-signal reel_stopped(id: int)
+signal reel_stopped
 
 func _ready() -> void:
 	_update_cards()
