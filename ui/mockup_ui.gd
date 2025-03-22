@@ -7,12 +7,30 @@ extends CanvasLayer
 @onready var characters = $LowerButtonPanel/Buttons/Characters
 @onready var arrow = $Arrow
 @onready var optionsMenu = $OptionsMenu
+@onready var buttons = $LowerButtonPanel/Buttons
+@onready var optionsButton = $LowerButtonPanel/Buttons/OptionsButton
+@onready var infoButton = $LowerButtonPanel/Buttons/InfoButton
+@onready var upDownButton = $LowerButtonPanel/Buttons/UpDownButton
+@onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
+@onready var leverButton = $Lever/LeverButton
 
 var swap_counter = 1
 var menuOpen = false
 
 func _ready() -> void:
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
+	
+func disable_buttons():
+	infoButton.disabled = true
+	upDownButton.disabled = true
+	swapButton.disabled = true
+	leverButton.disabled = true
+
+func enable_buttons():
+	infoButton.disabled = false
+	upDownButton.disabled = false
+	swapButton.disabled = false
+	leverButton.disabled = false
 
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
@@ -64,12 +82,20 @@ func _on_options_button_pressed() -> void:
 			tween.tween_property(optionsMenu, "position:y", 70,.25)
 			tween.play()
 			menuOpen = true
+			disable_buttons()
+			arrow.visible = false
+			await tween.finished
+			get_tree().paused = true
 		true: 
 			tween.tween_property(optionsMenu, "position:y", 180,.25)
 			tween.play()
+			get_tree().paused = false
 			await tween.finished
 			optionsMenu.position.y = -81
 			menuOpen = false
+			enable_buttons()
+			arrow.visible = true
+			
 			
 func _on_reel_finished() -> void:
 	lever_button.mouse_filter = Control.MOUSE_FILTER_STOP

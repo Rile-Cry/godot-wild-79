@@ -310,6 +310,7 @@ animations = [{
 }]
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_h5bjh")
 
 [node name="LowerButtonPanel" type="Control" parent="."]
@@ -417,6 +418,7 @@ stream = ExtResource("12_8xeg2")
 volume_db = -6.892
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
+process_mode = 3
 offset_left = 78.0
 offset_top = -80.555
 offset_right = 242.0

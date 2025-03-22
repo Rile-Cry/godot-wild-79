@@ -45,7 +45,7 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -60,7 +60,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 22
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
