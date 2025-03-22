@@ -9,4 +9,4 @@ func _ready() -> void:
 	label.text = dollar + "0"
 
 func _on_score_changed() -> void:
-	label.text = dollar + "%s" % Global.get_var(Global.Vars.SCORE)
+	label.text = dollar + "%s" % Global.get_var(Genum.Vars.SCORE)
