@@ -22,7 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_osti7")
-
 score_label = NodePath("HBoxContainer/VBoxContainer/Score Label")
 pulls_label = NodePath("HBoxContainer/VBoxContainer/Pulls Remaining")
 
@@ -54,7 +53,6 @@ layout_mode = 2
 
 [node name="Score Label" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(80, 8)
-
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_lg8o6")
 theme_override_font_sizes/normal_font_size = 8

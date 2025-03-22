@@ -33,8 +33,9 @@ func set_var(variable: Genum.Vars, value, modify: bool = false) -> void:
 				_global_vars.set(variable, temp_var + value)
 				if variable == Genum.Vars.PULLS:
 					GameGlobalEvents.changed_pull_count()
+					GameGlobalEvents.changed_stats.emit()
 				elif variable == Genum.Vars.SCORE:
-					GameGlobalEvents.changed_score.emit()
+					GameGlobalEvents.changed_stats.emit()
 			else:
 				_global_vars.set(variable, value)
 		_:
