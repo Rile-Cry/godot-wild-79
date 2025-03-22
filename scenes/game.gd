@@ -34,11 +34,7 @@ func _update_reel_positions() -> void:
 		i += 1
 
 func _on_lever_used() -> void:
-	if up:
-		MapManager.map_position += Vector2i(1, -current_class)
-	else:
-		MapManager.map_position += Vector2i(1, current_class)
-	
+	MapManager.move_current_position(current_class, up)
 	_update_reel_positions()
 
 func _on_hero_switched() -> void:
@@ -65,6 +61,7 @@ func _on_reel_5_reel_stopped() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 1.0
 	$SlotMachine/Lights.play("default")
+	SoundManager.stop_sfx(1)
 
 
 func _on_reel_5_reel_started() -> void:
@@ -72,3 +69,4 @@ func _on_reel_5_reel_started() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 7.8
 	$SlotMachine/Lights.play("default")
+	SoundManager.play_sfx("reelSpin", 1)

@@ -41,6 +41,8 @@ func set_var(variable: Vars, value, modify: bool = false) -> void:
 				_global_vars.set(variable, temp_var + value)
 				if variable == Vars.PULLS:
 					GameGlobalEvents.changed_pull_count()
+				elif variable == Vars.SCORE:
+					GameGlobalEvents.changed_score.emit()
 			else:
 				_global_vars.set(variable, value)
 		_:

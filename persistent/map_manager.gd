@@ -1,11 +1,5 @@
 extends Node
 
-enum MoveType {
-	WARRIOR,
-	RANGER,
-	ROGUE
-}
-
 var current_map : Array[Array]
 var map_size := Vector2i(17, 17)
 var map_position := Vector2i(0, 8)
@@ -17,23 +11,17 @@ func get_position_value(pos: Vector2i) -> int:
 
 ## Grabs the current map position
 func get_current_position_value() -> int:
+	print(map_position)
 	return get_position_value(map_position)
 
 ## Moves the current map position based on chosen movement method
-func move_current_position(type: MoveType, up: bool = true) -> void:
-	match(type):
-		MoveType.WARRIOR:
-			map_position.x += 1
-		MoveType.ROGUE:
-			if up:
-				map_position += Vector2i(1, -1)
-			else:
-				map_position += Vector2i(1, 1)
-		MoveType.RANGER:
-			if up:
-				map_position += Vector2i(1, -2)
-			else:
-				map_position += Vector2i(1, 2)
+func move_current_position(type: int, up: bool = false) -> void:
+	if up:
+		map_position += Vector2i(1, -type)
+	else:
+		map_position += Vector2i(1, type)
+	
+	DeckManager.card_action()
 
 ## Generates a map for the game
 func generate_current_map() -> void:
@@ -42,22 +30,7 @@ func generate_current_map() -> void:
 		for y in range(0, map_size.y):
 			current_map[x].append(_check_weight_table(Vector2i(x, y)))
 	
-	var debug_check := double_check_positions()
-	var base_check : int = 0
-	for v in range(0, 7):
-		base_check += debug_check[v]
-	var high_check = (debug_check[7] + debug_check[8])
-
-func double_check_positions() -> Dictionary[int, int]:
-	var pos_dict : Dictionary[int, int] = {}
-	for v in range(0, 13):
-		pos_dict.get_or_add(v, 0)
-	
-	for x in current_map:
-		for y in x:
-			pos_dict[y] += 1
-	
-	return pos_dict
+	current_map[map_position.x][map_position.y] = 0
 
 ## TODO: Balance changes to the weight sections -> Changes were made to card types for efficent pulling of card textures.
 ## This is where the [method _generate_current_map] checks against the weight table

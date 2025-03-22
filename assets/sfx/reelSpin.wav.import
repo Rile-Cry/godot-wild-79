@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://0v3vgqek4uxi"
-path="res://.godot/imported/reelSpin.wav-fe47e765329055946d6666e4f493861d.sample"
+path="res://.godot/imported/reelSpin.wav-71dc2111f9a5310c33cc2981bf04bb96.sample"
 
 [deps]
 
-source_file="res://assets/audio/reelSpin.wav"
-dest_files=["res://.godot/imported/reelSpin.wav-fe47e765329055946d6666e4f493861d.sample"]
+source_file="res://assets/sfx/reelSpin.wav"
+dest_files=["res://.godot/imported/reelSpin.wav-71dc2111f9a5310c33cc2981bf04bb96.sample"]
 
 [params]
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr0cpwonf65c3"]
+[gd_scene load_steps=8 format=3 uid="uid://dr0cpwonf65c3"]
 
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="1_3cpe2"]
 [ext_resource type="Script" uid="uid://bir3u0ecvdblw" path="res://scenes/card_reel.gd" id="1_u6w62"]
 [ext_resource type="Texture2D" uid="uid://mwh445yjmg51" path="res://assets/images/reel_spin_single.png" id="3_301t5"]
 [ext_resource type="PackedScene" uid="uid://fxr2ung6b4bd" path="res://scenes/DrumShade.tscn" id="4_qx3wd"]
-[ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="5_fl6uk"]
-[ext_resource type="AudioStream" uid="uid://ceawoqv47hflj" path="res://assets/audio/reelStop5.wav" id="7_3s7r1"]
+[ext_resource type="AudioStream" uid="uid://0v3vgqek4uxi" path="res://assets/sfx/reelSpin.wav" id="5_fl6uk"]
 
 [sub_resource type="Animation" id="Animation_qx3wd"]
 resource_name = "roll"
@@ -35,6 +34,7 @@ anim_player = NodePath("AnimationPlayer")
 card_list = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7")]
 reel_anim = NodePath("ReelAnim")
 reel_timer = NodePath("Timer")
+sfx_array = Array[StringName]([&"reelStop1", &"reelStop2", &"reelStop3", &"reelStop5"])
 
 [node name="Card1" parent="." instance=ExtResource("1_3cpe2")]
 position = Vector2(0, -39)
@@ -73,11 +73,6 @@ libraries = {
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="SlotMachine" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -20)
-texture = ExtResource("5_fl6uk")
-
-[node name="ReelStop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3s7r1")
+[node name="ReelAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fl6uk")
 volume_db = -15.036

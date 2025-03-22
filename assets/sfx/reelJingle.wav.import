@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://choeo6oxx2ss2"
-path="res://.godot/imported/lvl1.wav-9e3d6aaf233c9a8ce051df745e79aa71.sample"
+uid="uid://c3s6stjw4n28c"
+path="res://.godot/imported/reelJingle.wav-36d98a9166436d9f52ea25a4a71134c6.sample"
 
 [deps]
 
-source_file="res://assets/audio/lvl1.wav"
-dest_files=["res://.godot/imported/lvl1.wav-9e3d6aaf233c9a8ce051df745e79aa71.sample"]
+source_file="res://assets/sfx/reelJingle.wav"
+dest_files=["res://.godot/imported/reelJingle.wav-36d98a9166436d9f52ea25a4a71134c6.sample"]
 
 [params]
 

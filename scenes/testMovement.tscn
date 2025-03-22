@@ -1,12 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://didhx6lswbfso"]
+[gd_scene load_steps=5 format=3 uid="uid://cmnc1tav62by4"]
 
-[ext_resource type="Script" uid="uid://dfx377e2g68vt" path="res://scenes/movement.gd" id="1_7d1a2"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="1_af1vd"]
 [ext_resource type="PackedScene" uid="uid://mweucb5rqhwt" path="res://mechanics/card.tscn" id="3_6qg1n"]
 [ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="4_7d1a2"]
 
+[sub_resource type="GDScript" id="GDScript_af1vd"]
+script/source = "extends Node
+
+
+## Classes for the Y modifier of the movement component
+enum classes {
+	WARRIOR,
+	ROGUE,
+	ARCHER
+}
+
+## TODO: 
+# Needed DATA
+# Current Coordinates, Active Character, if not war, add up / down amount to movement vector
+var player_coords:=Vector2i(1,0)
+var active_class:= 0 as classes ## start as the warrior
+
+
+@export var card_scene : PackedScene
+var screen_offset : Vector2i
+var y_gap := 17 as int
+var x_gap := 30 as int
+
+var half_map:= roundi(MapManager.map_size.y / 2.0) as int
+
+
+@export var centerCard:=Marker2D
+
+func _ready() -> void:
+	screen_offset = get_tree().root.get_size_with_decorations()
+	screen_offset /= MapManager.map_size
+	
+	centerCard.position.y = half_map*y_gap
+	
+	var pos := Vector2i.ZERO
+	for x in MapManager.current_map:
+		pos.y = 0
+		for y in x:
+			var card : Node2D = card_scene.instantiate()
+			card.card_position = pos
+			add_child(card)
+			card.position = Vector2(pos.x * x_gap, pos.y * y_gap)
+			card.z_index = $SlotMachineBase.z_index-1
+			pos.y += 1
+		pos.x += 1
+	
+
+## TODO: Highlighting and focusing the nodes we want to move to.
+func player_move() -> void:
+	
+	
+	
+	
+	return
+	
+## TODO MAP SHIFTING
+# get distance to edge (top/bottom) of slot machine. if +/- 3 from (CURRENT MIDDLE LINE.y) slide map +/-2 intended Y
+# some sort of halo/highlight on the proposed movement
+# Sliding all reels x-1 positionally
+"
+
 [node name="TestMovement" type="Node" node_paths=PackedStringArray("centerCard")]
-script = ExtResource("1_7d1a2")
+script = SubResource("GDScript_af1vd")
 card_scene = ExtResource("3_6qg1n")
 centerCard = NodePath("StartingCard")
 

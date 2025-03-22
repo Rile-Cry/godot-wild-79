@@ -4,13 +4,14 @@ extends Node2D
 @export var card_list : Array[Node2D]
 @export var reel_anim : Sprite2D
 @export var reel_timer : Timer
+@export var sfx_array : Array[StringName]
 var card_offset : int = 1
 var pos := Vector2i.ZERO
 var reel_id : int = 0
 var reel_time_delta : float = 0.5
 
 signal reel_started
-signal reel_stopped
+signal reel_stopped(id: int)
 
 func _ready() -> void:
 	_update_cards()
@@ -29,7 +30,7 @@ func play_animation() -> void:
 	await reel_timer.timeout
 	anim_player.stop()
 	reel_anim.hide()
-	$ReelStop.playing = true
+	SoundManager.play_sfx(sfx_array[Global.rng.randi_range(0, sfx_array.size() - 1)])
 	reel_stopped.emit()
 	_toggle_cards(false)
 	var tween = create_tween()
@@ -54,7 +55,12 @@ func _toggle_cards(hid: bool = false) -> void:
 			card.show()
 
 func _update_cards() -> void:
-	var i : int = -ceil((card_list.size()) / 2.)
+	var i : int = card_list.size()
+	if i % 2 == 0:
+		i = i / 2
+	else:
+		i = (i - 1) / 2
+	i = -i
 	for card in card_list:
 		card.update_card(Vector2i(pos.x, pos.y + i))
 		i += 1

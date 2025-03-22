@@ -15,11 +15,16 @@ run/main_scene="uid://c6hymfrbgv62"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dvhwf7bnk0os7"
+
 [autoload]
 
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
+SoundManager="*res://persistent/sound_manager.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
 DeckManager="*res://persistent/deck_manager.gd"
 MapManager="*res://persistent/map_manager.gd"

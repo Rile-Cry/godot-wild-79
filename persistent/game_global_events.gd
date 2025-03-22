@@ -1,5 +1,6 @@
 extends Node
 
+signal changed_score
 signal debug_regen
 signal debug_newseed(seed: int)
 signal debug_restart

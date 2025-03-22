@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bnyydofgayg2y"
-path="res://.godot/imported/lvl3secret.wav-42fcdd3e85a95f723c8ebd63592a622f.sample"
+uid="uid://choeo6oxx2ss2"
+path="res://.godot/imported/lvl1.wav-90ce4b78c72bf76739e97997ef8ba1f0.sample"
 
 [deps]
 
-source_file="res://assets/audio/lvl3secret.wav"
-dest_files=["res://.godot/imported/lvl3secret.wav-42fcdd3e85a95f723c8ebd63592a622f.sample"]
+source_file="res://assets/sfx/lvl1.wav"
+dest_files=["res://.godot/imported/lvl1.wav-90ce4b78c72bf76739e97997ef8ba1f0.sample"]
 
 [params]
 
