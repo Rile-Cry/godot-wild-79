@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2371611649	reelSpin			\Default Work Unit\reels\reelSpin\reelSpin	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2275025563	spinNum			\Default Work Unit\spinNum	
+
