@@ -24,6 +24,7 @@ texture = ExtResource("4_407y0")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_407y0"]
 
 [node name="NinePatchRect" type="NinePatchRect"]
+process_mode = 3
 offset_left = 77.0
 offset_top = 35.0
 offset_right = 182.0

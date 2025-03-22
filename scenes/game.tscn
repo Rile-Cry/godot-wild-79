@@ -318,7 +318,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("reels", "position_highlight", "position_markers")]
@@ -371,7 +371,7 @@ texture = ExtResource("2_lnu2h")
 [node name="Lights" type="AnimatedSprite2D" parent="SlotMachine"]
 sprite_frames = SubResource("SpriteFrames_02fa5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlotMachine"]
+[node name="Title" type="AnimatedSprite2D" parent="SlotMachine"]
 sprite_frames = SubResource("SpriteFrames_i4re6")
 autoplay = "default"
 
