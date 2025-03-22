@@ -7,6 +7,8 @@ enum Classes {
 }
 
 @export var reels : Array[Node2D]
+@export var position_highlight : Sprite2D
+@export var position_markers : Array[Marker2D]
 var current_class := Classes.WARRIOR
 var up := false
 var turn_one := true
@@ -14,7 +16,6 @@ var turn_one := true
 func _ready() -> void:
 	_set_reel_ids()
 	_update_reel_positions()
-	_update_highlight()
 	
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
@@ -28,10 +29,17 @@ func _set_reel_ids() -> void:
 
 func _update_reel_positions() -> void:
 	var i : int = 0
+	if not turn_one:
+		i = -1
+	
 	var current_position := MapManager.map_position
 	for reel in reels:
 		reel.update_reel(current_position + Vector2i(i, 0))
 		i += 1
+	
+	_update_highlight()
+	if turn_one:
+		turn_one = false
 
 func _on_lever_used() -> void:
 	MapManager.move_current_position(current_class, up)
@@ -49,7 +57,12 @@ func _on_hero_switched() -> void:
 	_update_highlight()
 
 func _update_highlight() -> void:
-	reels[1].update_highlight(current_class, up)
+	if turn_one:
+		position_highlight.position = position_markers[0].position
+		reels[1].update_highlight(current_class, up)
+	else:
+		position_highlight.position = position_markers[1].position
+		reels[2].update_highlight(current_class, up)
 
 func _on_direction_toggled() -> void:
 	up = not up

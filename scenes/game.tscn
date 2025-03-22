@@ -214,9 +214,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("reels")]
+[node name="Game" type="Node" node_paths=PackedStringArray("reels", "position_highlight", "position_markers")]
 script = ExtResource("1_uwrxv")
 reels = [NodePath("Reels/Reel1"), NodePath("Reels/Reel2"), NodePath("Reels/Reel3"), NodePath("Reels/Reel4"), NodePath("Reels/Reel5")]
+position_highlight = NodePath("PositionHighlight")
+position_markers = [NodePath("PositionMarkers/Position"), NodePath("PositionMarkers/Position2")]
 
 [node name="ReelBackground" type="Sprite2D" parent="."]
 z_index = -1
@@ -245,6 +247,14 @@ position = Vector2(224, 109)
 position = Vector2(96, 110)
 scale = Vector2(1, 0.75)
 texture = ExtResource("4_u5sy4")
+
+[node name="PositionMarkers" type="Node2D" parent="."]
+
+[node name="Position" type="Marker2D" parent="PositionMarkers"]
+position = Vector2(96, 110)
+
+[node name="Position2" type="Marker2D" parent="PositionMarkers"]
+position = Vector2(128, 110)
 
 [node name="SlotMachine" type="Sprite2D" parent="."]
 z_index = 2

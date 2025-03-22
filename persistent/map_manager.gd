@@ -81,13 +81,6 @@ func _regen_weight_values(pos: Vector2i = map_position) -> void:
 	weights.get(1).set(2, total_weight)
 
 func _check_weight_table(pos: Vector2i = map_position) -> int:
-	## TODO: Double Check the Gaussian forumula for distance based scalars
-	# weight = -distance(value, x) / sigma^2
-	# sigma is the parameter controlling spread, ex
-	# i found 15-20 worked well without getting the number toooo massive, but we may just want linear scaling.
-	# var distance_scalar = exp(pow(-(pos.x / scalar),2))
-	
-	# TODO: Implement a growing weight table later on
 	_regen_weight_values(pos)
 	var weight_idx = Global.rng.rand_weighted(weights.get(1))
 	var result = weights[0][weight_idx]
