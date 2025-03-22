@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://073e3prl3hd8"]
 
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="1_6ihl1"]
-[ext_resource type="Script" uid="uid://dthovtsl5kth8" path="res://ui/screen.gd" id="1_osti7"]
+[ext_resource type="Script" path="res://ui/screen.gd" id="1_osti7"]
 [ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="2_lg8o6"]
 [ext_resource type="Texture2D" uid="uid://cafssjxguemnw" path="res://assets/images/matrix.png" id="3_lg8o6"]
 

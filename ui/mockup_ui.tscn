@@ -417,11 +417,10 @@ stream = ExtResource("12_8xeg2")
 volume_db = -6.892
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
-offset_left = 77.985
-offset_top = 67.855
-offset_right = 242.015
-offset_bottom = 150.875
-scale = Vector2(1e-05, 1e-05)
+offset_left = 78.0
+offset_top = -80.555
+offset_right = 242.0
+offset_bottom = 0.444992
 pivot_offset = Vector2(80, 45)
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
