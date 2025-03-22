@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=64 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cjgd88mlhnyc" path="res://assets/audio/lever.wav" id="5_etg4v"]
 [ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
+[ext_resource type="AudioStream" uid="uid://usbft5po5j0r" path="res://assets/audio/button4.wav" id="12_8xeg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -406,7 +407,11 @@ offset_bottom = -148.0
 position = Vector2(301, 80)
 sprite_frames = SubResource("SpriteFrames_goc3n")
 autoplay = "default"
-frame_progress = 0.743821
+frame_progress = 0.731681
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8xeg2")
+volume_db = -6.892
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/UpDownButton" to="." method="_on_up_down_button_pressed"]

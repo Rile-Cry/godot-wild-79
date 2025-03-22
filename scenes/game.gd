@@ -58,3 +58,17 @@ func _update_highlight() -> void:
 func _on_direction_toggled() -> void:
 	up = not up
 	_update_highlight()
+
+
+func _on_reel_5_reel_stopped() -> void:
+	$ReelSpin.playing = false
+	$SlotMachine/Lights.stop()
+	$SlotMachine/Lights.speed_scale = 1.0
+	$SlotMachine/Lights.play("default")
+
+
+func _on_reel_5_reel_started() -> void:
+	$ReelSpin.playing = true
+	$SlotMachine/Lights.stop()
+	$SlotMachine/Lights.speed_scale = 7.8
+	$SlotMachine/Lights.play("default")

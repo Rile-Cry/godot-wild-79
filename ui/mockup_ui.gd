@@ -1,6 +1,7 @@
 extends CanvasLayer
 @onready var lever = $Lever
 @onready var leverPull = $LeverPull
+@onready var buttonClick = $ButtonClick
 @onready var sidePanel = $SidePanel
 @onready var characters = $LowerButtonPanel/Buttons/Characters
 @onready var arrow = $Arrow
@@ -15,6 +16,7 @@ func _on_lever_button_pressed() -> void:
 
 
 func _on_info_button_pressed() -> void:
+	buttonClick.play()
 	var tween = get_tree().create_tween()
 	if sidePanel.offset.x > 0:
 		tween.tween_property(sidePanel, "offset:x", 0, .5)
@@ -25,6 +27,7 @@ func _on_info_button_pressed() -> void:
 
 
 func _on_swap_button_pressed() -> void:
+	buttonClick.play()
 	match swap_counter:
 		0:
 			characters.play("warrior")
@@ -40,6 +43,7 @@ func _on_swap_button_pressed() -> void:
 
 
 func _on_up_down_button_pressed() -> void:
+	buttonClick.play()
 	GameGlobalEvents.toggle_direction.emit()
 
 

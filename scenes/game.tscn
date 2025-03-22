@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c6hymfrbgv62"]
+[gd_scene load_steps=39 format=3 uid="uid://c6hymfrbgv62"]
 
 [ext_resource type="Script" uid="uid://b5pmn1levrx5v" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_lnu2h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://od6lc0ymk0qb" path="res://assets/images/current_position_highlight.png" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://buhyjca2c7lba" path="res://assets/images/SlotMachine-Lights.png" id="6_gee14"]
+[ext_resource type="AudioStream" uid="uid://c3s6stjw4n28c" path="res://assets/audio/reelJingle.wav" id="9_0tnpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
 atlas = ExtResource("6_gee14")
@@ -210,7 +211,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("reels")]
@@ -252,8 +253,14 @@ texture = ExtResource("2_lnu2h")
 
 [node name="Lights" type="AnimatedSprite2D" parent="SlotMachine"]
 sprite_frames = SubResource("SpriteFrames_02fa5")
-autoplay = "default"
 
 [node name="UI" parent="." instance=ExtResource("3_lbhrr")]
 
 [node name="DebugScreen" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="ReelSpin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_0tnpc")
+volume_db = -7.518
+
+[connection signal="reel_started" from="Reels/Reel5" to="." method="_on_reel_5_reel_started"]
+[connection signal="reel_stopped" from="Reels/Reel5" to="." method="_on_reel_5_reel_stopped"]

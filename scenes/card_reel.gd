@@ -9,6 +9,9 @@ var pos := Vector2i.ZERO
 var reel_id : int = 0
 var reel_time_delta : float = 0.5
 
+signal reel_started
+signal reel_stopped
+
 func _ready() -> void:
 	_update_cards()
 
@@ -18,6 +21,7 @@ func update_reel(new_pos: Vector2i) -> void:
 	play_animation()
 
 func play_animation() -> void:
+	reel_started.emit()
 	_toggle_cards(true)
 	reel_anim.show()
 	anim_player.play("roll")
@@ -25,6 +29,8 @@ func play_animation() -> void:
 	await reel_timer.timeout
 	anim_player.stop()
 	reel_anim.hide()
+	$ReelStop.playing = true
+	reel_stopped.emit()
 	_toggle_cards(false)
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
