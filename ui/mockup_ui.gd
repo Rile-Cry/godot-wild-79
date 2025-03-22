@@ -68,7 +68,7 @@ func _on_options_button_pressed() -> void:
 			tween.tween_property(optionsMenu, "position:y", 180,.25)
 			tween.play()
 			await tween.finished
-			optionsMenu.position.y = -80
+			optionsMenu.position.y = -81
 			menuOpen = false
 			
 func _on_reel_finished() -> void:
