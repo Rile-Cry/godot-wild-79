@@ -14,6 +14,9 @@ func _load_cards() -> void:
 		var card_res := ResourceLoader.load(deck_path + res) as CardResource
 		card_resources.set(card_res.card_id, card_res)
 
+# TODO: Write up the effects for the different cards.
+# Also be able to handle score additions based on what's been collected.
+
 func card_action() -> void:
 	var current_card_id : int = MapManager.get_current_position_value()
 	var current_card : CardResource = card_resources.get(current_card_id)

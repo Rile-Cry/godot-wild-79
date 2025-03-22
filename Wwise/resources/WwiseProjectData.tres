@@ -121,26 +121,29 @@ name = "Default Work Unit"
 id = 125608783
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_yyrou"]
-path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\sfx\\instrumental"
-type = 2
-name = "instrumental"
-guid = "{0064576B-5C11-4171-B431-772E94C3E2C1}"
-id = 741662453
-
-[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_geu6g"]
-children = [SubResource("WwiseTreeObject_yyrou")]
-name = "sfx"
-id = 393239870
-
-[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_5n8hf"]
 path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\ost"
 type = 2
 name = "ost"
 guid = "{CC98D13B-D6CB-4953-8050-D2786348ADF7}"
 id = 611937389
 
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_geu6g"]
+path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\sfx\\instrumental"
+type = 2
+name = "instrumental"
+guid = "{0064576B-5C11-4171-B431-772E94C3E2C1}"
+id = 741662453
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_5n8hf"]
+path = "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\sfx"
+children = [SubResource("WwiseTreeObject_geu6g")]
+type = 2
+name = "sfx"
+guid = "{FD5072F5-7FD3-4AD7-8BE6-E217C4DCFA6A}"
+id = 393239870
+
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_tnib1"]
-children = [SubResource("WwiseTreeObject_geu6g"), SubResource("WwiseTreeObject_5n8hf")]
+children = [SubResource("WwiseTreeObject_yyrou"), SubResource("WwiseTreeObject_5n8hf")]
 name = "Master Audio Bus"
 id = 3803692087
 

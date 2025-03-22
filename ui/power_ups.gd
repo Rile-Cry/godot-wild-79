@@ -29,6 +29,7 @@ var level_reference : Dictionary[Genum.BonusLevel, Vector2] = {
 var bonus_size := Vector2(93.0, 11.0)
 var level_size := Vector2(45.0, 11.0)
 
+# TODO: In the parent scene, make adjustments to fit text within the info panel
 func _ready() -> void:
 	update_bonus(Genum.BonusType.ABC, Genum.BonusLevel.TWO)
 
