@@ -1,12 +1,15 @@
 extends CanvasLayer
 @onready var lever = $Lever
-@onready var leverPull = $LeverPull
-@onready var buttonClick = $ButtonClick
+@onready var leverPull = $Sounds/LeverPull
+@onready var buttonClick = $Sounds/ButtonClick
 @onready var sidePanel = $SidePanel
 @onready var characters = $LowerButtonPanel/Buttons/Characters
 @onready var arrow = $Arrow
+@onready var optionsMenu = $OptionsMenu
+
 
 var swap_counter = 1
+var menuOpen = false
 
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
@@ -49,3 +52,20 @@ func _on_up_down_button_pressed() -> void:
 
 func _on_lever_animation_finished() -> void:
 	arrow.visible = true
+
+
+func _on_options_button_pressed() -> void:
+	buttonClick.play()
+	var tween = get_tree().create_tween()
+	match menuOpen:
+		false: 
+			tween.tween_property(optionsMenu, "scale", Vector2(1,1),.25)
+			tween.play()
+			menuOpen = true
+		true: 
+			tween.tween_property(optionsMenu, "scale", Vector2(0,0),.25)
+			tween.play()
+			menuOpen = false
+			
+	
+	

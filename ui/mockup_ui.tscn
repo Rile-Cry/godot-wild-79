@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=65 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
 [ext_resource type="AudioStream" uid="uid://usbft5po5j0r" path="res://assets/audio/button4.wav" id="12_8xeg2"]
+[ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -379,29 +380,25 @@ layer = -3
 offset = Vector2(70, 0)
 transform = Transform2D(1, 0, 0, 1, 70, 0)
 
-[node name="Lever" type="AnimatedSprite2D" parent="."]
-position = Vector2(160, 90)
-sprite_frames = SubResource("SpriteFrames_h5bjh")
-
-[node name="LeverButton" type="Button" parent="."]
-offset_left = 266.0
-offset_top = 97.0
-offset_right = 283.035
-offset_bottom = 114.1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sdems")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_07pr3")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_h5bjh")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_etg4v")
-
-[node name="LeverPull" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_etg4v")
-volume_db = -10.0
-
 [node name="Screen" parent="." instance=ExtResource("10_u42wy")]
 offset_left = 101.0
 offset_top = 32.0
 offset_right = -219.0
 offset_bottom = -148.0
+
+[node name="Lever" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_h5bjh")
+
+[node name="LeverButton" type="Button" parent="Lever"]
+offset_left = 106.0
+offset_top = 7.0
+offset_right = 123.035
+offset_bottom = 24.1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sdems")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_07pr3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h5bjh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_etg4v")
 
 [node name="Arrow" type="AnimatedSprite2D" parent="."]
 position = Vector2(301, 80)
@@ -409,14 +406,29 @@ sprite_frames = SubResource("SpriteFrames_goc3n")
 autoplay = "default"
 frame_progress = 0.731681
 
-[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="LeverPull" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_etg4v")
+volume_db = -10.0
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("12_8xeg2")
 volume_db = -6.892
 
+[node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
+offset_left = 77.985
+offset_top = 67.855
+offset_right = 242.015
+offset_bottom = 150.875
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(80, 45)
+
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="LowerButtonPanel/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/UpDownButton" to="." method="_on_up_down_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/SwapButton" to="." method="_on_swap_button_pressed"]
 [connection signal="animation_finished" from="Lever" to="." method="_on_lever_animation_finished"]
-[connection signal="pressed" from="LeverButton" to="." method="_on_lever_button_pressed"]
+[connection signal="pressed" from="Lever/LeverButton" to="." method="_on_lever_button_pressed"]
 
 [editable path="LowerButtonPanel/Buttons"]

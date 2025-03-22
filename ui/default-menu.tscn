@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://1nk7rf35hxei"]
+
+[ext_resource type="Texture2D" uid="uid://cdsqihhkfxwgl" path="res://assets/images/9-patch.png" id="1_2eohu"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+offset_left = 77.0
+offset_top = 35.0
+offset_right = 182.0
+offset_bottom = 130.0
+texture = ExtResource("1_2eohu")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
