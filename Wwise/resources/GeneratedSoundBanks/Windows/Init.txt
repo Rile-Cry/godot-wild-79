@@ -1,0 +1,49 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	936499202	result			\Default Work Unit\result	
+	2470328564	intensity			\Default Work Unit\intensity	
+	3459452222	phase			\Default Work Unit\phase	
+
+State	ID	Name	State Group			Notes
+	221232726	lose	result			
+	748895195	None	result			
+	979765101	win	result			
+	545371365	low	intensity			
+	748895195	None	intensity			
+	1182670505	mid	intensity			
+	3550808449	high	intensity			
+	89505537	gameplay	phase			
+	748895195	None	phase			
+	2607556080	menu	phase			
+	3064974266	special	phase			
+	3161415855	event	phase			
+	3780578133	results	phase			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
+	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
+	736504446	masterVol			\Default Work Unit\masterVol	
+	841620460	Concrete			\Factory Acoustic Textures\Textures\Concrete	
+	1755085759	Wood_Deep			\Factory Acoustic Textures\Textures\Wood_Deep	
+	1873957695	Anechoic			\Factory Acoustic Textures\Textures\Anechoic	
+	1970351858	Fabric			\Factory Acoustic Textures\Textures\Fabric	
+	2058049674	Wood			\Factory Acoustic Textures\Textures\Wood	
+	2349374904	ostVol			\Default Work Unit\ostVol	
+	2412606308	Carpet			\Factory Acoustic Textures\Textures\Carpet	
+	2637588553	Tile			\Factory Acoustic Textures\Textures\Tile	
+	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
+	3195498748	Cork_Tiles			\Factory Acoustic Textures\Textures\Cork_Tiles	
+	3432874653	sfxVol			\Default Work Unit\sfxVol	
+	3670307564	Drywall			\Factory Acoustic Textures\Textures\Drywall	
+	4168643977	Acoustic_Banner			\Factory Acoustic Textures\Textures\Acoustic_Banner	
+	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	sfx			\Default Work Unit\Master Audio Bus\sfx	
+	611937389	ost			\Default Work Unit\Master Audio Bus\ost	
+	741662453	instrumental			\Default Work Unit\Master Audio Bus\sfx\instrumental	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+
