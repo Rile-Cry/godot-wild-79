@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c6hymfrbgv62"]
+[gd_scene load_steps=55 format=3 uid="uid://c6hymfrbgv62"]
 
 [ext_resource type="Script" uid="uid://b5pmn1levrx5v" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_lnu2h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://od6lc0ymk0qb" path="res://assets/images/current_position_highlight.png" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://buhyjca2c7lba" path="res://assets/images/SlotMachine-Lights.png" id="6_gee14"]
+[ext_resource type="Texture2D" uid="uid://bbxjtvajgxnm6" path="res://assets/images/title.png" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c3s6stjw4n28c" path="res://assets/sfx/reelJingle.wav" id="9_0tnpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
@@ -214,6 +215,112 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_02fa5"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nepv3"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7025r"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4url"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ool0"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1ej"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05nbr"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sl42"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaba0"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_458eo"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(2880, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3rex"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(3200, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fedci"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(3520, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qswn"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(3840, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm0al"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(4160, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4re6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02fa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nepv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7025r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4url")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ool0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr1ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05nbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sl42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaba0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_458eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3rex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fedci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qswn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm0al")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Game" type="Node" node_paths=PackedStringArray("reels", "position_highlight", "position_markers")]
 script = ExtResource("1_uwrxv")
 reels = [NodePath("Reels/Reel1"), NodePath("Reels/Reel2"), NodePath("Reels/Reel3"), NodePath("Reels/Reel4"), NodePath("Reels/Reel5")]
@@ -263,6 +370,10 @@ texture = ExtResource("2_lnu2h")
 
 [node name="Lights" type="AnimatedSprite2D" parent="SlotMachine"]
 sprite_frames = SubResource("SpriteFrames_02fa5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlotMachine"]
+sprite_frames = SubResource("SpriteFrames_i4re6")
+autoplay = "default"
 
 [node name="UI" parent="." instance=ExtResource("3_lbhrr")]
 
