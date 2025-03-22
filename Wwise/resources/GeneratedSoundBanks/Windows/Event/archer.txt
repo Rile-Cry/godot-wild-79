@@ -1,0 +1,2 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2300133912	archer			\Default Work Unit\characters\archer	

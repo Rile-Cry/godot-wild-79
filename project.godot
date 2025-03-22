@@ -39,6 +39,11 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/use_soundbank_names=true
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/YATI/plugin.cfg")
@@ -65,4 +70,5 @@ renderer/rendering_method.mobile="gl_compatibility"
 
 [wwise]
 
-common_user_settings/root_output_path="res://assets/generated_sounds"
+common_user_settings/root_output_path="res://Wwise/resources/GeneratedSoundBanks"
+project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"

@@ -12,6 +12,6 @@ signal game_over
 
 
 func changed_pull_count() -> void:
-	if Global.get_var(Global.Vars.PULLS) <= 0:
+	if Global.get_var(Genum.Vars.PULLS) <= 0:
 		print("Game Over")
 		game_over.emit()

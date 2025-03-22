@@ -61,12 +61,14 @@ func _on_options_button_pressed() -> void:
 	var tween = get_tree().create_tween()
 	match menuOpen:
 		false: 
-			tween.tween_property(optionsMenu, "scale", Vector2(1,1),.25)
+			tween.tween_property(optionsMenu, "position:y", 70,.25)
 			tween.play()
 			menuOpen = true
 		true: 
-			tween.tween_property(optionsMenu, "scale", Vector2(0,0),.25)
+			tween.tween_property(optionsMenu, "position:y", 180,.25)
 			tween.play()
+			await tween.finished
+			optionsMenu.position.y = -81
 			menuOpen = false
 			
 func _on_reel_finished() -> void:

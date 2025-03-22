@@ -1,16 +1,11 @@
 extends Node
 
-enum Classes {
-	WARRIOR,
-	ROGUE,
-	ARCHER
-}
-
 @export var reels : Array[Node2D]
 @export var position_highlight : Sprite2D
 @export var position_markers : Array[Marker2D]
-var current_class := Classes.WARRIOR
+var current_class := Genum.Classes.WARRIOR
 var up := false
+var loaded := false
 var turn_one := true
 
 func _ready() -> void:
@@ -20,6 +15,9 @@ func _ready() -> void:
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
+	
+	if not loaded:
+		loaded = true
 
 func _set_reel_ids() -> void:
 	var i : int = 0
@@ -37,9 +35,10 @@ func _update_reel_positions() -> void:
 		reel.update_reel(current_position + Vector2i(i, 0))
 		i += 1
 	
-	_update_highlight()
-	if turn_one:
+	if loaded:
 		turn_one = false
+	
+	_update_highlight()
 
 func _on_lever_used() -> void:
 	MapManager.move_current_position(current_class, up)
@@ -47,12 +46,12 @@ func _on_lever_used() -> void:
 
 func _on_hero_switched() -> void:
 	match(current_class):
-		Classes.WARRIOR:
-			current_class = Classes.ROGUE
-		Classes.ROGUE:
-			current_class = Classes.ARCHER
-		Classes.ARCHER:
-			current_class = Classes.WARRIOR
+		Genum.Classes.WARRIOR:
+			current_class = Genum.Classes.ROGUE
+		Genum.Classes.ROGUE:
+			current_class = Genum.Classes.ARCHER
+		Genum.Classes.ARCHER:
+			current_class = Genum.Classes.WARRIOR
 	
 	_update_highlight()
 

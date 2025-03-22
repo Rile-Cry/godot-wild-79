@@ -37,6 +37,7 @@ func play_animation() -> void:
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(self, "position", Vector2(position.x, position.y + 8), 0.2)
 	tween.tween_property(self, "position", Vector2(position.x, position.y), 0.2)
+	
 
 func update_highlight(hero: int, up: bool) -> void:
 	var id : int = 0
@@ -57,8 +58,10 @@ func _toggle_cards(hid: bool = false) -> void:
 func _update_cards() -> void:
 	var i : int = card_list.size()
 	if i % 2 == 0:
+		@warning_ignore("integer_division")
 		i = i / 2
 	else:
+		@warning_ignore("integer_division")
 		i = (i - 1) / 2
 	i = -i
 	for card in card_list:

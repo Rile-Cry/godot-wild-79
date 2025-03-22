@@ -45,10 +45,10 @@ func _generate_weight_table() -> void:
 	var weight_effects := PackedFloat32Array([])
 	var weight_events := PackedFloat32Array([])
 	for card_resource in DeckManager.card_resources.values():
-		if card_resource.card_type == CardResource.CardType.NUMBER:
+		if card_resource.card_type == Genum.CardType.NUMBER:
 			if card_resource.card_id != 6:
 				weight_table.get(0).append(card_resource.card_id)
-		elif card_resource.card_type == CardResource.CardType.EFFECT:
+		elif card_resource.card_type == Genum.CardType.EFFECT:
 			weight_table.get(2).append(card_resource.card_id)
 			weight_effects.append(card_resource.card_weight)
 		else:
