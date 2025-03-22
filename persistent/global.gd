@@ -1,20 +1,11 @@
 extends Node
 
-## Enum for the [param _global_vars] dictionary to allow for readability but avoid strings
-enum Vars {
-	MULTIPLIERS,
-	PULLS,
-	SCORE,
-	TILE_DIST
-}
-
 var rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
 var _prior_runs : Array[int] = [] # Previous runs data
 var _global_vars : Dictionary = { # Global dictionary, has all the variables encapsulated for get/set access
-	Vars.MULTIPLIERS: [], # The collection of multipliers
-	Vars.PULLS: 9, # The amount of pulls available to the player
-	Vars.SCORE: 0, # The score the player accrues as they play
-	Vars.TILE_DIST: 0, # How far the player has moved from the start
+	Genum.Vars.MULTIPLIERS: [], # The collection of multipliers
+	Genum.Vars.PULLS: 9, # The amount of pulls available to the player
+	Genum.Vars.SCORE: 0, # The score the player accrues as they play
 }
 var _move_weights : Array[float] = [1.0, 2.0]
 
@@ -23,13 +14,13 @@ func _ready() -> void:
 	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
 
 ## The get function for accessing global variables.
-func get_var(variable: Vars, idx: int = 0):
+func get_var(variable: Genum.Vars, idx: int = 0):
 	if idx != null and typeof(_global_vars.get(variable)) == TYPE_ARRAY:
 		return _global_vars.get(variable)[idx]
 	return _global_vars.get(variable, null)
 
 ## The set function for writing to global variables.
-func set_var(variable: Vars, value, modify: bool = false) -> void:
+func set_var(variable: Genum.Vars, value, modify: bool = false) -> void:
 	var temp_var = _global_vars.get(variable, null)
 	
 	match(typeof(temp_var)):
@@ -39,9 +30,9 @@ func set_var(variable: Vars, value, modify: bool = false) -> void:
 		TYPE_INT:
 			if modify:
 				_global_vars.set(variable, temp_var + value)
-				if variable == Vars.PULLS:
+				if variable == Genum.Vars.PULLS:
 					GameGlobalEvents.changed_pull_count()
-				elif variable == Vars.SCORE:
+				elif variable == Genum.Vars.SCORE:
 					GameGlobalEvents.changed_score.emit()
 			else:
 				_global_vars.set(variable, value)

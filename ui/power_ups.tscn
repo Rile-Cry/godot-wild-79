@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfrp8rchhy0bo"]
+[gd_scene load_steps=8 format=3 uid="uid://cfrp8rchhy0bo"]
 
+[ext_resource type="Script" uid="uid://bwa4se5iypqt4" path="res://ui/power_ups.gd" id="1_a1q4a"]
 [ext_resource type="Texture2D" uid="uid://dkr5dk1p4i65a" path="res://assets/images/power-ups-Sheet.png" id="1_l531v"]
 [ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="2_a1q4a"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1q4a"]
+atlas = ExtResource("1_l531v")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xwfs"]
+atlas = ExtResource("1_l531v")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dd14"]
 atlas = ExtResource("1_l531v")
-region = Rect2(186, 1, 65, 11)
+region = Rect2(186, 13, 1, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uodvp"]
 atlas = ExtResource("1_l531v")
 region = Rect2(186, 13, 45, 11)
 
-[node name="PowerUps" type="Control"]
+[node name="PowerUps" type="Control" node_paths=PackedStringArray("bonus_texture", "lvl_texture")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_a1q4a")
+bonus_atlas_texture = SubResource("AtlasTexture_a1q4a")
+lvl_atlas_texture = SubResource("AtlasTexture_8xwfs")
+bonus_texture = NodePath("HBoxContainer/TextureRect")
+lvl_texture = NodePath("HBoxContainer/TextureRect2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
