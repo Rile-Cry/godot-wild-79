@@ -4,5 +4,4 @@
 
 [node name="Main" type="Node"]
 
-[node name="Game" parent="." node_paths=PackedStringArray("reels") instance=ExtResource("1_o5qli")]
-reels = []
+[node name="Game" parent="." instance=ExtResource("1_o5qli")]
