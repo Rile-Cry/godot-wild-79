@@ -19,13 +19,13 @@ func card_action() -> void:
 	var current_card : CardResource = card_resources.get(current_card_id)
 	print(current_card_id)
 	
-	if current_card.card_type == CardResource.CardType.NUMBER:
+	if current_card.card_type == Genum.CardType.NUMBER:
 		if current_card_id == 6:
 			if track_set.get(0) == 6:
 				track_set.append(6)
 			else:
 				track_set = [6]
 		
-		Global.set_var(Global.Vars.SCORE, current_card_id + 1, true)
+		Global.set_var(Genum.Vars.SCORE, current_card_id + 1, true)
 	
-	Global.set_var(Global.Vars.PULLS, -1, true)
+	Global.set_var(Genum.Vars.PULLS, -1, true)
