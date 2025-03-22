@@ -375,6 +375,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wijqv")
 layer = -3
 
 [node name="SidePanel" parent="." instance=ExtResource("2_sdems")]
+offset = Vector2(70, 0)
+transform = Transform2D(1, 0, 0, 1, 70, 0)
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
@@ -404,7 +406,7 @@ offset_bottom = -148.0
 position = Vector2(301, 80)
 sprite_frames = SubResource("SpriteFrames_goc3n")
 autoplay = "default"
-frame_progress = 0.400495
+frame_progress = 0.743821
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/UpDownButton" to="." method="_on_up_down_button_pressed"]
