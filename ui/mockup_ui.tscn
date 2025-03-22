@@ -419,6 +419,7 @@ volume_db = -6.892
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
 process_mode = 3
+z_index = 999
 offset_left = 78.0
 offset_top = -80.555
 offset_right = 242.0
