@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var leverPull = $LeverPull
 @onready var sidePanel = $SidePanel
 @onready var characters = $LowerButtonPanel/Buttons/Characters
+@onready var arrow = $Arrow
 
 var swap_counter = 1
 
@@ -10,6 +11,7 @@ func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
 	lever.play("default")
 	leverPull.play()
+	arrow.visible = false
 
 
 func _on_info_button_pressed() -> void:
@@ -39,3 +41,7 @@ func _on_swap_button_pressed() -> void:
 
 func _on_up_down_button_pressed() -> void:
 	GameGlobalEvents.toggle_direction.emit()
+
+
+func _on_lever_animation_finished() -> void:
+	arrow.visible = true

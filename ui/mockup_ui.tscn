@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=63 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdggq3hf8uo07" path="res://assets/images/character-select-screen-matrix.png" id="5_cnkd0"]
 [ext_resource type="AudioStream" uid="uid://cjgd88mlhnyc" path="res://assets/audio/lever.wav" id="5_etg4v"]
 [ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
+[ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -235,6 +236,77 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etg4v"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sv25"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wemyb"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqlla"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd6e8"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6bpy"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6xr8"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ige"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aor01"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8li4d"]
+atlas = ExtResource("11_q0suo")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goc3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sv25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wemyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqlla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd6e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6bpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6xr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0ige")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aor01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8li4d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_h5bjh")
 
@@ -328,9 +400,16 @@ offset_top = 32.0
 offset_right = -219.0
 offset_bottom = -148.0
 
+[node name="Arrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(301, 80)
+sprite_frames = SubResource("SpriteFrames_goc3n")
+autoplay = "default"
+frame_progress = 0.400495
+
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/UpDownButton" to="." method="_on_up_down_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/SwapButton" to="." method="_on_swap_button_pressed"]
+[connection signal="animation_finished" from="Lever" to="." method="_on_lever_animation_finished"]
 [connection signal="pressed" from="LeverButton" to="." method="_on_lever_button_pressed"]
 
 [editable path="LowerButtonPanel/Buttons"]
