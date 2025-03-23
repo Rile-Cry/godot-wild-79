@@ -3,6 +3,12 @@ extends Node
 @export var reels : Array[Node2D]
 @export var position_highlight : Sprite2D
 @export var position_markers : Array[Marker2D]
+
+@onready var level1Sfx = $BonusSounds/Level1
+@onready var level2Sfx = $BonusSounds/Level2
+@onready var levelMaxSfx = $BonusSounds/LevelMAX
+@onready var levelMaxSecretSfx = $BonusSounds/LevelMAXSecret
+
 var cards_collected : Array[Vector2i]
 var current_class := Genum.Classes.WARRIOR
 var up := false
@@ -12,13 +18,23 @@ var turn_one := true
 func _ready() -> void:
 	_set_reel_ids()
 	_update_reel_positions()
-	
+	GameGlobalEvents.bonus_level_sound.connect(play_bonus)
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
 	
 	if not loaded:
 		loaded = true
+
+func play_bonus(level:Genum):
+	match level.BonusLevel:
+		Genum.BonusLevel.ONE:
+			level1Sfx.play()
+		Genum.BonusLevel.TWO:
+			level2Sfx.play()
+		Genum.BonusLevel.MAX:
+			levelMaxSfx.play()
+		
 
 func _set_reel_ids() -> void:
 	var i : int = 0

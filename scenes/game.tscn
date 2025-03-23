@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c6hymfrbgv62"]
+[gd_scene load_steps=59 format=3 uid="uid://c6hymfrbgv62"]
 
 [ext_resource type="Script" uid="uid://b5pmn1levrx5v" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_lnu2h"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://buhyjca2c7lba" path="res://assets/images/SlotMachine-Lights.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://bbxjtvajgxnm6" path="res://assets/images/title.png" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c3s6stjw4n28c" path="res://assets/sfx/reelJingle.wav" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://choeo6oxx2ss2" path="res://assets/sfx/lvl1.wav" id="11_trtic"]
+[ext_resource type="AudioStream" uid="uid://bthqmx24m46qj" path="res://assets/sfx/lvl2.wav" id="12_ir15t"]
+[ext_resource type="AudioStream" uid="uid://bvhqelot78lm8" path="res://assets/sfx/lvl3.wav" id="13_ca42v"]
+[ext_resource type="AudioStream" uid="uid://bnyydofgayg2y" path="res://assets/sfx/lvl3secret.wav" id="14_rysoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
 atlas = ExtResource("6_gee14")
@@ -382,6 +386,21 @@ autoplay = "default"
 [node name="ReelSpin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_0tnpc")
 volume_db = -7.4
+bus = &"SFX"
+
+[node name="BonusSounds" type="Node" parent="."]
+
+[node name="Level1" type="AudioStreamPlayer" parent="BonusSounds"]
+stream = ExtResource("11_trtic")
+
+[node name="Level2" type="AudioStreamPlayer" parent="BonusSounds"]
+stream = ExtResource("12_ir15t")
+
+[node name="LevelMAX" type="AudioStreamPlayer" parent="BonusSounds"]
+stream = ExtResource("13_ca42v")
+
+[node name="LevelMAXSecret" type="AudioStreamPlayer" parent="BonusSounds"]
+stream = ExtResource("14_rysoc")
 
 [connection signal="reel_started" from="Reels/Reel5" to="." method="_on_reel_5_reel_started"]
 [connection signal="reel_stopped" from="Reels/Reel5" to="." method="_on_reel_5_reel_stopped"]
