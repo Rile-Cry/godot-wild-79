@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=67 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://usbft5po5j0r" path="res://assets/sfx/button4.wav" id="12_8xeg2"]
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
 [ext_resource type="PackedScene" uid="uid://bmsvxorel3euq" path="res://ui/main_menu.tscn" id="14_b0qgs"]
+[ext_resource type="Script" path="res://ui/default_menu.gd" id="14_ibtbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -420,13 +421,20 @@ stream = ExtResource("12_8xeg2")
 volume_db = -6.892
 bus = &"SFX"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
+[node name="OptionsMenu" parent="." node_paths=PackedStringArray("master_volume", "music_volume", "sfx_volume", "new_run_button", "res_button", "quit_button") instance=ExtResource("13_p2f5s")]
 z_index = 999
 offset_left = 78.0
 offset_top = -80.555
 offset_right = 242.0
 offset_bottom = 0.444992
 pivot_offset = Vector2(80, 45)
+script = ExtResource("14_ibtbu")
+master_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MasterVolume/MasterSlider")
+music_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MusicVolume/MusicSlider")
+sfx_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/SFXVolume/SFXSlider")
+new_run_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/NewRunButton")
+res_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ResolutionButton")
+quit_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/QuitButton")
 
 [node name="MainMenu" parent="." instance=ExtResource("14_b0qgs")]
 offset_right = 320.0
