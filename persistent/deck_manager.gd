@@ -83,15 +83,18 @@ func _bonus_check() -> void:
 	if first_card == 4 and second_card == 5 and third_card == 6 :
 		bonus_tracking[Genum.BonusType.XYZ] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.XYZ,Genum.BonusLevel.MAX)
-	## ODD - DONE
-	if first_card %2 == 1 and second_card %2 == 1 and third_card %2 == 1 :
 		
-		bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
-		GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
-	## EVN - DONE
-	if first_card %2 == 0 and second_card %2 == 0 and third_card %2 == 0 :
-		bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
-		GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
+	## NUMBERS
+	if first_card < 9 :
+		## ODD - DONE
+		if first_card %2 == 1 and second_card %2 == 1 and third_card %2 == 1 :
+			
+			bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
+			GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
+		## EVN - DONE
+		if first_card %2 == 0 and second_card %2 == 0 and third_card %2 == 0 :
+			bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
+			GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
 	
 	## ALPHA ETO SEVENS
 	if !bonus_tracking.is_empty() :
@@ -124,12 +127,12 @@ func _bonus_check() -> void:
 		bonus_tracking[Genum.BonusType.BARTENDER] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.BARTENDER,Genum.BonusLevel.MAX)
 #	OOF - LvlMAX - BoBoBo
-	if first_card == DeckManager.card_resources[11] and second_card == DeckManager.card_resources[11] and third_card == DeckManager.card_resources[11] :
+	if first_card == DeckManager.card_resources[11].card_id and second_card == DeckManager.card_resources[11].card_id and third_card == DeckManager.card_resources[11].card_id :
 		bonus_tracking[Genum.BonusType.OOF] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.OOF,Genum.BonusLevel.MAX)
 #	777 - Lvl1, Lvl2, LvlMAX
 	if first_card == DeckManager.card_resources[6].card_id and second_card == DeckManager.card_resources[6].card_id and third_card == DeckManager.card_resources[6].card_id :
-		if bonus_tracking[Genum.BonusType.SEVENS] == null :
+		if !bonus_tracking.has(Genum.BonusType.SEVENS) :
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.ONE
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.ONE)
 		elif bonus_tracking[Genum.BonusType.SEVENS] == 1 :
