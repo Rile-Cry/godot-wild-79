@@ -13,16 +13,18 @@ anchor_left = 0.009
 anchor_top = 0.4
 anchor_right = 0.175
 anchor_bottom = 0.939
-offset_left = -0.00941467
-offset_right = -0.00941467
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
+offset_left = 1.12
+offset_top = 2.0
+offset_bottom = -2.02
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 1
 
 [node name="PowerUps" type="VBoxContainer" parent="MarginContainer"]
+z_index = 1
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 6
 script = ExtResource("3_3ysk4")
 power_up_scene = ExtResource("2_qg7yf")
 

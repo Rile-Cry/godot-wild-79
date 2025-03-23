@@ -26,6 +26,9 @@ var level_reference : Dictionary[Genum.BonusLevel, Vector2i] = {
 	Genum.BonusLevel.MAX : Vector2i(2, 1)
 }
 
+func _get_current_bonus() -> Vector2i :
+	return Vector2i(bonus,level)
+
 # TODO: In the parent scene, make adjustments to fit text within the info panel
 func _ready() -> void:
 	#update_bonus(Genum.BonusType.OOF, Genum.BonusLevel.MAX)
