@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://1nk7rf35hxei"]
+[gd_scene load_steps=18 format=3 uid="uid://1nk7rf35hxei"]
 
 [ext_resource type="Texture2D" uid="uid://cdsqihhkfxwgl" path="res://assets/images/9-patch.png" id="1_2eohu"]
 [ext_resource type="FontFile" uid="uid://ev041cl5uexh" path="res://ui/fonts/dogicapixelbold.ttf" id="2_by1ao"]
+[ext_resource type="Script" uid="uid://cw6g4b4flv4r5" path="res://ui/default_menu.gd" id="2_mmonh"]
 [ext_resource type="Texture2D" uid="uid://brr3plxrcfa25" path="res://assets/images/ui/grabber.png" id="3_8i5y6"]
 [ext_resource type="Texture2D" uid="uid://b00wva17yugip" path="res://assets/images/ui/sound-icon.png" id="3_r5y0k"]
 [ext_resource type="Texture2D" uid="uid://lef7himfw842" path="res://assets/images/ui/slider.png" id="4_407y0"]
@@ -23,7 +24,7 @@ texture = ExtResource("4_407y0")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_407y0"]
 
-[node name="NinePatchRect" type="NinePatchRect"]
+[node name="NinePatchRect" type="NinePatchRect" node_paths=PackedStringArray("master_volume", "music_volume", "sfx_volume", "new_run_button", "res_button", "quit_button")]
 process_mode = 3
 offset_left = 77.0
 offset_top = 35.0
@@ -34,6 +35,13 @@ patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+script = ExtResource("2_mmonh")
+master_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MasterVolume/MasterSlider")
+music_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MusicVolume/MusicSlider")
+sfx_volume = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/SFXVolume/SFXSlider")
+new_run_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/NewRunButton")
+res_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ResolutionButton")
+quit_button = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/VBoxContainer/QuitButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -80,7 +88,7 @@ layout_mode = 2
 texture = ExtResource("3_r5y0k")
 stretch_mode = 2
 
-[node name="VSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MasterVolume"]
+[node name="MasterSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MasterVolume"]
 custom_minimum_size = Vector2(0, 31.565)
 layout_direction = 3
 layout_mode = 2
@@ -102,7 +110,7 @@ layout_mode = 2
 texture = ExtResource("6_bjm5p")
 stretch_mode = 2
 
-[node name="VSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MusicVolume"]
+[node name="MusicSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/MusicVolume"]
 custom_minimum_size = Vector2(0, 31.565)
 layout_direction = 3
 layout_mode = 2
@@ -124,7 +132,7 @@ layout_mode = 2
 texture = ExtResource("7_d0snn")
 stretch_mode = 2
 
-[node name="VSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/SFXVolume"]
+[node name="SFXSlider" type="VSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/HBoxContainer/SFXVolume"]
 custom_minimum_size = Vector2(0, 31.565)
 layout_direction = 3
 layout_mode = 2

@@ -1,9 +1,11 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
 signal changed_stats
 signal debug_regen
 signal debug_newseed(seed: int)
 signal debug_restart
+signal exit_game
 signal use_lever
 signal reel_over
 signal switch_hero
@@ -12,7 +14,8 @@ signal bonus_get
 signal bonus_level_sound
 signal game_over
 signal game_start
-
+signal post_event(event: WwiseEvent)
+@warning_ignore_restore("unused_signal")
 
 func changed_pull_count() -> void:
 	if Global.get_var(Genum.Vars.PULLS) <= 0:

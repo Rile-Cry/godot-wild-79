@@ -1,7 +1,27 @@
 class_name AK
 
 class EVENTS:
-	pass
+
+	const ARCHER : int = 2300133912
+	const ROUGE : int = 1262240037
+	const WARRIOR : int = 616212745
+	const SECRET : int = 3354192397
+	const TREASURE : int = 3284038070
+	const CARDSTART : int = 2791934585
+	const CARDSTOP : int = 2373841875
+	const LVL1 : int = 141331490
+	const LVL2 : int = 141331489
+	const LVL3 : int = 141331488
+	const LVL3SECRET : int = 2169426660
+	const SPINSADDED : int = 2525390166
+	const SPINSLOST : int = 1942868210
+	const OST : int = 611937389
+	const REELOFFSET : int = 1323061324
+	const REELSPIN : int = 2371611649
+	const REELSPINEND : int = 2479754016
+	const REELSTOP : int = 2337468061
+	const BUTTON : int = 977454165
+	const LEVERPULL : int = 2563778470
 
 class STATES:
 
@@ -65,7 +85,7 @@ class TRIGGERS:
 
 class BANKS:
 
-	const SLOTLIKE22_03_2025 : int = 1794882402
+	const SLOTLIKE230325 : int = 1893586077
 
 class AUX_BUSSES:
 	pass
@@ -86,3 +106,4 @@ class ACOUSTIC_TEXTURES:
 	const WOOD : int = 2058049674
 	const WOOD_BRIGHT : int = 4262522749
 	const WOOD_DEEP : int = 1755085759
+

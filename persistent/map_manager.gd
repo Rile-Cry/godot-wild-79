@@ -1,8 +1,8 @@
 extends Node
 
 var current_map : Array[Array]
-var map_size := Vector2i(17, 17)
-var map_position := Vector2i(0, 8)
+var map_size := Vector2i(51, 51)
+var map_position := Vector2i(0, 0)
 var weights : Array
 var total_traveled : int = 0
 
@@ -27,6 +27,7 @@ func move_current_position(type: int, up: bool = false) -> void:
 ## Generates a map for the game
 func generate_current_map() -> void:
 	_generate_weight_table()
+	_get_starting_position()
 	
 	for x in range(0, map_size.x):
 		current_map.append([])
@@ -79,6 +80,13 @@ func _regen_weight_values(pos: Vector2i = map_position) -> void:
 		total_weight += new_weight
 		i += 1
 	weights.get(1).set(2, total_weight)
+
+func _get_starting_position() -> void:
+	var map_y : int = map_size.y
+	if map_y % 2 == 0:
+		map_position = Vector2i(0, (map_y / 2) - 1)
+	else:
+		map_position = Vector2i(0, (map_y - 1) / 2)
 
 func _check_weight_table(pos: Vector2i = map_position) -> int:
 	_regen_weight_values(pos)

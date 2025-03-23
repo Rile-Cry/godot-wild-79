@@ -17,9 +17,11 @@ var resolutions : Array[Vector2i] = [
 	Vector2i(5120, 2880),
 	Vector2i(7680, 4320),
 ]
+var current_resolution : int
 
 func _enter_tree() -> void:
 	get_tree().root.size_changed.connect(_on_size_changed)
+	current_resolution = resolutions.find(DisplayServer.window_get_size_with_decorations())
 
 #region Resolution Getters
 func get_resolutions(use_computer_screen_limit: bool = false) -> Array[Vector2i]:
@@ -43,6 +45,12 @@ func screen_center() -> Vector2i:
 
 func monitor_screen_center() -> Vector2i:
 	return DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
+
+func change_size() -> void:
+	current_resolution += 1
+	if current_resolution >= resolutions.size():
+		current_resolution = 0
+	DisplayServer.window_set_size(resolutions.get(current_resolution))
 
 #region Signal Callbacks
 func _on_size_changed() -> void:

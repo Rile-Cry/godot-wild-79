@@ -16,9 +16,12 @@ signal reel_stopped
 func _ready() -> void:
 	_update_cards()
 
-func update_reel(new_pos: Vector2i) -> void:
-	pos = new_pos
-	_update_cards()
+func update_reel(new_pos: Vector2i, state: Genum.PlayingState) -> void:
+	if state == Genum.PlayingState.PLAYING:
+		pos = new_pos + Vector2i(reel_id - 2, 0)
+	else:
+		pos = new_pos + Vector2i(reel_id - 1, 0)
+	_update_cards(state)
 	play_animation()
 
 func play_animation() -> void:
@@ -55,13 +58,11 @@ func _toggle_cards(hid: bool = false) -> void:
 		else:
 			card.show()
 
-func _update_cards() -> void:
+func _update_cards(state: Genum.PlayingState = Genum.PlayingState.LOADED) -> void:
 	var i : int = card_list.size()
 	if i % 2 == 0:
-		@warning_ignore("integer_division")
 		i = i / 2
 	else:
-		@warning_ignore("integer_division")
 		i = (i - 1) / 2
 	i = -i
 	for card in card_list:

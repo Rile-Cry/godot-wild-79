@@ -7,6 +7,7 @@ enum BonusLevel {
 }
 
 enum BonusType {
+	NONE,
 	ABC,
 	XYZ,
 	ALPHABET,
@@ -32,6 +33,12 @@ enum Classes {
 	WARRIOR,
 	ROGUE,
 	ARCHER
+}
+
+enum PlayingState {
+	LOADED,
+	TURN_ONE,
+	PLAYING
 }
 
 enum Vars {

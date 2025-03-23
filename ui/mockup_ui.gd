@@ -1,4 +1,5 @@
 extends CanvasLayer
+
 @onready var lever = $Lever
 @onready var lever_button : Button = $Lever/LeverButton
 @onready var leverPull = $Sounds/LeverPull
@@ -38,7 +39,8 @@ func enable_buttons():
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
 	lever.play("default")
-	leverPull.play()
+	Wwise.post_event_id(AK.EVENTS.LEVERPULL, self)
+	#leverPull.play()
 	arrow.visible = false
 	lever_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot Wild 79"
+config/name="Reel Runners"
 run/main_scene="uid://c6hymfrbgv62"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -41,6 +41,7 @@ window/use_soundbank_names=true
 
 [editor]
 
+script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "wem")
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
@@ -70,5 +71,7 @@ renderer/rendering_method.mobile="gl_compatibility"
 
 [wwise]
 
-common_user_settings/root_output_path="res://Wwise/resources/GeneratedSoundBanks"
+common_user_settings/root_output_path="res://generated_soundbanks"
 project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
+common_user_settings/main_output/panning_rule=1
+common_advanced_settings/use_stream_cache=true

@@ -1,8 +1,9 @@
 extends Node
 
+signal added_bonus(bonus: Genum.BonusType, level: Genum.BonusLevel)
+
 var card_resources : Dictionary[int, CardResource]
 var deck_path : StringName = "res://mechanics/cards/"
-var track_set : Array[int] = []
 var current_deck : Array[int]
 var bonus_tracking : Dictionary[Genum.BonusType,Genum.BonusLevel]
 
@@ -26,16 +27,18 @@ func card_action() -> void:
 	var current_card : CardResource = card_resources.get(current_card_id)
 	print(current_card_id)
 	
-	_add_to_deck(current_card)
-	
 	if current_card.card_type == Genum.CardType.NUMBER:
-		if current_card_id == 6:
-			if track_set.get(0) == 6:
-				track_set.append(6)
-			else:
-				track_set = [6]
-		
 		Global.set_var(Genum.Vars.SCORE, current_card_id + 1, true)
+	elif current_card.card_type == Genum.CardType.EFFECT:
+		match(current_card.card_name):
+			"Treasure":
+				Global.set_var(Genum.Vars.SCORE, 100, true)
+			"Multiplier":
+				var score = Global.get_var(Genum.Vars.SCORE)
+				Global.set_var(Genum.Vars.SCORE, score * 2)
+			"Bomb":
+				Global.set_var(Genum.Vars.SCORE, -50, true)
+	_add_to_deck(current_card)
 	
 	Global.set_var(Genum.Vars.PULLS, -1, true)
 
@@ -61,14 +64,13 @@ func _add_to_deck(card_to_add:CardResource) -> void:
 #	777 - Lvl1, Lvl2, LvlMAX
 #	BONUS - LvlMAX 777 on max triggers
 func _bonus_check() -> void:
-	var first_card = current_deck[current_deck.size()-3]
-	#print(first_card)
-	var second_card = current_deck[current_deck.size()-2]
-	#print(first_card)
-	var third_card = current_deck[current_deck.size()-1]
-	#print(third_card)
+	var card_chain = [
+		current_deck[current_deck.size() - 3],
+		current_deck[current_deck.size() - 2],
+		current_deck[current_deck.size() - 1],
+	]
 	#TEMPLATE CHECK
-	#if first_card == 1 and second_card == 2 and third_card == 3 :
+	#if card_chain[0] == 1 and card_chain[0] == 2 and card_chain[2] == 3 :
 		#print(bonus_tracking.get(Genum.BonusType.ABC))
 		#if bonus_tracking.get(Genum.BonusType.ABC) == false or bonus_tracking.get(Genum.BonusType.ABC).value() < 2:
 			#bonus_tracking.get_or_add(Genum.BonusType)
@@ -76,25 +78,32 @@ func _bonus_check() -> void:
 			#print("Max Achieved, passing") 
 			
 	## ABC - DONE
-	if first_card == 0 and second_card == 1 and third_card == 2 :
+	if card_chain == [0, 1, 2]:
 		bonus_tracking[Genum.BonusType.ABC] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.ABC,Genum.BonusLevel.MAX)
 	## XYZ - DONE
-	if first_card == 3 and second_card == 4 and third_card == 5 :
+	if card_chain == [3, 4, 5]:
 		bonus_tracking[Genum.BonusType.XYZ] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.XYZ,Genum.BonusLevel.MAX)
 		
 	## NUMBERS
-	if first_card < 9 :
+	if card_chain[0] < 9 :
 		## ODD - DONE (OFF SET FOR STARTING AT 0)
-		if first_card %2 == 0 and second_card %2 == 0 and third_card %2 == 0 :
-			
-			bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
-			GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
-		## EVN - DONE
-		if first_card %2 == 1 and second_card %2 == 1 and third_card %2 == 1 :
+		var even := true
+		var odd := true
+		for card in card_chain:
+			if card % 2 == 0:
+				odd = false
+			else:
+				even = false
+		
+		if even:
 			bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
+		## EVN - DONE
+		if odd:
+			bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
+			GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
 	
 	## ALPHA ETO SEVENS
 	if !bonus_tracking.is_empty() :
@@ -111,27 +120,27 @@ func _bonus_check() -> void:
 			bonus_tracking[Genum.BonusType.BONUS] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.BONUS,Genum.BonusLevel.MAX)
 #	LCK-A - Lvl1 - TBaT 
-	if first_card == DeckManager.card_resources[9].card_id and second_card == DeckManager.card_resources[12].card_id and third_card == DeckManager.card_resources[9].card_id :
+	if card_chain[0] == DeckManager.card_resources[9].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[9].card_id :
 		bonus_tracking[Genum.BonusType.LCKA] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.ABC,Genum.BonusLevel.MAX)
 #	LCK-B - Lvl1 - TNUMT
-	if first_card == DeckManager.card_resources[9].card_id and second_card <= DeckManager.card_resources[8].card_id and third_card == DeckManager.card_resources[9].card_id :
+	if card_chain[0] == DeckManager.card_resources[9].card_id and card_chain[1] <= DeckManager.card_resources[8].card_id and card_chain[2] == DeckManager.card_resources[9].card_id :
 		bonus_tracking[Genum.BonusType.LCKB] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.LCKB,Genum.BonusLevel.MAX)
 #	LCK - LvlMAX - TTT
-	if first_card == DeckManager.card_resources[9].card_id and second_card == DeckManager.card_resources[12].card_id and third_card == DeckManager.card_resources[9].card_id :
+	if card_chain[0] == DeckManager.card_resources[9].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[9].card_id :
 		bonus_tracking[Genum.BonusType.LCK] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.LCK,Genum.BonusLevel.MAX)
 #	BARTENDER - LvlMAX - BaBaBa
-	if first_card == DeckManager.card_resources[12].card_id and second_card == DeckManager.card_resources[12].card_id and third_card == DeckManager.card_resources[12].card_id :
+	if card_chain[0] == DeckManager.card_resources[12].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[12].card_id :
 		bonus_tracking[Genum.BonusType.BARTENDER] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.BARTENDER,Genum.BonusLevel.MAX)
 #	OOF - LvlMAX - BoBoBo
-	if first_card == DeckManager.card_resources[11].card_id and second_card == DeckManager.card_resources[11].card_id and third_card == DeckManager.card_resources[11].card_id :
+	if card_chain[0] == DeckManager.card_resources[11].card_id and card_chain[1] == DeckManager.card_resources[11].card_id and card_chain[2] == DeckManager.card_resources[11].card_id :
 		bonus_tracking[Genum.BonusType.OOF] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.OOF,Genum.BonusLevel.MAX)
 #	777 - Lvl1, Lvl2, LvlMAX
-	if first_card == DeckManager.card_resources[6].card_id and second_card == DeckManager.card_resources[6].card_id and third_card == DeckManager.card_resources[6].card_id :
+	if card_chain[0] == DeckManager.card_resources[6].card_id and card_chain[1] == DeckManager.card_resources[6].card_id and card_chain[2] == DeckManager.card_resources[6].card_id :
 		if !bonus_tracking.has(Genum.BonusType.SEVENS) :
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.ONE
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.ONE)

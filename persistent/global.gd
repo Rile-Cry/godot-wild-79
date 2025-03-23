@@ -10,8 +10,11 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 var _move_weights : Array[float] = [1.0, 2.0]
 
 func _ready() -> void:
+	Wwise.load_bank("slotlike230325")
 	rng.seed = randi_range(0, 9999)
+	
 	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
+	GameGlobalEvents.exit_game.connect(_on_exit_game)
 
 ## The get function for accessing global variables.
 func get_var(variable: Genum.Vars, idx: int = 0):
@@ -88,3 +91,6 @@ func load_game():
 func _on_new_seed_restart(new_seed: int) -> void:
 	rng.seed = new_seed
 	rng.state = 0
+
+func _on_exit_game() -> void:
+	get_tree().quit()

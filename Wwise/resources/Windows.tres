@@ -1,5 +1,5 @@
-[gd_resource type="WwisePlatformInfo" format=3 uid="uid://c5taavcvdrllx"]
+[gd_resource type="WwisePlatformInfo" format=3 uid="uid://cfx572l37cob7"]
 
 [resource]
 platform_name = "Windows"
-platform_path = "Windows"
+platform_path = "windows"
