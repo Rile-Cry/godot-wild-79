@@ -5,16 +5,7 @@ var playing_ids : Dictionary[int, Array] = {
 }
 
 func _ready() -> void:
-	match OS.get_name():
-		"Windows": 
-			Wwise.load_bank("slotlike230325")
-		"Linux":
-			Wwise.load_bank("")
-		"MacOwise":
-			Wwise.load_bank("")
-		"Web":
-			Wwise.load_bank("")
-	
+	Wwise.load_bank("slotlike230325")	
 
 func play(stream_id: int) -> void:
 	var playing_id = Wwise.post_event_id_callback(stream_id, AkUtils.AkCallbackType.AK_END_OF_EVENT, self, _stop_callback)
