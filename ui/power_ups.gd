@@ -31,7 +31,7 @@ var level_size := Vector2(45.0, 11.0)
 
 # TODO: In the parent scene, make adjustments to fit text within the info panel
 func _ready() -> void:
-	update_bonus(Genum.BonusType.ABC, Genum.BonusLevel.ONE)
+	#update_bonus(Genum.BonusType.ABC, Genum.BonusLevel.ONE)
 	GameGlobalEvents.bonus_get.connect(update_bonus)
 
 

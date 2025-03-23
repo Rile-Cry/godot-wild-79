@@ -24,9 +24,10 @@ texture = ExtResource("3_qg7yf")
 [node name="PowerUps" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 73.0
-offset_right = 57.0
-offset_bottom = 171.0
+offset_top = 74.0
+offset_right = 76.0
+offset_bottom = 201.0
+scale = Vector2(0.74, 0.74)
 theme_override_constants/separation = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/PowerUps"]
@@ -40,11 +41,12 @@ size_flags_vertical = 4
 [node name="HBoxContainer" parent="TextureRect/PowerUps/PowerUps" index="0"]
 offset_left = 2.0
 offset_top = 1.0
-offset_right = 287.0
+offset_right = 167.0
 offset_bottom = 41.0
 scale = Vector2(0.425, 0.425)
 
 [node name="PowerUps2" parent="TextureRect/PowerUps" instance=ExtResource("2_qg7yf")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -57,6 +59,7 @@ offset_bottom = 41.0
 scale = Vector2(0.425, 0.425)
 
 [node name="PowerUps3" parent="TextureRect/PowerUps" instance=ExtResource("2_qg7yf")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -69,6 +72,7 @@ offset_bottom = 41.0
 scale = Vector2(0.425, 0.425)
 
 [node name="PowerUps4" parent="TextureRect/PowerUps" instance=ExtResource("2_qg7yf")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -81,6 +85,7 @@ offset_bottom = 41.0
 scale = Vector2(0.425, 0.425)
 
 [node name="PowerUps5" parent="TextureRect/PowerUps" instance=ExtResource("2_qg7yf")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -93,6 +98,7 @@ offset_bottom = 41.0
 scale = Vector2(0.425, 0.425)
 
 [node name="PowerUps6" parent="TextureRect/PowerUps" instance=ExtResource("2_qg7yf")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4

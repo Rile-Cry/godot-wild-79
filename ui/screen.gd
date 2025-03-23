@@ -19,9 +19,9 @@ func _on_pull_changed() -> void:
 		pulls_label.text = "[color=green]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pulls Remain" 
 	elif pull_count <= 5 and pull_count >= 3 :
 		pulls_label.text = "[color=yellow]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pulls Remain"
-	elif pull_count == 2 : 
+	elif pull_count == 3 : 
 		pulls_label.text = "[color=orange]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pulls Remain"
-	elif pull_count == 1 :
+	elif pull_count == 2 :
 		pulls_label.text = "[color=red]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pull Remains"
-	elif pull_count == 0 :
+	elif pull_count == 1 :
 		pulls_label.text = "[color=red]Last Pull, Make It Count![/color]"
