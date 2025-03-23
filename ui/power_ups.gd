@@ -40,7 +40,7 @@ func _ready() -> void:
 func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> void:
 	bonus = new_bonus
 	level = new_level
-	GameGlobalEvents.bonus_level_sound.emit(level)	
+	
 	
 	var bonus_node : TextureRect = $VBoxContainer/HBoxContainer/TextureRect.duplicate()
 	#bonus_node.position.y += v_offset
@@ -60,3 +60,5 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 	lvl_atlas_texture.region = level_rect
 	lvl_texture.texture = lvl_atlas_texture
 	#$HBoxContainer.add_child()
+	GameGlobalEvents.bonus_level_sound.emit(level)
+	

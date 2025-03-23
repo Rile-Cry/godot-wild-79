@@ -18,7 +18,7 @@ var turn_one := true
 func _ready() -> void:
 	_set_reel_ids()
 	_update_reel_positions()
-	GameGlobalEvents.bonus_level_sound.connect(play_bonus)
+	GameGlobalEvents.bonus_level_sound.connect(play_bonus_sound)
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
@@ -26,8 +26,8 @@ func _ready() -> void:
 	if not loaded:
 		loaded = true
 
-func play_bonus(level:Genum):
-	match level.BonusLevel:
+func play_bonus_sound(level:Genum.BonusLevel):
+	match level:
 		Genum.BonusLevel.ONE:
 			level1Sfx.play()
 		Genum.BonusLevel.TWO:
