@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=71 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -133,7 +133,90 @@ animations = [{
 "texture": SubResource("AtlasTexture_bip7v")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"arrows",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddkd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b3q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm6vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5opd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nxy2")
+}],
+"loop": true,
+"name": &"rogue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnkd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u42wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0suo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xeg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2f5s")
+}],
+"loop": true,
+"name": &"warrior",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2f5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0wgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0qgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibtbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgvlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsl7a")
+}],
+"loop": true,
+"name": &"archer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goc3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eodh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aii0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4667r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bip7v")
+}],
+"loop": true,
+"name": &"arrows",
 "speed": 5.0
 }, {
 "frames": [{
@@ -387,7 +470,7 @@ stretch_mode = 2
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
-animation = &"warrior"
+animation = &"arrows"
 autoplay = "warrior"
 centered = false
 
@@ -409,8 +492,8 @@ stretch_mode = 2
 [node name="Arrow Animation" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons/Arrow Facing"]
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
-sprite_frames = SubResource("SpriteFrames_b0qgs")
-animation = &"new_animation"
+sprite_frames = SubResource("SpriteFrames_p2f5s")
+animation = &"arrows"
 autoplay = "warrior"
 centered = false
 

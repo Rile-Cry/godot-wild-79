@@ -3,7 +3,8 @@ extends CanvasLayer
 @onready var lever = $Lever
 @onready var lever_button : Button = $Lever/LeverButton
 @onready var sidePanel = $SidePanel
-@onready var characters = $LowerButtonPanel/Buttons/Characters
+@onready var characters = $LowerButtonPanel/Buttons/CharacterSelectScreen/Characters
+@onready var direction_arrow = $"LowerButtonPanel/Buttons/Arrow Facing/Arrow Animation"
 @onready var arrow = $Arrow
 @onready var optionsMenu = $OptionsMenu
 @onready var buttons = $LowerButtonPanel/Buttons
@@ -17,6 +18,7 @@ var menuOpen = false
 
 func _ready() -> void:
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
+	direction_arrow.play("arrows",0)
 	disable_buttons()
 	
 func disable_buttons():
@@ -33,14 +35,28 @@ func enable_buttons():
 	leverButton.disabled = false
 	optionsButton = false
 
-func change_hero(new_hero: Genum.Classes) -> void:
+func change_hero(new_hero: Genum.Classes,up:bool) -> void:
 	match new_hero:
 		Genum.Classes.WARRIOR:
 			characters.play("warrior")
+			direction_arrow.play("arrows",0)
+			direction_arrow.set_frame_and_progress(0,0)
 		Genum.Classes.ROGUE:
-			characters.play("rogue")	
+			characters.play("rogue")
+			if !up :
+				direction_arrow.play("arrows",0)
+				direction_arrow.set_frame_and_progress(1,0)
+			else :
+				direction_arrow.play("arrows",0)
+				direction_arrow.set_frame_and_progress(4,0)
 		Genum.Classes.ARCHER:
 			characters.play("archer")
+			if !up :
+				direction_arrow.play("arrows",0)
+				direction_arrow.set_frame_and_progress(2,0)
+			else :
+				direction_arrow.play("arrows",0)
+				direction_arrow.set_frame_and_progress(3,0)
 
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
