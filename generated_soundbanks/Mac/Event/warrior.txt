@@ -1,3 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	616212745	warrior			\Default Work Unit\characters\warrior	
-

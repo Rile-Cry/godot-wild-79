@@ -76,7 +76,3 @@ common_user_settings/root_output_path="res://generated_soundbanks"
 project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
 common_user_settings/main_output/panning_rule=1
 common_advanced_settings/use_stream_cache=true
-project_settings/mac_platform_info="res://Wwise/resources/Mac.tres"
-project_settings/linux_platform_info="res://Wwise/resources/Linux.tres"
-project_settings/ios_platform_info="res://Wwise/resources/iOS.tres"
-project_settings/android_platform_info="res://Wwise/resources/Android.tres"

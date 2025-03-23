@@ -1,3 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	2525390166	spinsAdded			\Default Work Unit\gameplay\spins\spinsAdded	
-

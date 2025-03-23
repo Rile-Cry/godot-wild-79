@@ -1,0 +1,91 @@
+Event	ID	Name			Wwise Object Path	Notes
+	141331488	lvl3			\Default Work Unit\gameplay\combos\lvl3	
+	141331489	lvl2			\Default Work Unit\gameplay\combos\lvl2	
+	141331490	lvl1			\Default Work Unit\gameplay\combos\lvl1	
+	611937389	ost			\Default Work Unit\ost\ost	
+	616212745	warrior			\Default Work Unit\characters\warrior	
+	977454165	button			\Default Work Unit\ui\button	
+	1262240037	rouge			\Default Work Unit\characters\rouge	
+	1323061324	reelOffset			\Default Work Unit\reels\reelOffset\reelOffset	
+	1942868210	spinsLost			\Default Work Unit\gameplay\spins\spinsLost	
+	2169426660	lvl3Secret			\Default Work Unit\gameplay\combos\lvl3Secret	
+	2300133912	archer			\Default Work Unit\characters\archer	
+	2337468061	reelStop			\Default Work Unit\reels\reelStop\reelStop	
+	2371611649	reelSpin			\Default Work Unit\reels\reelSpin\reelSpin	
+	2373841875	cardStop			\Default Work Unit\gameplay\cards\cardStop	
+	2479754016	reelSpinEnd			\Default Work Unit\reels\reelSpin\reelSpinEnd	
+	2525390166	spinsAdded			\Default Work Unit\gameplay\spins\spinsAdded	
+	2563778470	leverPull			\Default Work Unit\ui\leverPull	
+	2791934585	cardStart			\Default Work Unit\gameplay\cards\cardStart	
+	3284038070	treasure			\Default Work Unit\events\treasure	
+	3354192397	secret			\Default Work Unit\events\secret	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	936499202	result			\Default Work Unit\result	
+	2470328564	intensity			\Default Work Unit\intensity	
+	3459452222	phase			\Default Work Unit\phase	
+
+State	ID	Name	State Group			Notes
+	221232726	lose	result			
+	748895195	None	result			
+	979765101	win	result			
+	545371365	low	intensity			
+	748895195	None	intensity			
+	1182670505	mid	intensity			
+	3550808449	high	intensity			
+	89505537	gameplay	phase			
+	748895195	None	phase			
+	2607556080	menu	phase			
+	3064974266	special	phase			
+	3161415855	event	phase			
+	3780578133	results	phase			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2275025563	spinNum			\Default Work Unit\spinNum	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	5380716	mainLow	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\DC\{DC59334B-734F-110C-DE31-BF9ECC6BD7C0}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\mainLow\mainLow\mainLow		21751888
+	16958929	reelStop4	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\68\{68016C87-C2D3-5897-5950-ED688D63BCD9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelStop\reelStop\reelStop4		73080
+	48573068	mainEvent	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\72\{72481628-C64A-72B7-0541-72DFEDE083FF}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\mainEvent\mainEvent\mainEvent		21740284
+	53863141	opening	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\AA\{AA0B55E3-34E3-AB39-A523-2B996E4E2380}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\menu\opening\opening		1683628
+	75777306	reelOffset4	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\B6\{B67D5CDB-5CEE-DBDA-0B7A-B0E7350AB211}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelOffset\reelOffset\reelOffset4		73080
+	85763106	defeat	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\94\{9460BAA0-57DC-5FDE-58FB-A21090D635DF}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\result\defeat\defeat		1084484
+	102186723	lvl2	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\9C\{9C40C2B8-D085-3EB5-2CDA-1CFFDECDF24B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\combos\lvl2		249180
+	103379011	victory	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\5C\{5C425932-4ECC-4271-CF04-97636DE15790}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\result\victory\victory		775136
+	167112038	lvl3	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\50\{50D9D359-AA52-5E13-5048-9F58C71CAE27}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\combos\lvl3		249180
+	238199861	cardsEnd	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\81\{81B507EF-D0B3-982A-FA91-970986E3F822}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\cards\cards\cardsEnd		77336
+	307954509	lvl1	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\7C\{7C26E376-D0ED-8DE5-4BEC-689915E9CF4C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\combos\lvl1		249180
+	376896174	mainHigh	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\19\{1994E8BD-243F-7D34-D6F6-1B13EF06BDEA}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\mainHigh\mainHigh\mainHigh		21799472
+	387259402	reelStop5	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\2C\{2CBEE8AC-9600-AF16-B1CD-1138B564B9F1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelStop\reelStop\reelStop5		73080
+	388968205	cardsStart	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\CC\{CC21F3A4-5CA8-BC51-BE0A-11020E111AB2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\cards\cards\cardsStart		78056
+	439818068	reelOffset1	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\E2\{E2916A24-69BB-F4AF-ACB8-AEAE2AE39485}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelOffset\reelOffset\reelOffset1		72232
+	448120465	treasure	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\DE\{DE0CFB52-CC9B-FCDF-B2F0-A1D23A81C746}.wem		\Actor-Mixer Hierarchy\Default Work Unit\events\treasure		90040
+	492461634	button6	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\AA\{AA2ACF8E-AF81-E402-5834-0BA912B70BB8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button6		43396
+	511673366	reelOffset5	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\75\{756A88F4-59C4-C0EA-4498-5355CBBC955F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelOffset\reelOffset\reelOffset5		72232
+	521330262	secret	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\23\{2387469E-E882-9214-FB75-AFE8EADDE641}.wem		\Actor-Mixer Hierarchy\Default Work Unit\events\secret		959320
+	524488604	reelOffset3	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\76\{76E688BC-B64D-868F-8F2A-2BD0A25FC2AA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelOffset\reelOffset\reelOffset3		72232
+	538498074	mainMenu	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\13\{13D8F244-2787-09E6-DF5B-CDD66408B35F}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\menu\mainMenu\mainMenu		21747248
+	547944412	reelSpin	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\D1\{D1154C68-EF1E-947B-87E7-4B94F14122B0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelSpin\reelSpin\reelSpin		801580
+	577134540	button1	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\2D\{2D048DF7-D087-1B7B-0317-CD32DF31E41D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button1		61204
+	580885339	reelStop1	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\1D\{1D4D2C81-07D7-AE84-F11C-938572047AD1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelStop\reelStop\reelStop1		73080
+	609856089	lever5	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\F6\{F6D4DB23-245D-D16A-0B53-669EEBF3D21A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\leverPull\lever5		147708
+	616700087	spinsAdded	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\89\{895D1DCC-0D9D-5AD7-CC0B-915A79E87AB3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\spinCount\spinsAdded		62620
+	618053026	button5	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\3A\{3AA1EFB0-770B-D674-8CF8-0D97A0465CE8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button5		68840
+	667140631	bowDraw	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\52\{520F7320-80D0-A012-8F0E-C27ECDDA2C01}.wem		\Actor-Mixer Hierarchy\Default Work Unit\characters\archer\archer\bowDraw		145164
+	713982267	reelJingle	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\FD\{FD2A2586-2ACE-5471-61C1-5AA579453278}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelSpin\reelSpin\reelJingle		529344
+	727355017	specialStageIntro	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\96\{9696BF2B-7892-086C-42B3-D3EE56805707}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\specialStage\specialStageIntro\specialStageIntro		846248
+	745839217	reelStop3	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\71\{7146AA41-908B-A613-8A85-9A16F2022E9D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelStop\reelStop\reelStop3		73080
+	781312075	reelStop2	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\A1\{A1B211FA-5E8C-0A9C-93A3-76FA63194621}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelStop\reelStop\reelStop2		73080
+	830269697	specialStage	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\56\{56C8B43D-2A31-1CEA-CEA2-13983D073DA8}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\specialStage\specialStage\specialStage		11983036
+	831853035	mainMid	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\70\{70D7BC38-024B-94D0-12A5-F6349AA1E896}.wem		\Interactive Music Hierarchy\Default Work Unit\OST\OST\gameplay\main\mainMid\mainMid\mainMid		21771616
+	834275233	button2	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\66\{66300552-8F63-89F3-32C8-48ABC72E0A73}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button2		60356
+	841274802	dagger	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\6B\{6BBB0132-E569-8B3D-614E-A7F0EF495877}.wem		\Actor-Mixer Hierarchy\Default Work Unit\characters\rouge\dagger		49332
+	878146093	cardsLoop	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\F6\{F6C28809-3B88-0AF4-C614-7E6015BEACD8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\cards\cards\cardsLoop		229124
+	888555694	spinsLost	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\66\{6684374D-7F54-A2A1-BCE3-D69B5842F9C4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\spinCount\spinsLost		62620
+	904808013	button3	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\3F\{3F5806EE-C2DE-6EDF-7DF6-25842BA2EF70}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button3		66292
+	952149774	lvl3secret	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\D2\{D2194623-5DD4-6AC2-F1BB-C6F2E1EFD21A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\gameplay\combos\lvl3secret		531940
+	969704485	sword	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\52\{52CCE542-C0D7-9D42-362A-31171B13D023}.wem		\Actor-Mixer Hierarchy\Default Work Unit\characters\warrior\sword		112940
+	970345989	reelOffset2	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\35\{35FB913A-2A7E-F8EC-F3F1-C1B9FF4C54ED}.wem		\Actor-Mixer Hierarchy\Default Work Unit\reel\reelOffset\reelOffset\reelOffset2		72232
+	1001949050	button4	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\50\{50183533-09B1-4926-A7FC-0B3B49DB6B06}.wem		\Actor-Mixer Hierarchy\Default Work Unit\ui\button\button\button4		52724
+	1065150250	bowShoot	C:\Users\sumat\Documents\Development\Assets\Wwise\slotLike\.cache\95\{95024290-E375-C9DE-3144-2A49C109DA22}.wem		\Actor-Mixer Hierarchy\Default Work Unit\characters\archer\archer\bowShoot		79016
+
