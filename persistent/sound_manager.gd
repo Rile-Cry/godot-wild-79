@@ -23,6 +23,18 @@ func stop(stream_id: int) -> void:
 			Wwise.stop_event(playing_ids.get(stream_id)[0], 1, AkUtils.AkCurveInterpolation.AK_CURVE_LINEAR)
 			playing_ids.erase(stream_id)
 
+func _set_phase(phase_id:int) -> void:
+	Wwise.set_state_id(AK.STATES.PHASE.GROUP,phase_id)
+	pass
+
+func _set_intensity(intensity_id) -> void:
+	Wwise.set_state_id(AK.STATES.INTENSITY.GROUP,intensity_id)
+	pass
+
+func soundtrack_crossfade() -> void:
+	stop(AK.EVENTS.OST)
+	play(AK.EVENTS.OST)
+
 func stop_all() -> void:
 	for stream_id in playing_ids.keys():
 		while playing_ids.has(stream_id):
