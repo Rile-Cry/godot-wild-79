@@ -11,6 +11,7 @@ signal toggle_direction
 signal bonus_get
 signal bonus_level_sound
 signal game_over
+signal game_start
 
 
 func changed_pull_count() -> void:

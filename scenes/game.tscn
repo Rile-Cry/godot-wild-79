@@ -392,15 +392,19 @@ bus = &"SFX"
 
 [node name="Level1" type="AudioStreamPlayer" parent="BonusSounds"]
 stream = ExtResource("11_trtic")
+bus = &"SFX"
 
 [node name="Level2" type="AudioStreamPlayer" parent="BonusSounds"]
 stream = ExtResource("12_ir15t")
+bus = &"SFX"
 
 [node name="LevelMAX" type="AudioStreamPlayer" parent="BonusSounds"]
 stream = ExtResource("13_ca42v")
+bus = &"SFX"
 
 [node name="LevelMAXSecret" type="AudioStreamPlayer" parent="BonusSounds"]
 stream = ExtResource("14_rysoc")
+bus = &"SFX"
 
 [connection signal="reel_started" from="Reels/Reel5" to="." method="_on_reel_5_reel_started"]
 [connection signal="reel_stopped" from="Reels/Reel5" to="." method="_on_reel_5_reel_stopped"]

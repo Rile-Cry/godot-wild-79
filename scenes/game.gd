@@ -16,8 +16,7 @@ var loaded := false
 var turn_one := true
 
 func _ready() -> void:
-	_set_reel_ids()
-	_update_reel_positions()
+	GameGlobalEvents.game_start.connect(first_round)
 	GameGlobalEvents.bonus_level_sound.connect(play_bonus_sound)
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
@@ -25,6 +24,10 @@ func _ready() -> void:
 	
 	if not loaded:
 		loaded = true
+
+func first_round():
+	_set_reel_ids()
+	_update_reel_positions()
 
 func play_bonus_sound(level:Genum.BonusLevel):
 	match level:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=66 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
 [ext_resource type="AudioStream" uid="uid://usbft5po5j0r" path="res://assets/sfx/button4.wav" id="12_8xeg2"]
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
+[ext_resource type="PackedScene" uid="uid://bmsvxorel3euq" path="res://ui/main_menu.tscn" id="14_b0qgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -412,10 +413,12 @@ frame_progress = 0.731681
 [node name="LeverPull" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_etg4v")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("12_8xeg2")
 volume_db = -6.892
+bus = &"SFX"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
 z_index = 999
@@ -424,6 +427,10 @@ offset_top = -80.555
 offset_right = 242.0
 offset_bottom = 0.444992
 pivot_offset = Vector2(80, 45)
+
+[node name="MainMenu" parent="." instance=ExtResource("14_b0qgs")]
+offset_right = 320.0
+pivot_offset = Vector2(160, 90)
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
