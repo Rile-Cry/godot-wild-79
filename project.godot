@@ -54,6 +54,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 folder_colors={
 "res://Wwise/": "purple",
 "res://assets/": "pink",
+"res://generated_soundbanks/": "orange",
 "res://mechanics/": "blue",
 "res://persistent/": "yellow",
 "res://scenes/": "gray",

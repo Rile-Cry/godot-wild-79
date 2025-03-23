@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=64 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cdggq3hf8uo07" path="res://assets/images/character-select-screen-matrix.png" id="5_cnkd0"]
 [ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
-[ext_resource type="AudioStream" uid="uid://usbft5po5j0r" path="res://assets/sfx/button4.wav" id="12_8xeg2"]
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
 [ext_resource type="PackedScene" uid="uid://bmsvxorel3euq" path="res://ui/main_menu.tscn" id="14_b0qgs"]
 
@@ -406,17 +405,6 @@ position = Vector2(301, 80)
 sprite_frames = SubResource("SpriteFrames_goc3n")
 autoplay = "default"
 frame_progress = 0.731681
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="LeverPull" type="AudioStreamPlayer" parent="Sounds"]
-volume_db = -10.0
-bus = &"SFX"
-
-[node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("12_8xeg2")
-volume_db = -6.892
-bus = &"SFX"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
 z_index = 999

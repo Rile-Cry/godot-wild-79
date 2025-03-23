@@ -2,8 +2,6 @@ extends CanvasLayer
 
 @onready var lever = $Lever
 @onready var lever_button : Button = $Lever/LeverButton
-@onready var leverPull = $Sounds/LeverPull
-@onready var buttonClick = $Sounds/ButtonClick
 @onready var sidePanel = $SidePanel
 @onready var characters = $LowerButtonPanel/Buttons/Characters
 @onready var arrow = $Arrow
@@ -15,7 +13,6 @@ extends CanvasLayer
 @onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
 @onready var leverButton = $Lever/LeverButton
 
-var swap_counter = 1
 var menuOpen = false
 
 func _ready() -> void:
@@ -36,6 +33,15 @@ func enable_buttons():
 	leverButton.disabled = false
 	optionsButton = false
 
+func change_hero(new_hero: Genum.Classes) -> void:
+	match new_hero:
+		Genum.Classes.WARRIOR:
+			characters.play("warrior")
+		Genum.Classes.ROGUE:
+			characters.play("rogue")	
+		Genum.Classes.ARCHER:
+			characters.play("archer")
+
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
 	lever.play("default")
@@ -45,7 +51,7 @@ func _on_lever_button_pressed() -> void:
 	lever_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_info_button_pressed() -> void:
-	buttonClick.play()
+	SoundManager.play(AK.EVENTS.BUTTON)
 	var tween = get_tree().create_tween()
 	if sidePanel.offset.x > 0:
 		disable_buttons()
@@ -62,23 +68,13 @@ func _on_info_button_pressed() -> void:
 
 
 func _on_swap_button_pressed() -> void:
-	buttonClick.play()
-	match swap_counter:
-		0:
-			characters.play("warrior")
-		1:
-			characters.play("rogue")	
-		2:
-			characters.play("archer")
-	swap_counter += 1
-	if swap_counter > 2:
-		swap_counter = 0
-	
+	SoundManager.play(AK.EVENTS.BUTTON)
 	GameGlobalEvents.switch_hero.emit()
+	
 
 
 func _on_up_down_button_pressed() -> void:
-	buttonClick.play()
+	SoundManager.play(AK.EVENTS.BUTTON)
 	GameGlobalEvents.toggle_direction.emit()
 
 
@@ -86,7 +82,7 @@ func _on_lever_animation_finished() -> void:
 	arrow.visible = true
 
 func _on_options_button_pressed() -> void:
-	buttonClick.play()
+	SoundManager.play(AK.EVENTS.BUTTON)
 	var tween = get_tree().create_tween()
 	match menuOpen:
 		false: 

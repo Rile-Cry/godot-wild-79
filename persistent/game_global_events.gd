@@ -14,8 +14,12 @@ signal bonus_get
 signal bonus_level_sound
 signal game_over
 signal game_start
-signal post_event(event: WwiseEvent)
+signal generation_complete
+signal new_run
 @warning_ignore_restore("unused_signal")
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func changed_pull_count() -> void:
 	if Global.get_var(Genum.Vars.PULLS) <= 0:

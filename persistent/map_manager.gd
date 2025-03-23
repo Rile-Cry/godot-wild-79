@@ -6,6 +6,9 @@ var map_position := Vector2i(0, 0)
 var weights : Array
 var total_traveled : int = 0
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 ## Grabs the number at a specific position
 func get_position_value(pos: Vector2i) -> int:
 	return current_map[pos.x][pos.y]
@@ -26,6 +29,7 @@ func move_current_position(type: int, up: bool = false) -> void:
 
 ## Generates a map for the game
 func generate_current_map() -> void:
+	current_map = []
 	_generate_weight_table()
 	_get_starting_position()
 	

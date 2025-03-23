@@ -3,11 +3,7 @@ extends Node
 @export var reels : Array[Node2D]
 @export var position_highlight : Sprite2D
 @export var position_markers : Array[Marker2D]
-
-@onready var level1Sfx = $BonusSounds/Level1
-@onready var level2Sfx = $BonusSounds/Level2
-@onready var levelMaxSfx = $BonusSounds/LevelMAX
-@onready var levelMaxSecretSfx = $BonusSounds/LevelMAXSecret
+@export var reel_spin : AudioStreamPlayer
 
 var cards_collected : Array[Vector2i]
 var current_class := Genum.Classes.WARRIOR
@@ -24,11 +20,11 @@ func _ready() -> void:
 func play_bonus_sound(level:Genum.BonusLevel):
 	match level:
 		Genum.BonusLevel.ONE:
-			level1Sfx.play()
+			SoundManager.play(AK.EVENTS.LVL1)
 		Genum.BonusLevel.TWO:
-			level2Sfx.play()
+			SoundManager.play(AK.EVENTS.LVL2)
 		Genum.BonusLevel.MAX:
-			levelMaxSfx.play()
+			SoundManager.play(AK.EVENTS.LVL3)
 		
 func _first_round():
 	_set_reel_ids()
@@ -44,6 +40,8 @@ func _set_reel_ids() -> void:
 		i += 1
 
 func _update_reel_positions() -> void:
+	reel_spin.play()
+	
 	if state == Genum.PlayingState.TURN_ONE:
 		state = Genum.PlayingState.PLAYING
 	
@@ -63,13 +61,22 @@ func _on_hero_switched() -> void:
 			current_class = Genum.Classes.ROGUE
 			Wwise.post_event_id(AK.EVENTS.ROUGE, self)
 		Genum.Classes.ROGUE:
-			current_class = Genum.Classes.ARCHER
+			if up:
+				current_class = Genum.Classes.WARRIOR
+				up = false
+			else:
+				current_class = Genum.Classes.ARCHER
 			Wwise.post_event_id(AK.EVENTS.ARCHER, self)
 		Genum.Classes.ARCHER:
-			current_class = Genum.Classes.WARRIOR
+			if up:
+				current_class = Genum.Classes.ROGUE
+			else:
+				current_class = Genum.Classes.ARCHER
+				up = true
 			Wwise.post_event_id(AK.EVENTS.WARRIOR, self)
 	
 	_update_highlight()
+	$UI.change_hero(current_class)
 
 func _update_highlight() -> void:
 	if state == Genum.PlayingState.PLAYING:
@@ -89,7 +96,7 @@ func _on_reel_5_reel_stopped() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 1.0
 	$SlotMachine/Lights.play("default")
-	SoundManager.stop_sfx(1)
+	SoundManager.stop(AK.EVENTS.REELSPIN)
 	GameGlobalEvents.reel_over.emit()
 
 func _on_reel_5_reel_started() -> void:
@@ -97,7 +104,7 @@ func _on_reel_5_reel_started() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 7.8
 	$SlotMachine/Lights.play("default")
-	SoundManager.play_sfx("reelSpin", 1)
+	SoundManager.play(AK.EVENTS.REELSPIN)
 
 func _bonus_update(bonus_id:int) -> void:
 	print("updating bonus")

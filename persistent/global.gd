@@ -10,10 +10,9 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 var _move_weights : Array[float] = [1.0, 2.0]
 
 func _ready() -> void:
-	Wwise.load_bank("slotlike230325")
 	rng.seed = randi_range(0, 9999)
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
 	GameGlobalEvents.exit_game.connect(_on_exit_game)
 
 ## The get function for accessing global variables.
@@ -43,54 +42,14 @@ func set_var(variable: Genum.Vars, value, modify: bool = false) -> void:
 		_:
 			_global_vars.set(variable, value)
 
-## Produces the Dictionary containing all the global variables.
-func save() -> Dictionary:
-	var save_dict : Dictionary = {}
-	var i : int = 0
-	for run in _prior_runs:
-		save_dict[i] = run
-		i += 1
-	
-	return save_dict
-
-## The actual save function that writes all relevant save data to a file.
-func save_game() -> void:
-	var save_file := FileAccess.open("user://old_runs.save", FileAccess.WRITE)
-	var json_string = JSON.stringify(save())
-	save_file.store_line(json_string)
-
-## The function that loads a save file, assuming it exists, and sets all relavent parameters
-## and nodes to match the values.
-func load_game():
-	if not FileAccess.file_exists("user://data.save"):
-		return
-	
-	# The save file to be accessed
-	var save_file := FileAccess.open("user://data.save", FileAccess.READ)
-	var json_string = save_file.get_line()
-	save_file.close() # At the moment there should only be one line so the file closes immediately
-	
-	# Parsing the Json found in the save file
-	var json = JSON.new()
-	var parse_result = json.parse(json_string)
-	if not parse_result == OK:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return
-	
-	# Making sure the loaded data is of type dictionary for global variables
-	# Though this is only temporary depending on other persistents
-	var loaded_data = json.data
-	if typeof(loaded_data) != TYPE_DICTIONARY:
-		print("Loaded data error: Not a dictionary")
-		return
-	
-	# Actually loading in the variables.
-	for run in loaded_data:
-		_prior_runs.append(run)
-
-func _on_new_seed_restart(new_seed: int) -> void:
+func new_run(new_seed: int) -> void:
 	rng.seed = new_seed
 	rng.state = 0
+	
+	MapManager.generate_current_map()
+	set_var(Genum.Vars.SCORE, 0)
+	set_var(Genum.Vars.PULLS, 15)
+	GameGlobalEvents.generation_complete.emit()
 
 func _on_exit_game() -> void:
 	get_tree().quit()

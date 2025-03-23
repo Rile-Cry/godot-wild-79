@@ -1,7 +1,21 @@
 extends Node
 
-func _ready() -> void:
-	GameGlobalEvents.post_event.connect(_on_event_posted)
+@export var game_scene : PackedScene
 
-func _on_event_posted(event: WwiseEvent) -> void:
-	event.post(self)
+func _ready() -> void:
+	var game = game_scene.instantiate()
+	add_child(game)
+	
+	GameGlobalEvents.new_run.connect(_on_new_start)
+
+func _on_new_start() -> void:
+	var seed = Global.rng.randi_range(0, 9999)
+	var game = get_child(0)
+	remove_child(game)
+	game.queue_free()
+	
+	Global.new_run(seed)
+	await GameGlobalEvents.generation_complete
+	
+	game = game_scene.instantiate()
+	add_child(game)

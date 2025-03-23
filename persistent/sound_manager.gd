@@ -1,54 +1,32 @@
 extends Node
 
-var music_dir : StringName = "res://assets/music/"
-var music_pool : Dictionary[StringName, AudioStream]
-var music_stream : AudioStreamPlayer
-var sfx_dir : StringName = "res://assets/sfx/"
-var sfx_pool : Dictionary[StringName, AudioStream]
-var sfx_streams : Array[AudioStreamPlayer]
-var sfx_channels : int = 3
+var playing_ids : Dictionary[int, Array] = {
+	
+}
 
 func _ready() -> void:
-	music_stream = AudioStreamPlayer.new()
-	music_stream.bus = "Music"
-	add_child(music_stream)
-	for channel in range(sfx_channels):
-		sfx_streams.append(AudioStreamPlayer.new())
-		sfx_streams[channel].bus = "SFX"
-		sfx_streams[channel].volume_db = -channel * 10
-		add_child(sfx_streams[channel])
-	
-	_load_music()
-	_load_sfx()
+	Wwise.load_bank("slotlike230325")
 
-func play_music(stream_name: StringName) -> void:
-	music_stream.stream = music_pool[stream_name]
-	music_stream.play()
-
-func play_sfx(stream_name: StringName, channel_idx: int = -1) -> void:
-	if channel_idx == -1:
-		for channel in sfx_streams:
-			if channel.playing:
-				continue
-			else:
-				channel.stream = sfx_pool[stream_name]
-				channel.play()
+func play(stream_id: int) -> void:
+	var playing_id = Wwise.post_event_id_callback(stream_id, AkUtils.AkCallbackType.AK_END_OF_EVENT, self, _stop_callback)
+	if playing_ids.has(stream_id):
+		playing_ids[stream_id].append(playing_id)
 	else:
-		sfx_streams[channel_idx].stream = sfx_pool[stream_name]
-		sfx_streams[channel_idx].play()
+		playing_ids[stream_id] = [playing_id]
 
-func stop_sfx(channel_idx: int = 0) -> void:
-	sfx_streams[channel_idx].stop()
-	sfx_streams[channel_idx].stream = null
+func stop(stream_id: int) -> void:
+	if playing_ids.has(stream_id):
+		if playing_ids.get(stream_id).size() > 1:
+			var id = playing_ids.get(stream_id).pop_front()
+			Wwise.stop_event(id, 1, AkUtils.AkCurveInterpolation.AK_CURVE_LINEAR)
+		else:
+			Wwise.stop_event(playing_ids.get(stream_id)[0], 1, AkUtils.AkCurveInterpolation.AK_CURVE_LINEAR)
+			playing_ids.erase(stream_id)
 
-func _load_music() -> void:
-	var music_list := ResourceLoader.list_directory(music_dir)
-	for song in music_list:
-		var song_name = song.split(".")[0]
-		music_pool.set(song_name, ResourceLoader.load(music_dir + song, "AudioStream"))
+func stop_all() -> void:
+	for stream_id in playing_ids.keys():
+		while playing_ids.has(stream_id):
+			stop(stream_id)
 
-func _load_sfx() -> void:
-	var sfx_list := ResourceLoader.list_directory(sfx_dir)
-	for sound in sfx_list:
-		var sound_name = sound.split(".")[0]
-		sfx_pool.set(sound_name, ResourceLoader.load(sfx_dir + sound, "AudioStream"))
+func _stop_callback(data: Dictionary) -> void:
+	stop(data.get("eventID"))

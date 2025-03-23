@@ -33,7 +33,7 @@ func play_animation() -> void:
 	await reel_timer.timeout
 	anim_player.stop()
 	reel_anim.hide()
-	SoundManager.play_sfx(sfx_array[Global.rng.randi_range(0, sfx_array.size() - 1)])
+	SoundManager.play(AK.EVENTS.REELSTOP)
 	reel_stopped.emit()
 	_toggle_cards(false)
 	var tween = create_tween()
