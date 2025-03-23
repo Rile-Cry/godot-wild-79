@@ -13,6 +13,19 @@ extends CanvasLayer
 @onready var upDownButton = $LowerButtonPanel/Buttons/UpDownButton
 @onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
 @onready var leverButton = $Lever/LeverButton
+#@export var lever : AnimatedSprite2D
+#@export var lever_button : Button
+#@export var sidePanel : CanvasLayer
+#@export var characters : AnimatedSprite2D
+#@export var direction_arrow : AnimatedSprite2D
+#@export var arrow : AnimatedSprite2D
+#@export var optionsMenu : NinePatchRect
+#@export var buttons : Button
+#@export var optionsButton : TextureButton
+#@export var infoButton : TextureButton
+#@export var upDownButton : TextureButton
+#@export var swapButton : TextureButton
+#@export var leverButton : Button
 
 var menuOpen = false
 
@@ -26,14 +39,14 @@ func disable_buttons():
 	upDownButton.disabled = true
 	swapButton.disabled = true
 	leverButton.disabled = true
-	optionsButton = true
+	optionsButton.disabled = true
 
 func enable_buttons():
 	infoButton.disabled = false
 	upDownButton.disabled = false
 	swapButton.disabled = false
 	leverButton.disabled = false
-	optionsButton = false
+	optionsButton.disabled = false
 
 func change_hero(new_hero: Genum.Classes,up:bool) -> void:
 	match new_hero:

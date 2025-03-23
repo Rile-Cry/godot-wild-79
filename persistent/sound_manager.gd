@@ -13,7 +13,7 @@ func _ready() -> void:
 		"MacOwise":
 			Wwise.load_bank("")
 		"Web":
-			Wwise.load_bank("")
+			Wwise.load_bank("slotlike230325")
 	
 
 func play(stream_id: int) -> void:
