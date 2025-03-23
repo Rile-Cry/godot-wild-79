@@ -9,4 +9,6 @@ card_texture_position = Vector2i(3, 0)
 card_type = 0
 card_id = 3
 card_weight = 0.9
+card_weight_coefficient = 1.0
+card_value = 4
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

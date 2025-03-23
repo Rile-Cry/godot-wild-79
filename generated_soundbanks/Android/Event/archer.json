@@ -1,0 +1,60 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2300133912",
+    "Type": "Event",
+    "GUID": "{283619D3-68EB-47D2-8597-E1832C7218B8}",
+    "Language": "SFX",
+    "Hash": "{39E06852-60D9-512C-E357-D5408AEDAC68}",
+    "ObjectPath": "archer",
+    "ShortName": "archer",
+    "Path": "Event/archer.bnk",
+    "Media": [
+     {
+      "Id": "667140631",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "bowDraw.wav",
+      "Path": "Media/667140631.wem",
+      "CachePath": "52/{520F7320-80D0-A012-8F0E-C27ECDDA2C01}.wem"
+     },
+     {
+      "Id": "1065150250",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "bowShoot.wav",
+      "Path": "Media/1065150250.wem",
+      "CachePath": "95/{95024290-E375-C9DE-3144-2A49C109DA22}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2300133912",
+      "Name": "archer",
+      "ObjectPath": "\\Events\\Default Work Unit\\characters\\archer",
+      "GUID": "{283619D3-68EB-47D2-8597-E1832C7218B8}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8581746",
+      "DurationMax": "0.8581746",
+      "MediaRefs": [
+       {
+        "Id": "667140631"
+       },
+       {
+        "Id": "1065150250"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1AB008D7-DB24-547F-7788-A1D73F41586D}"
+ }
+}

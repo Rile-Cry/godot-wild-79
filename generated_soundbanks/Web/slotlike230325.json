@@ -1,0 +1,21 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Web",
+  "BasePlatform": "Web",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1893586077",
+    "Type": "User",
+    "GUID": "{4FF00781-991C-4C87-B99F-1D9DF6A91DEA}",
+    "Language": "SFX",
+    "Hash": "{7E7F8C84-BFA7-1149-0196-54A6CDCCCB10}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\slotlike230325",
+    "ShortName": "slotlike230325",
+    "Path": "slotlike230325.bnk"
+   }
+  ],
+  "FileHash": "{67438A06-43E6-7265-2A08-FDAF2ABB638E}"
+ }
+}

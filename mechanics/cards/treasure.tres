@@ -10,4 +10,5 @@ card_type = 1
 card_id = 9
 card_weight = 0.3
 card_weight_coefficient = 0.0
+card_value = 50
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"

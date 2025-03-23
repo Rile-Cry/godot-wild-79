@@ -1,0 +1,48 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "iOS",
+  "BasePlatform": "iOS",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "616212745",
+    "Type": "Event",
+    "GUID": "{A4096048-81F4-4A0A-9A5B-F51D0AFC206F}",
+    "Language": "SFX",
+    "Hash": "{7DD60A4A-53E0-D639-A9C7-56F8A68E5186}",
+    "ObjectPath": "warrior",
+    "ShortName": "warrior",
+    "Path": "Event/warrior.bnk",
+    "Media": [
+     {
+      "Id": "969704485",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "sword.wav",
+      "Path": "Media/969704485.wem",
+      "CachePath": "52/{52CCE542-C0D7-9D42-362A-31171B13D023}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "616212745",
+      "Name": "warrior",
+      "ObjectPath": "\\Events\\Default Work Unit\\characters\\warrior",
+      "GUID": "{A4096048-81F4-4A0A-9A5B-F51D0AFC206F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6394331",
+      "DurationMax": "0.6394331",
+      "MediaRefs": [
+       {
+        "Id": "969704485"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E5A073EF-2880-72F6-2582-81D64EF4EBCD}"
+ }
+}

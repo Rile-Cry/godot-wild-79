@@ -1,0 +1,66 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "iOS",
+  "BasePlatform": "iOS",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2371611649",
+    "Type": "Event",
+    "GUID": "{AC8B926C-4426-4653-ADB4-26585F409E9C}",
+    "Language": "SFX",
+    "Hash": "{F26ABCD8-196C-F1CD-2C48-D3DA1122C01F}",
+    "ObjectPath": "reelSpin",
+    "ShortName": "reelSpin",
+    "Path": "Event/reelSpin.bnk",
+    "Media": [
+     {
+      "Id": "547944412",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelSpin.wav",
+      "Path": "Media/547944412.wem",
+      "CachePath": "D1/{D1154C68-EF1E-947B-87E7-4B94F14122B0}.wem"
+     },
+     {
+      "Id": "713982267",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelJingle.wav",
+      "Path": "Media/713982267.wem",
+      "CachePath": "FD/{FD2A2586-2ACE-5471-61C1-5AA579453278}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2371611649",
+      "Name": "reelSpin",
+      "ObjectPath": "\\Events\\Default Work Unit\\reels\\reelSpin\\reelSpin",
+      "GUID": "{AC8B926C-4426-4653-ADB4-26585F409E9C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "547944412"
+       },
+       {
+        "Id": "713982267"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2275025563",
+      "Name": "spinNum",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\spinNum",
+      "GUID": "{6D9C51D4-8764-4FBB-94B6-789A4D302314}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A8639973-EBEB-0F85-F780-9591FDDCECA3}"
+ }
+}

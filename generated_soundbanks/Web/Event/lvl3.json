@@ -1,0 +1,48 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Web",
+  "BasePlatform": "Web",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "141331488",
+    "Type": "Event",
+    "GUID": "{DE6BF2B5-82D8-4C09-B959-EE3EF9B388C1}",
+    "Language": "SFX",
+    "Hash": "{D5A80FAE-7D82-2E6E-9748-19472853722F}",
+    "ObjectPath": "lvl3",
+    "ShortName": "lvl3",
+    "Path": "Event/lvl3.bnk",
+    "Media": [
+     {
+      "Id": "167112038",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "lvl3.wav",
+      "Path": "Media/167112038.wem",
+      "CachePath": "50/{50D9D359-AA52-5E13-5048-9F58C71CAE27}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "141331488",
+      "Name": "lvl3",
+      "ObjectPath": "\\Events\\Default Work Unit\\gameplay\\combos\\lvl3",
+      "GUID": "{DE6BF2B5-82D8-4C09-B959-EE3EF9B388C1}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4117687",
+      "DurationMax": "1.4117687",
+      "MediaRefs": [
+       {
+        "Id": "167112038"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3BCB50E3-9A40-5530-C3E8-E0427581A57E}"
+ }
+}

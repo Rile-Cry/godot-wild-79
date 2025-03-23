@@ -1,0 +1,96 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "iOS",
+  "BasePlatform": "iOS",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2337468061",
+    "Type": "Event",
+    "GUID": "{0228F4A3-3873-47E9-A6A8-F4E736C60E6E}",
+    "Language": "SFX",
+    "Hash": "{044485EC-FA03-3453-265F-CD36392548DC}",
+    "ObjectPath": "reelStop",
+    "ShortName": "reelStop",
+    "Path": "Event/reelStop.bnk",
+    "Media": [
+     {
+      "Id": "16958929",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelStop4.wav",
+      "Path": "Media/16958929.wem",
+      "CachePath": "68/{68016C87-C2D3-5897-5950-ED688D63BCD9}.wem"
+     },
+     {
+      "Id": "387259402",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelStop5.wav",
+      "Path": "Media/387259402.wem",
+      "CachePath": "2C/{2CBEE8AC-9600-AF16-B1CD-1138B564B9F1}.wem"
+     },
+     {
+      "Id": "580885339",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelStop1.wav",
+      "Path": "Media/580885339.wem",
+      "CachePath": "1D/{1D4D2C81-07D7-AE84-F11C-938572047AD1}.wem"
+     },
+     {
+      "Id": "745839217",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelStop3.wav",
+      "Path": "Media/745839217.wem",
+      "CachePath": "71/{7146AA41-908B-A613-8A85-9A16F2022E9D}.wem"
+     },
+     {
+      "Id": "781312075",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "reelStop2.wav",
+      "Path": "Media/781312075.wem",
+      "CachePath": "A1/{A1B211FA-5E8C-0A9C-93A3-76FA63194621}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2337468061",
+      "Name": "reelStop",
+      "ObjectPath": "\\Events\\Default Work Unit\\reels\\reelStop\\reelStop",
+      "GUID": "{0228F4A3-3873-47E9-A6A8-F4E736C60E6E}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.39026308",
+      "DurationMax": "0.43805557",
+      "MediaRefs": [
+       {
+        "Id": "16958929"
+       },
+       {
+        "Id": "387259402"
+       },
+       {
+        "Id": "580885339"
+       },
+       {
+        "Id": "745839217"
+       },
+       {
+        "Id": "781312075"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3C0DD5C3-1572-3017-D585-00EDB410011B}"
+ }
+}

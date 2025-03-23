@@ -1,0 +1,48 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Web",
+  "BasePlatform": "Web",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1262240037",
+    "Type": "Event",
+    "GUID": "{5F180736-0F35-4228-8817-7BB34C02A3B0}",
+    "Language": "SFX",
+    "Hash": "{1612164C-0C97-0E54-568B-4D0830B664BD}",
+    "ObjectPath": "rouge",
+    "ShortName": "rouge",
+    "Path": "Event/rouge.bnk",
+    "Media": [
+     {
+      "Id": "841274802",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "dagger.wav",
+      "Path": "Media/841274802.wem",
+      "CachePath": "6B/{6BBB0132-E569-8B3D-614E-A7F0EF495877}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1262240037",
+      "Name": "rouge",
+      "ObjectPath": "\\Events\\Default Work Unit\\characters\\rouge",
+      "GUID": "{5F180736-0F35-4228-8817-7BB34C02A3B0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.27884355",
+      "DurationMax": "0.27884355",
+      "MediaRefs": [
+       {
+        "Id": "841274802"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{822EB524-31EC-0488-A037-9EC3E8460E47}"
+ }
+}

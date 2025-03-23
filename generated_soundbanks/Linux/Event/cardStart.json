@@ -1,0 +1,70 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Linux",
+  "BasePlatform": "Linux",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2791934585",
+    "Type": "Event",
+    "GUID": "{FE4A36AC-BE09-416B-B3FF-6D0A563C6A1D}",
+    "Language": "SFX",
+    "Hash": "{7EC8EF70-0909-01B4-DEF0-EE1929E0B6C6}",
+    "ObjectPath": "cardStart",
+    "ShortName": "cardStart",
+    "Path": "Event/cardStart.bnk",
+    "Media": [
+     {
+      "Id": "238199861",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cards.wav",
+      "Path": "Media/238199861.wem",
+      "CachePath": "81/{81B507EF-D0B3-982A-FA91-970986E3F822}.wem"
+     },
+     {
+      "Id": "388968205",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cards.wav",
+      "Path": "Media/388968205.wem",
+      "CachePath": "CC/{CC21F3A4-5CA8-BC51-BE0A-11020E111AB2}.wem"
+     },
+     {
+      "Id": "878146093",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cards.wav",
+      "Path": "Media/878146093.wem",
+      "CachePath": "F6/{F6C28809-3B88-0AF4-C614-7E6015BEACD8}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2791934585",
+      "Name": "cardStart",
+      "ObjectPath": "\\Events\\Default Work Unit\\gameplay\\cards\\cardStart",
+      "GUID": "{FE4A36AC-BE09-416B-B3FF-6D0A563C6A1D}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "238199861"
+       },
+       {
+        "Id": "388968205"
+       },
+       {
+        "Id": "878146093"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{D04F0908-0400-AC7F-3612-4021ACF5E8FD}"
+ }
+}

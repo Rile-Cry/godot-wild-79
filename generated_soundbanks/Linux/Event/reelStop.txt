@@ -1,0 +1,3 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2337468061	reelStop			\Default Work Unit\reels\reelStop\reelStop	
+

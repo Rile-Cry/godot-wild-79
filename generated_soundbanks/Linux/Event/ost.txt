@@ -1,0 +1,23 @@
+Event	ID	Name			Wwise Object Path	Notes
+	611937389	ost			\Default Work Unit\ost\ost	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	936499202	result			\Default Work Unit\result	
+	2470328564	intensity			\Default Work Unit\intensity	
+	3459452222	phase			\Default Work Unit\phase	
+
+State	ID	Name	State Group			Notes
+	221232726	lose	result			
+	748895195	None	result			
+	979765101	win	result			
+	545371365	low	intensity			
+	748895195	None	intensity			
+	1182670505	mid	intensity			
+	3550808449	high	intensity			
+	89505537	gameplay	phase			
+	748895195	None	phase			
+	2607556080	menu	phase			
+	3064974266	special	phase			
+	3161415855	event	phase			
+	3780578133	results	phase			
+

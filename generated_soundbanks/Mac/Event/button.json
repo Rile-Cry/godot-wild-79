@@ -1,0 +1,108 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "977454165",
+    "Type": "Event",
+    "GUID": "{48CC2596-D42B-4535-A61F-A137C934934C}",
+    "Language": "SFX",
+    "Hash": "{8C78F638-EE46-D782-6BD9-309DBDB9A059}",
+    "ObjectPath": "button",
+    "ShortName": "button",
+    "Path": "Event/button.bnk",
+    "Media": [
+     {
+      "Id": "492461634",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button6.wav",
+      "Path": "Media/492461634.wem",
+      "CachePath": "AA/{AA2ACF8E-AF81-E402-5834-0BA912B70BB8}.wem"
+     },
+     {
+      "Id": "577134540",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button1.wav",
+      "Path": "Media/577134540.wem",
+      "CachePath": "2D/{2D048DF7-D087-1B7B-0317-CD32DF31E41D}.wem"
+     },
+     {
+      "Id": "618053026",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button5.wav",
+      "Path": "Media/618053026.wem",
+      "CachePath": "3A/{3AA1EFB0-770B-D674-8CF8-0D97A0465CE8}.wem"
+     },
+     {
+      "Id": "834275233",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button2.wav",
+      "Path": "Media/834275233.wem",
+      "CachePath": "66/{66300552-8F63-89F3-32C8-48ABC72E0A73}.wem"
+     },
+     {
+      "Id": "904808013",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button3.wav",
+      "Path": "Media/904808013.wem",
+      "CachePath": "3F/{3F5806EE-C2DE-6EDF-7DF6-25842BA2EF70}.wem"
+     },
+     {
+      "Id": "1001949050",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "button4.wav",
+      "Path": "Media/1001949050.wem",
+      "CachePath": "50/{50183533-09B1-4926-A7FC-0B3B49DB6B06}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "977454165",
+      "Name": "button",
+      "ObjectPath": "\\Events\\Default Work Unit\\ui\\button",
+      "GUID": "{48CC2596-D42B-4535-A61F-A137C934934C}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.23821257",
+      "DurationMax": "0.40084437",
+      "MediaRefs": [
+       {
+        "Id": "492461634"
+       },
+       {
+        "Id": "577134540"
+       },
+       {
+        "Id": "618053026"
+       },
+       {
+        "Id": "834275233"
+       },
+       {
+        "Id": "904808013"
+       },
+       {
+        "Id": "1001949050"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{7011A8A3-62F4-F159-4840-43A0D71A7C52}"
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Web",
+  "BasePlatform": "Web",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2479754016",
+    "Type": "Event",
+    "GUID": "{71CF24E5-4035-43B4-BD19-97494F0584C0}",
+    "Language": "SFX",
+    "Hash": "{AC214884-C70E-370F-3B15-1B4CEC558D93}",
+    "ObjectPath": "reelSpinEnd",
+    "ShortName": "reelSpinEnd",
+    "Path": "Event/reelSpinEnd.bnk",
+    "Events": [
+     {
+      "Id": "2479754016",
+      "Name": "reelSpinEnd",
+      "ObjectPath": "\\Events\\Default Work Unit\\reels\\reelSpin\\reelSpinEnd",
+      "GUID": "{71CF24E5-4035-43B4-BD19-97494F0584C0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{4C8644EF-390F-5026-91D3-598C34E1578A}"
+ }
+}

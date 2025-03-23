@@ -3,6 +3,7 @@ extends Node2D
 @export var card_position := Vector2i(0, 0)
 @export var highlight_sprite : Sprite2D
 @export var sprite : Sprite2D
+var card_value := 0 as int
 var card_id : int = 0
 
 func _ready() -> void:

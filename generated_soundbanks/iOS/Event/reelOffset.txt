@@ -1,0 +1,3 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1323061324	reelOffset			\Default Work Unit\reels\reelOffset\reelOffset	
+

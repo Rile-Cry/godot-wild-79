@@ -7,3 +7,4 @@ class_name CardResource extends Resource
 @export var card_id : int = 0
 @export var card_weight : float = 1.0 ## Default card weight for mapping.
 @export var card_weight_coefficient : float = 1.0 ## The Growth rate for card weight away from [0, 8]
+@export var card_value : int

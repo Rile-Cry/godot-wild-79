@@ -1,0 +1,48 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1942868210",
+    "Type": "Event",
+    "GUID": "{5822A391-D438-4B3E-AE79-13376678FF25}",
+    "Language": "SFX",
+    "Hash": "{0A319D3C-D7C5-6FC4-AAF2-57B31E94EFD5}",
+    "ObjectPath": "spinsLost",
+    "ShortName": "spinsLost",
+    "Path": "Event/spinsLost.bnk",
+    "Media": [
+     {
+      "Id": "888555694",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "spinsLost.wav",
+      "Path": "Media/888555694.wem",
+      "CachePath": "66/{6684374D-7F54-A2A1-BCE3-D69B5842F9C4}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1942868210",
+      "Name": "spinsLost",
+      "ObjectPath": "\\Events\\Default Work Unit\\gameplay\\spins\\spinsLost",
+      "GUID": "{5822A391-D438-4B3E-AE79-13376678FF25}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.35417235",
+      "DurationMax": "0.35417235",
+      "MediaRefs": [
+       {
+        "Id": "888555694"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{7D6ACF91-4958-237D-1B5B-9DAC1C5DBB95}"
+ }
+}
