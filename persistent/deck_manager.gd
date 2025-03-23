@@ -80,7 +80,7 @@ func _bonus_check() -> void:
 		bonus_tracking[Genum.BonusType.ABC] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.ABC,Genum.BonusLevel.MAX)
 	## XYZ - DONE
-	if first_card == 4 and second_card == 5 and third_card == 6 :
+	if first_card == 3 and second_card == 4 and third_card == 5 :
 		bonus_tracking[Genum.BonusType.XYZ] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.XYZ,Genum.BonusLevel.MAX)
 		
@@ -107,7 +107,7 @@ func _bonus_check() -> void:
 			bonus_tracking[Genum.BonusType.ETO] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.ETO,Genum.BonusLevel.MAX)
 		## BONUS
-		if !bonus_tracking.is_empty() and  bonus_tracking.has(Genum.BonusType.SEVENS) and bonus_tracking[Genum.BonusType.SEVENS] == Genum.BonusLevel.MAX :
+		if bonus_tracking.has(Genum.BonusType.SEVENS) and bonus_tracking[Genum.BonusType.SEVENS] == Genum.BonusLevel.MAX :
 			bonus_tracking[Genum.BonusType.BONUS] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.BONUS,Genum.BonusLevel.MAX)
 #	LCK-A - Lvl1 - TBaT 

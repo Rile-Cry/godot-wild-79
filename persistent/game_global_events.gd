@@ -9,6 +9,7 @@ signal reel_over
 signal switch_hero
 signal toggle_direction
 signal bonus_get
+signal bonus_level_sound
 signal game_over
 
 
