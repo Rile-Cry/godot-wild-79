@@ -4,7 +4,7 @@ var rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
 var _prior_runs : Array[int] = [] # Previous runs data
 var _global_vars : Dictionary = { # Global dictionary, has all the variables encapsulated for get/set access
 	Genum.Vars.MULTIPLIERS: [], # The collection of multipliers
-	Genum.Vars.PULLS: 9, # The amount of pulls available to the player
+	Genum.Vars.PULLS: 15, # The amount of pulls available to the player
 	Genum.Vars.SCORE: 0, # The score the player accrues as they play
 }
 var _move_weights : Array[float] = [1.0, 2.0]

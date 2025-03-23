@@ -65,7 +65,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_lg8o6")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "[color=green]9[/color] Pulls Remain"
+text = "[color=green]15[/color] Pulls Remain"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="HBoxContainer"]
 clip_contents = true

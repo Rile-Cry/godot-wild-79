@@ -76,7 +76,7 @@ func _bonus_check() -> void:
 			#print("Max Achieved, passing") 
 			
 	## ABC - DONE
-	if first_card == 1 and second_card == 2 and third_card == 3 :
+	if first_card == 0 and second_card == 1 and third_card == 2 :
 		bonus_tracking[Genum.BonusType.ABC] = Genum.BonusLevel.MAX
 		GameGlobalEvents.bonus_get.emit(Genum.BonusType.ABC,Genum.BonusLevel.MAX)
 	## XYZ - DONE
@@ -86,13 +86,13 @@ func _bonus_check() -> void:
 		
 	## NUMBERS
 	if first_card < 9 :
-		## ODD - DONE
-		if first_card %2 == 1 and second_card %2 == 1 and third_card %2 == 1 :
+		## ODD - DONE (OFF SET FOR STARTING AT 0)
+		if first_card %2 == 0 and second_card %2 == 0 and third_card %2 == 0 :
 			
 			bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
 		## EVN - DONE
-		if first_card %2 == 0 and second_card %2 == 0 and third_card %2 == 0 :
+		if first_card %2 == 1 and second_card %2 == 1 and third_card %2 == 1 :
 			bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
 			GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
 	
