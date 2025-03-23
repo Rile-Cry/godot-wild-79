@@ -88,11 +88,12 @@ func _bonus_check() -> void:
 		
 	## NUMBERS
 	if card_chain[0] < 9 :
-		## ODD - DONE (OFF SET FOR STARTING AT 0)
+		
 		var even := true
 		var odd := true
 		for card in card_chain:
-			if card % 2 == 0:
+			## ODD offset because the #1 card is at location 0, i.e. #1 == 0, #3 == 2, e etc.
+			if card % 2 == 1:
 				odd = false
 			else:
 				even = false

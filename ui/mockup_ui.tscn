@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=70 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://q4ilo0ml7qod" path="res://assets/images/Lever.png" id="3_sdems"]
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="4_x0wgd"]
 [ext_resource type="Texture2D" uid="uid://cdggq3hf8uo07" path="res://assets/images/character-select-screen-matrix.png" id="5_cnkd0"]
+[ext_resource type="Texture2D" uid="uid://pt8ktfywxot1" path="res://assets/images/arrows.png" id="5_p2f5s"]
 [ext_resource type="PackedScene" uid="uid://073e3prl3hd8" path="res://ui/screen.tscn" id="10_u42wy"]
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
@@ -32,6 +33,26 @@ region = Rect2(96, 72, 32, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsl7a"]
 atlas = ExtResource("4_x0wgd")
 region = Rect2(128, 72, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goc3n"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eodh"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(32, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aii0x"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(64, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4667r"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(96, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bip7v"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(128, 0, 32, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddkd0"]
 atlas = ExtResource("4_x0wgd")
@@ -93,6 +114,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"archer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goc3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eodh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aii0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4667r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bip7v")
+}],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -321,16 +362,6 @@ offset_top = 155.0
 offset_right = 242.71
 offset_bottom = 175.955
 
-[node name="TextureRect" type="TextureRect" parent="LowerButtonPanel"]
-z_index = 1
-layout_mode = 0
-offset_left = 128.81
-offset_top = 1.015
-offset_right = 168.81
-offset_bottom = 41.015
-texture = ExtResource("5_cnkd0")
-stretch_mode = 2
-
 [node name="Buttons" parent="LowerButtonPanel" instance=ExtResource("1_e8yy1")]
 layout_mode = 0
 anchors_preset = 0
@@ -341,6 +372,9 @@ offset_bottom = 19.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="UpDownButton" parent="LowerButtonPanel/Buttons" index="2"]
+visible = false
+
 [node name="SwapButton" parent="LowerButtonPanel/Buttons" index="3"]
 action_mode = 0
 
@@ -349,12 +383,46 @@ layout_mode = 2
 texture = ExtResource("3_dn4vt")
 stretch_mode = 2
 
-[node name="Characters" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons"]
-position = Vector2(138.81, 9.015)
-scale = Vector2(0.6, 0.6)
+[node name="Characters" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons/CharacterSelectScreen"]
+position = Vector2(1, 1)
+scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
 animation = &"warrior"
 autoplay = "warrior"
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="LowerButtonPanel/Buttons/CharacterSelectScreen"]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 17.0
+texture = ExtResource("5_cnkd0")
+stretch_mode = 2
+
+[node name="Arrow Facing" type="TextureRect" parent="LowerButtonPanel/Buttons"]
+layout_mode = 2
+texture = ExtResource("3_dn4vt")
+stretch_mode = 2
+
+[node name="Arrow Animation" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons/Arrow Facing"]
+position = Vector2(1, 1)
+scale = Vector2(0.6, 0.666666)
+sprite_frames = SubResource("SpriteFrames_b0qgs")
+animation = &"new_animation"
+autoplay = "warrior"
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="LowerButtonPanel/Buttons/Arrow Facing"]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 17.0
+texture = ExtResource("5_cnkd0")
+stretch_mode = 2
 
 [node name="Button" type="Button" parent="."]
 offset_left = 272.0

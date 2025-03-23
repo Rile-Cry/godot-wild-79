@@ -16,6 +16,17 @@ func _ready() -> void:
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
+	
+	
+
+	Wwise.post_event_id(AK.EVENTS.OST,self)
+	SoundManager._set_phase(AK.STATES.PHASE.STATE.MENU)
+	SoundManager._set_intensity(AK.STATES.INTENSITY.STATE.NONE)
+	#Wwise.set_rtpc_value_id(AK.GAME_PARAMETERS.OSTVOL,50,self)
+	
+	
+	
+	
 
 func play_bonus_sound(level:Genum.BonusLevel):
 	match level:
