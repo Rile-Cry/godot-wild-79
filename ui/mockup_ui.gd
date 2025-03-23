@@ -26,12 +26,14 @@ func disable_buttons():
 	upDownButton.disabled = true
 	swapButton.disabled = true
 	leverButton.disabled = true
+	optionsButton = true
 
 func enable_buttons():
 	infoButton.disabled = false
 	upDownButton.disabled = false
 	swapButton.disabled = false
 	leverButton.disabled = false
+	optionsButton = false
 
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
@@ -44,11 +46,17 @@ func _on_info_button_pressed() -> void:
 	buttonClick.play()
 	var tween = get_tree().create_tween()
 	if sidePanel.offset.x > 0:
+		disable_buttons()
 		tween.tween_property(sidePanel, "offset:x", 0, .5)
 		tween.play()
+		await tween.finished
+		enable_buttons()
 	elif sidePanel.offset.x == 0:
+		disable_buttons()
 		tween.tween_property(sidePanel, "offset:x", 70, .5)
 		tween.play()
+		await tween.finished
+		enable_buttons()
 
 
 func _on_swap_button_pressed() -> void:
