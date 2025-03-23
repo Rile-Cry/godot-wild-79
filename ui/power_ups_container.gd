@@ -22,4 +22,3 @@ func _add_power_up(bonus: Genum.BonusType, level: Genum.BonusLevel) -> void:
 		add_child(new_power_up)
 		move_child(new_power_up, 0)
 		new_power_up.update_bonus(bonus, level)
-	
