@@ -19,6 +19,7 @@ var menuOpen = false
 
 func _ready() -> void:
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
+	disable_buttons()
 	
 func disable_buttons():
 	infoButton.disabled = true
@@ -98,4 +99,5 @@ func _on_options_button_pressed() -> void:
 			
 			
 func _on_reel_finished() -> void:
+	enable_buttons()
 	lever_button.mouse_filter = Control.MOUSE_FILTER_STOP

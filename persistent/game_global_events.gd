@@ -8,6 +8,7 @@ signal use_lever
 signal reel_over
 signal switch_hero
 signal toggle_direction
+signal bonus_get
 signal game_over
 
 

@@ -3,6 +3,7 @@ extends Node
 @export var reels : Array[Node2D]
 @export var position_highlight : Sprite2D
 @export var position_markers : Array[Marker2D]
+var cards_collected : Array[Vector2i]
 var current_class := Genum.Classes.WARRIOR
 var up := false
 var loaded := false
@@ -62,6 +63,7 @@ func _update_highlight() -> void:
 	else:
 		position_highlight.position = position_markers[1].position
 		reels[2].update_highlight(current_class, up)
+	
 
 func _on_direction_toggled() -> void:
 	up = not up
@@ -81,3 +83,7 @@ func _on_reel_5_reel_started() -> void:
 	$SlotMachine/Lights.speed_scale = 7.8
 	$SlotMachine/Lights.play("default")
 	SoundManager.play_sfx("reelSpin", 1)
+
+func _bonus_update(bonus_id:int) -> void:
+	print("updating bonus")
+	

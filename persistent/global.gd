@@ -12,7 +12,6 @@ var _move_weights : Array[float] = [1.0, 2.0]
 func _ready() -> void:
 	rng.seed = randi_range(0, 9999)
 	GameGlobalEvents.debug_newseed.connect(_on_new_seed_restart)
-	GameGlobalEvents.changed_stats.connect(set_var)
 
 ## The get function for accessing global variables.
 func get_var(variable: Genum.Vars, idx: int = 0):
