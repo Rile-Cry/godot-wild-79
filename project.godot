@@ -21,7 +21,6 @@ buses/default_bus_layout="uid://dvhwf7bnk0os7"
 
 [autoload]
 
-WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
 SoundManager="*res://persistent/sound_manager.gd"
@@ -52,7 +51,6 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 [file_customization]
 
 folder_colors={
-"res://Wwise/": "purple",
 "res://assets/": "pink",
 "res://generated_soundbanks/": "orange",
 "res://mechanics/": "blue",
@@ -60,6 +58,18 @@ folder_colors={
 "res://scenes/": "gray",
 "res://ui/": "green",
 "res://utility/": "red"
+}
+
+[input]
+
+spin={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+lerp_test={
+"deadzone": 0.2,
+"events": []
 }
 
 [rendering]
