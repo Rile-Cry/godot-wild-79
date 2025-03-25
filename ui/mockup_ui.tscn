@@ -566,7 +566,6 @@ offset_bottom = 0.444992
 pivot_offset = Vector2(80, 45)
 
 [node name="MainMenu" parent="." instance=ExtResource("14_b0qgs")]
-offset_right = 320.0
 pivot_offset = Vector2(160, 90)
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]

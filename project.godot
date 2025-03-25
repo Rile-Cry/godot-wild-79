@@ -26,16 +26,15 @@ GameGlobalEvents="*res://persistent/game_global_events.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
 MapManager="*res://persistent/map_manager.gd"
 DeckManager="*res://persistent/deck_manager.gd"
-WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
-SoundManager="*res://persistent/sound_manager.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/resizable=false
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/use_soundbank_names=true
 
@@ -47,14 +46,12 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/YATI/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/YATI/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://Wwise/": "purple",
 "res://assets/": "pink",
-"res://generated_soundbanks/": "orange",
 "res://mechanics/": "blue",
 "res://persistent/": "yellow",
 "res://scenes/": "gray",
