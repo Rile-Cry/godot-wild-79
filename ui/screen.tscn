@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://073e3prl3hd8"]
+[gd_scene load_steps=14 format=3 uid="uid://073e3prl3hd8"]
 
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="1_6ihl1"]
 [ext_resource type="Script" uid="uid://dthovtsl5kth8" path="res://ui/screen.gd" id="1_osti7"]
 [ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="2_lg8o6"]
 [ext_resource type="Texture2D" uid="uid://cafssjxguemnw" path="res://assets/images/matrix.png" id="3_lg8o6"]
+[ext_resource type="Material" uid="uid://c37ja413cuahf" path="res://assets/shaders/shadow.tres" id="5_ghn8m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osti7"]
 resource_local_to_scene = true
@@ -12,6 +13,7 @@ load_path = "res://.godot/imported/cards.png-db3ffa5d800f2e13370474977a4c6d60.ct
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghn8m"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_osti7")
+region = Rect2(0, 0, 28, 16)
 
 [sub_resource type="ImageTexture" id="ImageTexture_mwkjo"]
 resource_local_to_scene = true
@@ -119,34 +121,80 @@ autowrap_mode = 0
 justification_flags = 227
 
 [node name="Recent Cards" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HFlowContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_constants/separation = -3
+theme_override_constants/separation = -2
 
 [node name="Card1" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(28, 16)
+custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
+size_flags_horizontal = 12
+size_flags_vertical = 12
 texture = SubResource("AtlasTexture_mwkjo")
 expand_mode = 1
 
 [node name="Card2" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(28, 16)
+custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
+size_flags_horizontal = 12
+size_flags_vertical = 12
 texture = SubResource("AtlasTexture_2cune")
 expand_mode = 1
 
 [node name="Card3" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(28, 16)
+custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = SubResource("AtlasTexture_qkl6s")
+expand_mode = 1
+
+[node name="Shadows" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+offset_left = -2.0
+offset_top = 15.0
+offset_right = 72.0
+offset_bottom = 29.0
+scale = Vector2(0.559999, 0.559999)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = -2
+
+[node name="Card1" type="TextureRect" parent="Shadows"]
+visible = false
+material = ExtResource("5_ghn8m")
+clip_contents = true
+custom_minimum_size = Vector2(26, 14)
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = SubResource("AtlasTexture_mwkjo")
+expand_mode = 1
+
+[node name="Card2" type="TextureRect" parent="Shadows"]
+visible = false
+material = ExtResource("5_ghn8m")
+clip_contents = true
+custom_minimum_size = Vector2(26, 14)
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = SubResource("AtlasTexture_2cune")
+expand_mode = 1
+
+[node name="Card3" type="TextureRect" parent="Shadows"]
+visible = false
+material = ExtResource("5_ghn8m")
+clip_contents = true
+custom_minimum_size = Vector2(26, 14)
+layout_mode = 2
+size_flags_horizontal = 12
+size_flags_vertical = 12
 texture = SubResource("AtlasTexture_qkl6s")
 expand_mode = 1
