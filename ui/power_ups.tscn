@@ -20,9 +20,8 @@ level_sprite = NodePath("HBoxContainer/LevelControl/Sprite2D")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
-offset_right = 105.0
+offset_right = 320.0
 offset_bottom = 8.0
-scale = Vector2(0.37, 0.37)
 theme_override_constants/separation = 7
 
 [node name="BonusControl" type="Control" parent="HBoxContainer"]
