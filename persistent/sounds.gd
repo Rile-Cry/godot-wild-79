@@ -10,6 +10,8 @@ var sfx_lvl1 : AudioStream = preload("res://assets/sfx/lvl1.wav")
 var sfx_lvl2 : AudioStream = preload("res://assets/sfx/lvl2.wav")
 var sfx_lvl3 : AudioStream = preload("res://assets/sfx/lvl3.wav")
 var sfx_lvlMaxSecret : AudioStream = preload("res://assets/sfx/lvl3secret.wav")
+var sfx_lever : AudioStream = preload("res://assets/sfx/lever (1).wav")
+var sfx_button : AudioStream = preload("res://assets/sfx/button1.wav")
 
 var music_menu : AudioStream = preload("res://assets/music/openingToMenu.mp3")
 var music_low : AudioStream = preload("res://assets/music/lowIn.mp3")

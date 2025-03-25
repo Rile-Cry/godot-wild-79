@@ -61,13 +61,12 @@ func change_hero(new_hero: Genum.Classes,up:bool) -> void:
 func _on_lever_button_pressed() -> void:
 	GameGlobalEvents.use_lever.emit()
 	lever.play("default")
-	#Wwise.post_event_id(AK.EVENTS.LEVERPULL, self)
-	#leverPull.play()
+	SoundManager.play_sound(Sounds.sfx_lever, "SFX")
 	arrow.visible = false
 	lever_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_info_button_pressed() -> void:
-	#SoundManager.play(AK.EVENTS.BUTTON)
+	SoundManager.play_sound(Sounds.sfx_button, "SFX")
 	var tween = get_tree().create_tween()
 	if sidePanel.offset.x > 0:
 		disable_buttons()
@@ -84,21 +83,15 @@ func _on_info_button_pressed() -> void:
 
 
 func _on_swap_button_pressed() -> void:
-	#SoundManager.play(AK.EVENTS.BUTTON)
+	SoundManager.play_sound(Sounds.sfx_button, "SFX")
 	GameGlobalEvents.switch_hero.emit()
 	
-
-
-func _on_up_down_button_pressed() -> void:
-	#SoundManager.play(AK.EVENTS.BUTTON)
-	GameGlobalEvents.toggle_direction.emit()
-
 
 func _on_lever_animation_finished() -> void:
 	arrow.visible = true
 
 func _on_options_button_pressed() -> void:
-	#SoundManager.play(AK.EVENTS.BUTTON)
+	SoundManager.play_sound(Sounds.sfx_button, "SFX")
 	var tween = get_tree().create_tween()
 	match menuOpen:
 		false: 
@@ -108,10 +101,12 @@ func _on_options_button_pressed() -> void:
 			disable_buttons()
 			arrow.visible = false
 			await tween.finished
+			optionsButton.disabled = false
 			get_tree().paused = true
 		true: 
 			tween.tween_property(optionsMenu, "position:y", 180,.25)
 			tween.play()
+			disable_buttons()
 			get_tree().paused = false
 			await tween.finished
 			optionsMenu.position.y = -81

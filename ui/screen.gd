@@ -60,7 +60,7 @@ func _on_pull_changed() -> void:
 	var pull_count = Global.get_var(Genum.Vars.PULLS)
 	if pull_count >= 6 :
 		pulls_label.text = "[color=green]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pulls Remain" 
-	elif pull_count <= 5 and pull_count >= 3 :
+	elif pull_count <= 5 and pull_count > 3 :
 		SoundManager.play_music(Sounds.music_med, 0.5, "Music")
 		pulls_label.text = "[color=yellow]" + "%s" % Global.get_var(Genum.Vars.PULLS) + "[/color] Pulls Remain"
 	elif pull_count == 3 : 
