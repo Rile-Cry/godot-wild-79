@@ -27,6 +27,7 @@ ScreenManager="*res://persistent/screen_manager.gd"
 MapManager="*res://persistent/map_manager.gd"
 DeckManager="*res://persistent/deck_manager.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+Sounds="*res://persistent/sounds.gd"
 
 [display]
 

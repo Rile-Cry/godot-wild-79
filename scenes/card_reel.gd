@@ -29,17 +29,17 @@ func play_animation() -> void:
 	_toggle_cards(true)
 	reel_anim.show()
 	anim_player.play("roll")
-	reel_timer.start(1 + reel_id * reel_time_delta)
+	reel_timer.start(0.5 + reel_id * reel_time_delta)
 	await reel_timer.timeout
 	anim_player.stop()
 	reel_anim.hide()
-	#SoundManager.play(AK.EVENTS.REELSTOP)
 	reel_stopped.emit()
 	_toggle_cards(false)
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(self, "position", Vector2(position.x, position.y + 8), 0.2)
 	tween.tween_property(self, "position", Vector2(position.x, position.y), 0.2)
+	SoundManager.play_sound(Sounds.sfx_reel_stop, "SFX")
 	
 
 func update_highlight(hero: int, up: bool) -> void:

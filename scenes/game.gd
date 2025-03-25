@@ -3,7 +3,7 @@ extends Node
 @export var reels : Array[Node2D]
 @export var position_highlight : Sprite2D
 @export var position_markers : Array[Marker2D]
-@export var reel_spin : AudioStreamPlayer
+
 
 var cards_collected : Array[Vector2i]
 var current_class := Genum.Classes.WARRIOR
@@ -19,10 +19,7 @@ func _ready() -> void:
 	
 	
 
-	#Wwise.post_event_id(AK.EVENTS.OST,self)
-	#SoundManager._set_phase(AK.STATES.PHASE.STATE.MENU)
-	#SoundManager._set_intensity(AK.STATES.INTENSITY.STATE.NONE)
-	#Wwise.set_rtpc_value_id(AK.GAME_PARAMETERS.OSTVOL,50,self)
+	SoundManager.play_music(Sounds.music_menu, 0.0, "Music")
 	
 	
 	
@@ -30,13 +27,13 @@ func _ready() -> void:
 
 func play_bonus_sound(level:Genum.BonusLevel):
 	pass
-	#match level:
-		#Genum.BonusLevel.ONE:
-			#SoundManager.play(AK.EVENTS.LVL1)
-		#Genum.BonusLevel.TWO:
-			#SoundManager.play(AK.EVENTS.LVL2)
-		#Genum.BonusLevel.MAX:
-			#SoundManager.play(AK.EVENTS.LVL3)
+	match level:
+		Genum.BonusLevel.ONE:
+			SoundManager.play_sound(Sounds.sfx_lvl1, "SFX")
+		Genum.BonusLevel.TWO:
+			SoundManager.play_sound(Sounds.sfx_lvl2, "SFX")
+		Genum.BonusLevel.MAX:
+			SoundManager.play_sound(Sounds.sfx_lvl3, "SFX")
 		
 func _first_round():
 	_set_reel_ids()
@@ -52,7 +49,7 @@ func _set_reel_ids() -> void:
 		i += 1
 
 func _update_reel_positions() -> void:
-	reel_spin.play()
+	SoundManager.play_sound(Sounds.sfx_reel_spin, "SFX")
 	
 	if state == Genum.PlayingState.TURN_ONE:
 		state = Genum.PlayingState.PLAYING
@@ -71,21 +68,23 @@ func _on_hero_switched() -> void:
 	match(current_class):
 		Genum.Classes.WARRIOR:
 			current_class = Genum.Classes.ROGUE
-			#Wwise.post_event_id(AK.EVENTS.ROUGE, self)
+			SoundManager.play_sound(Sounds.sfx_rogue, "SFX")
 		Genum.Classes.ROGUE:
 			if up:
 				current_class = Genum.Classes.WARRIOR
+				SoundManager.play_sound(Sounds.sfx_warrior, "SFX")
 				up = false
 			else:
 				current_class = Genum.Classes.ARCHER
-			#Wwise.post_event_id(AK.EVENTS.ARCHER, self)
+				SoundManager.play_sound(Sounds.sfx_archer, "SFX")
 		Genum.Classes.ARCHER:
 			if up:
 				current_class = Genum.Classes.ROGUE
+				SoundManager.play_sound(Sounds.sfx_rogue, "SFX")
 			else:
 				current_class = Genum.Classes.ARCHER
+				SoundManager.play_sound(Sounds.sfx_archer, "SFX")
 				up = true
-			#Wwise.post_event_id(AK.EVENTS.WARRIOR, self)
 	
 	_update_highlight()
 	$UI.change_hero(current_class,up)
@@ -104,7 +103,8 @@ func _on_direction_toggled() -> void:
 	_update_highlight()
 
 func _on_reel_5_reel_stopped() -> void:
-	$ReelSpin.playing = false
+	SoundManager.stop_sound(Sounds.sfx_reel_spin)
+	SoundManager.stop_sound(Sounds.sfx_reel_jingle)
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 1.0
 	$SlotMachine/Lights.play("default")
@@ -112,7 +112,8 @@ func _on_reel_5_reel_stopped() -> void:
 	GameGlobalEvents.reel_over.emit()
 
 func _on_reel_5_reel_started() -> void:
-	$ReelSpin.playing = true
+	SoundManager.play_sound(Sounds.sfx_reel_spin, "SFX")
+	SoundManager.play_sound(Sounds.sfx_reel_jingle, "SFX")
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 7.8
 	$SlotMachine/Lights.play("default")
