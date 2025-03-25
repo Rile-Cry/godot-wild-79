@@ -66,7 +66,7 @@ func _on_lever_button_pressed() -> void:
 	lever_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_info_button_pressed() -> void:
-	SoundManager.play_sound(Sounds.sfx_button, "SFX")
+	SoundManager.play_sound(Sounds.sfx_buttons.pick_random(), "SFX")
 	var tween = get_tree().create_tween()
 	if sidePanel.offset.x > 0:
 		disable_buttons()
@@ -83,7 +83,7 @@ func _on_info_button_pressed() -> void:
 
 
 func _on_swap_button_pressed() -> void:
-	SoundManager.play_sound(Sounds.sfx_button, "SFX")
+	SoundManager.play_sound(Sounds.sfx_buttons.pick_random(), "SFX")
 	GameGlobalEvents.switch_hero.emit()
 	
 
@@ -91,7 +91,7 @@ func _on_lever_animation_finished() -> void:
 	arrow.visible = true
 
 func _on_options_button_pressed() -> void:
-	SoundManager.play_sound(Sounds.sfx_button, "SFX")
+	SoundManager.play_sound(Sounds.sfx_buttons.pick_random(), "SFX")
 	var tween = get_tree().create_tween()
 	match menuOpen:
 		false: 

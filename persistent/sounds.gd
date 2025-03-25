@@ -2,7 +2,11 @@ extends Node
 
 var sfx_reel_spin : AudioStream = preload("res://assets/sfx/reelSpin.wav")
 var sfx_reel_jingle : AudioStream = preload("res://assets/sfx/reelJingle.wav")
-var sfx_reel_stop : AudioStream = preload("res://assets/sfx/reelStop1.wav")
+var sfx_reel_stop1 : AudioStream = preload("res://assets/sfx/reelStop1.wav")
+var sfx_reel_stop2 : AudioStream = preload("res://assets/sfx/reelStop2.wav")
+var sfx_reel_stop3 : AudioStream = preload("res://assets/sfx/reelStop3.wav")
+var sfx_reel_stop5 : AudioStream = preload("res://assets/sfx/reelStop5.wav")
+var sfx_reel_stops = [sfx_reel_stop1, sfx_reel_stop2, sfx_reel_stop3, sfx_reel_stop5]
 var sfx_rogue : AudioStream = preload("res://assets/sfx/dagger.wav")
 var sfx_warrior : AudioStream = preload("res://assets/sfx/sword.wav")
 var sfx_archer : AudioStream = preload("res://assets/sfx/bow.wav")
@@ -11,7 +15,13 @@ var sfx_lvl2 : AudioStream = preload("res://assets/sfx/lvl2.wav")
 var sfx_lvl3 : AudioStream = preload("res://assets/sfx/lvl3.wav")
 var sfx_lvlMaxSecret : AudioStream = preload("res://assets/sfx/lvl3secret.wav")
 var sfx_lever : AudioStream = preload("res://assets/sfx/lever (1).wav")
-var sfx_button : AudioStream = preload("res://assets/sfx/button1.wav")
+var sfx_button1 : AudioStream = preload("res://assets/sfx/button1.wav")
+var sfx_button2 : AudioStream = preload("res://assets/sfx/button2.wav")
+var sfx_button3 : AudioStream = preload("res://assets/sfx/button3.wav")
+var sfx_button4 : AudioStream = preload("res://assets/sfx/button4.wav")
+var sfx_button5 : AudioStream = preload("res://assets/sfx/button5.wav")
+var sfx_button6 : AudioStream = preload("res://assets/sfx/button6.wav")
+var sfx_buttons = [sfx_button1, sfx_button2, sfx_button3, sfx_button4, sfx_button5, sfx_button6]
 
 var music_menu : AudioStream = preload("res://assets/music/openingToMenu.mp3")
 var music_low : AudioStream = preload("res://assets/music/lowIn.mp3")

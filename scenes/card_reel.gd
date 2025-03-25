@@ -39,7 +39,7 @@ func play_animation() -> void:
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(self, "position", Vector2(position.x, position.y + 8), 0.2)
 	tween.tween_property(self, "position", Vector2(position.x, position.y), 0.2)
-	SoundManager.play_sound(Sounds.sfx_reel_stop, "SFX")
+	SoundManager.play_sound(Sounds.sfx_reel_stops.pick_random(), "SFX")
 	
 
 func update_highlight(hero: int, up: bool) -> void:
