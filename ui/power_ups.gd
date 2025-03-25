@@ -43,6 +43,6 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 		show()
 		bonus_sprite.frame_coords = bonus_reference[bonus]
 		level_sprite.frame_coords = level_reference[level]
-		GameGlobalEvents.bonus_level_sound.emit(level)
+		#GameGlobalEvents.bonus_level_sound.emit(level)
 	else:
 		hide()

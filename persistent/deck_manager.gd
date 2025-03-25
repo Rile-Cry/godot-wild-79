@@ -1,6 +1,7 @@
 extends Node
 
 signal added_bonus(bonus: Genum.BonusType, level: Genum.BonusLevel)
+signal card_collected(card:CardResource)
 
 var card_resources : Dictionary[int, CardResource]
 var deck_path : StringName = "res://mechanics/cards/"
@@ -39,6 +40,7 @@ func card_action() -> void:
 			"Bomb":
 				Global.set_var(Genum.Vars.SCORE, -50, true)
 	_add_to_deck(current_card)
+	card_collected.emit(current_card)
 	
 	Global.set_var(Genum.Vars.PULLS, -1, true)
 

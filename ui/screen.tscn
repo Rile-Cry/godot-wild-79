@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://073e3prl3hd8"]
+[gd_scene load_steps=13 format=3 uid="uid://073e3prl3hd8"]
 
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="1_6ihl1"]
 [ext_resource type="Script" uid="uid://dthovtsl5kth8" path="res://ui/screen.gd" id="1_osti7"]
@@ -6,13 +6,34 @@
 [ext_resource type="Texture2D" uid="uid://cafssjxguemnw" path="res://assets/images/matrix.png" id="3_lg8o6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osti7"]
+resource_local_to_scene = true
 load_path = "res://.godot/imported/cards.png-db3ffa5d800f2e13370474977a4c6d60.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghn8m"]
+resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_osti7")
+
+[sub_resource type="ImageTexture" id="ImageTexture_mwkjo"]
+resource_local_to_scene = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwkjo"]
+resource_local_to_scene = true
+atlas = SubResource("ImageTexture_mwkjo")
 region = Rect2(0, 0, 28, 16)
 
-[node name="Screen" type="Control" node_paths=PackedStringArray("score_label", "pulls_label")]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mwkjo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cune"]
+atlas = SubResource("CompressedTexture2D_mwkjo")
+region = Rect2(0, 0, 28, 16)
+
+[sub_resource type="ImageTexture" id="ImageTexture_ghn8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkl6s"]
+atlas = SubResource("ImageTexture_ghn8m")
+region = Rect2(0, 0, 28, 16)
+
+[node name="Screen" type="Control" node_paths=PackedStringArray("score_label", "pulls_label", "recent_one", "recent_two", "recent_three")]
 z_index = -4
 z_as_relative = false
 layout_mode = 3
@@ -24,6 +45,10 @@ grow_vertical = 2
 script = ExtResource("1_osti7")
 score_label = NodePath("HBoxContainer/VBoxContainer/Score Label")
 pulls_label = NodePath("HBoxContainer/VBoxContainer/Pulls Remaining")
+recent_one = NodePath("HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards/Card1")
+recent_two = NodePath("HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards/Card2")
+recent_three = NodePath("HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards/Card3")
+atlas = SubResource("AtlasTexture_ghn8m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -44,158 +69,84 @@ texture = ExtResource("3_lg8o6")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -2.0
-offset_right = 236.0
-offset_bottom = 46.0
+offset_right = 238.0
+offset_bottom = 55.0
 scale = Vector2(0.5, 0.5)
 
 [node name="VBoxContainer" type="VFlowContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/v_separation = 1
 
 [node name="Score Label" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(80, 8)
+custom_minimum_size = Vector2(80, 9)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_fonts/normal_font = ExtResource("2_lg8o6")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[color=green]$[/color]50,000"
 
 [node name="Pulls Remaining" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 16)
+custom_minimum_size = Vector2(100, 9)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_fonts/normal_font = ExtResource("2_lg8o6")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[color=green]15[/color] Pulls Remain"
 
-[node name="HFlowContainer" type="HFlowContainer" parent="HBoxContainer"]
+[node name="HFlowContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 15
-size_flags_vertical = 12
+size_flags_horizontal = 9
+size_flags_vertical = 8
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
+[node name="Recent Card Text" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(65, 8)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_lg8o6")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Recent Cards"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 227
+
+[node name="Recent Cards" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = -3
+
+[node name="Card1" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(21, 12)
+custom_minimum_size = Vector2(28, 16)
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
+texture = SubResource("AtlasTexture_mwkjo")
 expand_mode = 1
 
-[node name="TextureRect10" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
+[node name="Card2" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(21, 12)
+custom_minimum_size = Vector2(28, 16)
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
+texture = SubResource("AtlasTexture_2cune")
 expand_mode = 1
 
-[node name="TextureRect11" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
+[node name="Card3" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
 clip_contents = true
-custom_minimum_size = Vector2(21, 12)
+custom_minimum_size = Vector2(28, 16)
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect12" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect13" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect14" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect15" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect9" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect7" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
-expand_mode = 1
-
-[node name="TextureRect8" type="TextureRect" parent="HBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(21, 12)
-layout_mode = 2
-size_flags_horizontal = 13
-size_flags_vertical = 13
-texture = SubResource("AtlasTexture_ghn8m")
+texture = SubResource("AtlasTexture_qkl6s")
 expand_mode = 1

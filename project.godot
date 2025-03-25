@@ -22,11 +22,10 @@ buses/default_bus_layout="uid://dvhwf7bnk0os7"
 [autoload]
 
 Global="*res://persistent/global.gd"
-GameGlobalEvents="*res://persistent/game_global_events.gd"
-SoundManager="*res://persistent/sound_manager.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
-DeckManager="*res://persistent/deck_manager.gd"
 MapManager="*res://persistent/map_manager.gd"
+GameGlobalEvents="*res://persistent/game_global_events.gd"
+DeckManager="*res://persistent/deck_manager.gd"
 
 [display]
 

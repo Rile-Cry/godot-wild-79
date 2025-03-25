@@ -51,45 +51,5 @@ func new_run(new_seed: int) -> void:
 	set_var(Genum.Vars.PULLS, 15)
 	GameGlobalEvents.generation_complete.emit()
 
-<<<<<<< HEAD
 func _on_exit_game() -> void:
 	get_tree().quit()
-=======
-## The actual save function that writes all relevant save data to a file.
-func save_game() -> void:
-	var save_file := FileAccess.open("user://data.save", FileAccess.WRITE)
-	var json_string = JSON.stringify(save())
-	save_file.store_line(json_string)
-
-## The function that loads a save file, assuming it exists, and sets all relavent parameters
-## and nodes to match the values.
-
-# TODO: Get rid of this crap, only need previous run data now
-
-func load_game():
-	if not FileAccess.file_exists("user://data.save"):
-		return
-	
-	# The save file to be accessed
-	var save_file := FileAccess.open("user://data.save", FileAccess.READ)
-	var json_string = save_file.get_line()
-	save_file.close() # At the moment there should only be one line so the file closes immediately
-	
-	# Parsing the Json found in the save file
-	var json = JSON.new()
-	var parse_result = json.parse(json_string)
-	if not parse_result == OK:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return
-	
-	# Making sure the loaded data is of type dictionary for global variables
-	# Though this is only temporary depending on other persistents
-	var loaded_data = json.data
-	if typeof(loaded_data) != TYPE_DICTIONARY:
-		print("Loaded data error: Not a dictionary")
-		return
-	
-	# Actually loading in the variables.
-	for variable in loaded_data.keys():
-		set_var(variable, loaded_data.get(variable))
->>>>>>> origin/test-branch-without-wwise

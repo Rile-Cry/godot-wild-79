@@ -11,7 +11,4 @@ func _on_button_pressed() -> void:
 	tween1.play()
 	await tween1.finished
 	
-	#SoundManager.soundtrack_crossfade()
-	SoundManager._set_phase(AK.STATES.PHASE.STATE.GAMEPLAY)
-	SoundManager._set_intensity(AK.STATES.INTENSITY.STATE.LOW)
 	GameGlobalEvents.game_start.emit()
