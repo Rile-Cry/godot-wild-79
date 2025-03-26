@@ -26,7 +26,13 @@ func _load_cards() -> void:
 func card_action() -> void:
 	var current_card_id : int = MapManager.get_current_position_value()
 	var current_card : CardResource = card_resources.get(current_card_id)
-	print(current_card_id)
+	print (current_card_id)
+	if current_card_id == 11:
+		SoundManager.play_sound(Sounds.sfx_pull_lost, "SFX")
+		Global.set_var(Genum.Vars.PULLS, -1, true)
+	elif current_card_id == 9:
+		SoundManager.play_sound(Sounds.sfx_pull_added, "SFX")
+		Global.set_var(Genum.Vars.PULLS, 2, true)
 	
 	if current_card.card_type == Genum.CardType.NUMBER:
 		Global.set_var(Genum.Vars.SCORE, current_card_id + 1, true)

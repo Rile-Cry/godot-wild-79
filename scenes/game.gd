@@ -63,6 +63,7 @@ func _update_reel_positions() -> void:
 func _on_lever_used() -> void:
 	MapManager.move_current_position(current_class, up)
 	_update_reel_positions()
+	
 
 func _on_hero_switched() -> void:
 	match(current_class):
