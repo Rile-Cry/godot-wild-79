@@ -1,6 +1,7 @@
 class_name Genum
 
 enum BonusLevel {
+	ZERO,
 	ONE,
 	TWO,
 	MAX

@@ -44,7 +44,8 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 		show()
 		bonus_sprite.frame_coords = bonus_reference[bonus]
 		level_sprite.frame_coords = level_reference[level]
-		#GameGlobalEvents.bonus_level_sound.emit(level)
+		GameGlobalEvents.bonus_level_sound.emit(level)
+		print("level",level)
 		if level == Genum.BonusLevel.MAX: 
 			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
 			level_sprite.material.set_shader_parameter("angle",45)
