@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const POINTER = preload("res://assets/images/ui/pointer.png")
+
 @onready var lever = $Lever
 @onready var lever_button : Button = $Lever/LeverButton
 @onready var sidePanel = $SidePanel
@@ -16,6 +18,7 @@ extends CanvasLayer
 var menuOpen = false
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(POINTER, Input.CURSOR_POINTING_HAND)
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
 	direction_arrow.play("arrows",0)
 	disable_buttons()

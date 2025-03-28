@@ -37,11 +37,14 @@ window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://cwod05nfjlwsf"
+mouse_cursor/custom_image_hotspot=Vector2(17, 7)
 window/use_soundbank_names=true
 
 [editor]
 
 script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "wem")
+version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
 [editor_plugins]
