@@ -50,6 +50,6 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
 			level_sprite.material.set_shader_parameter("angle",45)
 			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
-			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
+			level_sprite.material.set_shader_parameter("sprite_sheet_rows",1)
 	else:
 		hide()

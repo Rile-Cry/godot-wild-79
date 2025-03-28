@@ -1,6 +1,7 @@
 extends Node
 
 signal added_bonus(bonus: Genum.BonusType, level: Genum.BonusLevel)
+signal bonus_level_up(new_level:Genum.BonusLevel)
 signal card_collected(card:CardResource)
 
 var card_resources : Dictionary[int, CardResource]
@@ -94,11 +95,11 @@ func _bonus_check() -> void:
 			#print("Max Achieved, passing") 
 			
 	## ABC - DONE
-	if card_chain == [0, 1, 2]:
+	if card_chain == [0, 1, 2] or card_chain == [2, 1, 0]:
 		bonus_tracking[Genum.BonusType.ABC] = Genum.BonusLevel.ONE
 		added_bonus.emit(Genum.BonusType.ABC,Genum.BonusLevel.ONE)
 	## XYZ - DONE
-	if card_chain == [5, 4, 3]:
+	if card_chain == [5, 4, 3] or card_chain == [3, 4, 5]:
 		bonus_tracking[Genum.BonusType.XYZ] = Genum.BonusLevel.ONE
 		added_bonus.emit(Genum.BonusType.XYZ,Genum.BonusLevel.ONE)
 	
@@ -131,13 +132,17 @@ func _bonus_check() -> void:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.TWO
 						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
+						bonus_level_up.emit(Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_evn = true
 				Genum.BonusLevel.TWO:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
 						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
+						bonus_level_up.emit(Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
+				Genum.BonusLevel.MAX:
+					print("Max level, no upgrade possible")
 			even = false
 			
 		## EVN - DONE
@@ -152,13 +157,17 @@ func _bonus_check() -> void:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.TWO
 						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
+						bonus_level_up.emit(Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_odd = true
 				Genum.BonusLevel.TWO:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
 						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
+						bonus_level_up.emit(Genum.BonusLevel.MAX)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
+				Genum.BonusLevel.MAX:
+					print("Max level, no upgrade possible")
 	
 	## ALPHA ETO SEVENS
 	if !bonus_tracking.is_empty() :

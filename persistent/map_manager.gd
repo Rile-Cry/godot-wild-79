@@ -1,7 +1,7 @@
 extends Node
 
 var current_map : Array[Array]
-var map_size := Vector2i(51, 51)
+var map_size := Vector2i(15, 71)
 var map_position := Vector2i(0, 0)
 var weights : Array
 var total_traveled : int = 0
