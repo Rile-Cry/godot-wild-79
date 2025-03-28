@@ -10,7 +10,6 @@ extends CanvasLayer
 @onready var buttons = $LowerButtonPanel/Buttons
 @onready var optionsButton = $LowerButtonPanel/Buttons/OptionsButton
 @onready var infoButton = $LowerButtonPanel/Buttons/InfoButton
-@onready var upDownButton = $LowerButtonPanel/Buttons/UpDownButton
 @onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
 @onready var leverButton = $Lever/LeverButton
 
@@ -23,14 +22,12 @@ func _ready() -> void:
 	
 func disable_buttons():
 	infoButton.disabled = true
-	upDownButton.disabled = true
 	swapButton.disabled = true
 	leverButton.disabled = true
 	optionsButton.disabled = true
 
 func enable_buttons():
 	infoButton.disabled = false
-	upDownButton.disabled = false
 	swapButton.disabled = false
 	leverButton.disabled = false
 	optionsButton.disabled = false

@@ -8,6 +8,7 @@ var deck_path : StringName = "res://mechanics/cards/"
 var current_deck : Array[int]
 var bonus_tracking : Dictionary[Genum.BonusType,Genum.BonusLevel]
 var just_got_evn = true
+var just_got_odd = true
 
 func _ready() -> void:
 	_load_cards()
@@ -16,6 +17,7 @@ func _ready() -> void:
 
 func _initialize_bonuses():
 	bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.ZERO
+	bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.ZERO
 
 func _load_cards() -> void:
 	var dir_list := ResourceLoader.list_directory(deck_path)
@@ -115,10 +117,10 @@ func _bonus_check() -> void:
 				just_got_evn = false
 			elif temp % 2 == 0:
 				odd = false
+				just_got_odd = false
 				
 		
 		if even:
-			
 			match bonus_tracking[Genum.BonusType.EVN]:
 				Genum.BonusLevel.ZERO:
 					bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.ONE
@@ -140,8 +142,23 @@ func _bonus_check() -> void:
 			
 		## EVN - DONE
 		if odd:
-			bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.ONE
-			added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.ONE)
+			match bonus_tracking[Genum.BonusType.ODD]:
+				Genum.BonusLevel.ZERO:
+					bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.ONE
+					added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.ONE)
+					GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.ONE)
+					just_got_odd = true
+				Genum.BonusLevel.ONE:
+					if !just_got_odd:
+						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.TWO
+						GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
+						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
+						just_got_odd = true
+				Genum.BonusLevel.TWO:
+					if !just_got_odd:
+						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
+						GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
+						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
 	
 	## ALPHA ETO SEVENS
 	if !bonus_tracking.is_empty() :
@@ -151,8 +168,9 @@ func _bonus_check() -> void:
 			added_bonus.emit(Genum.BonusType.ALPHABET,Genum.BonusLevel.MAX)
 		## ETO - DONE
 		if bonus_tracking.has(Genum.BonusType.ODD) and bonus_tracking.has(Genum.BonusType.EVN) :
-			bonus_tracking[Genum.BonusType.ETO] = Genum.BonusLevel.MAX
-			added_bonus.emit(Genum.BonusType.ETO,Genum.BonusLevel.MAX)
+			if bonus_tracking[Genum.BonusType.ODD] == Genum.BonusLevel.MAX and bonus_tracking[Genum.BonusType.EVN] == Genum.BonusLevel.MAX:
+				bonus_tracking[Genum.BonusType.ETO] = Genum.BonusLevel.MAX
+				added_bonus.emit(Genum.BonusType.ETO,Genum.BonusLevel.MAX)
 		## BONUS
 		if bonus_tracking.has(Genum.BonusType.SEVENS) and bonus_tracking[Genum.BonusType.SEVENS] == Genum.BonusLevel.MAX :
 			bonus_tracking[Genum.BonusType.BONUS] = Genum.BonusLevel.MAX
