@@ -17,25 +17,16 @@ func _ready() -> void:
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
 	
-	
-
-	Wwise.post_event_id(AK.EVENTS.OST,self)
-	SoundManager._set_phase(AK.STATES.PHASE.STATE.MENU)
-	SoundManager._set_intensity(AK.STATES.INTENSITY.STATE.NONE)
-	#Wwise.set_rtpc_value_id(AK.GAME_PARAMETERS.OSTVOL,50,self)
-	
-	
-	
-	
 
 func play_bonus_sound(level:Genum.BonusLevel):
-	match level:
-		Genum.BonusLevel.ONE:
-			SoundManager.play(AK.EVENTS.LVL1)
-		Genum.BonusLevel.TWO:
-			SoundManager.play(AK.EVENTS.LVL2)
-		Genum.BonusLevel.MAX:
-			SoundManager.play(AK.EVENTS.LVL3)
+	pass
+	#match level:
+		#Genum.BonusLevel.ONE:
+			#SoundManager.play(AK.EVENTS.LVL1)
+		#Genum.BonusLevel.TWO:
+			#SoundManager.play(AK.EVENTS.LVL2)
+		#Genum.BonusLevel.MAX:
+			#SoundManager.play(AK.EVENTS.LVL3)
 		
 func _first_round():
 	_set_reel_ids()
@@ -70,21 +61,18 @@ func _on_hero_switched() -> void:
 	match(current_class):
 		Genum.Classes.WARRIOR:
 			current_class = Genum.Classes.ROGUE
-			Wwise.post_event_id(AK.EVENTS.ROUGE, self)
 		Genum.Classes.ROGUE:
 			if up:
 				current_class = Genum.Classes.WARRIOR
 				up = false
 			else:
 				current_class = Genum.Classes.ARCHER
-			Wwise.post_event_id(AK.EVENTS.ARCHER, self)
 		Genum.Classes.ARCHER:
 			if up:
 				current_class = Genum.Classes.ROGUE
 			else:
 				current_class = Genum.Classes.ARCHER
 				up = true
-			Wwise.post_event_id(AK.EVENTS.WARRIOR, self)
 	
 	_update_highlight()
 	$UI.change_hero(current_class,up)
@@ -107,7 +95,6 @@ func _on_reel_5_reel_stopped() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 1.0
 	$SlotMachine/Lights.play("default")
-	SoundManager.stop(AK.EVENTS.REELSPIN)
 	GameGlobalEvents.reel_over.emit()
 
 func _on_reel_5_reel_started() -> void:
@@ -115,7 +102,6 @@ func _on_reel_5_reel_started() -> void:
 	$SlotMachine/Lights.stop()
 	$SlotMachine/Lights.speed_scale = 7.8
 	$SlotMachine/Lights.play("default")
-	SoundManager.play(AK.EVENTS.REELSPIN)
 
 func _bonus_update(bonus_id:int) -> void:
 	print("updating bonus")

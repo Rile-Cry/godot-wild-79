@@ -386,7 +386,5 @@ stream = ExtResource("10_vtaks")
 volume_db = -15.0
 bus = &"SFX"
 
-[node name="AkListener2D" type="AkListener2D" parent="."]
-
 [connection signal="reel_started" from="Reels/Reel5" to="." method="_on_reel_5_reel_started"]
 [connection signal="reel_stopped" from="Reels/Reel5" to="." method="_on_reel_5_reel_stopped"]

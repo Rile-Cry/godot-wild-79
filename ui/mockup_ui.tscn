@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=73 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -199,6 +199,14 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wijqv"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p2f5s"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/cards.png-db3ffa5d800f2e13370474977a4c6d60.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmydr"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_p2f5s")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_v73v5"]
 atlas = ExtResource("3_sdems")
 region = Rect2(0, 0, 320, 180)
@@ -387,7 +395,7 @@ stretch_mode = 2
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
-animation = &"warrior"
+animation = &"arrows"
 autoplay = "warrior"
 centered = false
 
@@ -409,7 +417,7 @@ stretch_mode = 2
 [node name="Arrow Animation" type="AnimatedSprite2D" parent="LowerButtonPanel/Buttons/Arrow Facing"]
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
-sprite_frames = SubResource("SpriteFrames_b0qgs")
+sprite_frames = SubResource("SpriteFrames_p2f5s")
 animation = &"arrows"
 autoplay = "warrior"
 centered = false
@@ -453,6 +461,7 @@ offset_left = 101.0
 offset_top = 32.0
 offset_right = -219.0
 offset_bottom = -148.0
+atlas = SubResource("AtlasTexture_bmydr")
 
 [node name="Lever" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
