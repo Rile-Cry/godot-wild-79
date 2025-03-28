@@ -130,13 +130,13 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ONE:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.TWO
-						GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
+						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_evn = true
 				Genum.BonusLevel.TWO:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
-						GameGlobalEvents.bonus_get.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
+						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
 			even = false
 			
@@ -151,13 +151,13 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ONE:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.TWO
-						GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
+						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_odd = true
 				Genum.BonusLevel.TWO:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
-						GameGlobalEvents.bonus_get.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
+						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
 	
 	## ALPHA ETO SEVENS
