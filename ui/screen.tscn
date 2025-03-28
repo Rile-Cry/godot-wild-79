@@ -133,7 +133,6 @@ custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
 size_flags_horizontal = 12
 size_flags_vertical = 12
-texture = SubResource("AtlasTexture_mwkjo")
 expand_mode = 1
 
 [node name="Card2" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
@@ -142,7 +141,6 @@ custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
 size_flags_horizontal = 12
 size_flags_vertical = 12
-texture = SubResource("AtlasTexture_2cune")
 expand_mode = 1
 
 [node name="Card3" type="TextureRect" parent="HBoxContainer/VBoxContainer/HFlowContainer/Recent Cards"]
@@ -151,7 +149,6 @@ custom_minimum_size = Vector2(26, 14)
 layout_mode = 2
 size_flags_horizontal = 12
 size_flags_vertical = 12
-texture = SubResource("AtlasTexture_qkl6s")
 expand_mode = 1
 
 [node name="Shadows" type="HBoxContainer" parent="."]

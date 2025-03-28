@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://maawxpdduy1"]
+[gd_scene load_steps=39 format=3 uid="uid://maawxpdduy1"]
 
 [ext_resource type="Texture2D" uid="uid://1ujb1ldkcjw0" path="res://assets/images/SlotMachine.png" id="2_4flgv"]
 [ext_resource type="Texture2D" uid="uid://brx6op25ouocn" path="res://assets/images/SlotMachine_Screen.png" id="3_d88kc"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://duyv1nyjx45v6" path="res://assets/images/reel-spin.png" id="10_d88kc"]
 [ext_resource type="Texture2D" uid="uid://5g8tn30ok5kx" path="res://assets/images/characters-Sheet.png" id="11_4m825"]
 [ext_resource type="Texture2D" uid="uid://bl4ov3xflsvdm" path="res://assets/images/character-select.png" id="11_py03c"]
-[ext_resource type="PackedScene" uid="uid://f8rskoeudmrb" path="res://ui/mockup_ui.tscn" id="14_kpaja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erhge"]
 atlas = ExtResource("10_d88kc")
@@ -284,5 +283,3 @@ frame_progress = 0.627877
 sprite_frames = SubResource("SpriteFrames_g2ulw")
 autoplay = "default"
 frame_progress = 0.861428
-
-[node name="UI" parent="." instance=ExtResource("14_kpaja")]
