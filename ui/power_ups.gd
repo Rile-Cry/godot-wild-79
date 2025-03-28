@@ -2,7 +2,7 @@ extends Control
 
 @export var bonus_sprite : Sprite2D
 @export var level_sprite : Sprite2D
-var bonus := Genum.BonusType.NONE
+var bonus : Genum.BonusType
 var level := Genum.BonusLevel.ONE
 
 var bonus_reference : Dictionary[Genum.BonusType, Vector2i] = {
@@ -35,6 +35,12 @@ func _ready() -> void:
 	update_bonus(bonus, level)
 	update_bonus(3,2)
 	GameGlobalEvents.bonus_get.connect(update_bonus)
+	GameGlobalEvents.level_up.connect(update_level)
+	
+func update_level(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> void:
+	if new_bonus == bonus:
+		level = new_level
+		level_sprite.frame_coords = level_reference[level]
 
 func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> void:
 	bonus = new_bonus
@@ -45,7 +51,6 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 		bonus_sprite.frame_coords = bonus_reference[bonus]
 		level_sprite.frame_coords = level_reference[level]
 		GameGlobalEvents.bonus_level_sound.emit(level)
-		print("level",level)
 		if level == Genum.BonusLevel.MAX: 
 			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
 			level_sprite.material.set_shader_parameter("angle",45)

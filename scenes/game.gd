@@ -26,7 +26,6 @@ func _ready() -> void:
 	
 
 func play_bonus_sound(level:Genum.BonusLevel):
-	print("bonusLevelpassed", level)
 	match level:
 		Genum.BonusLevel.ONE:
 			SoundManager.play_sound(Sounds.sfx_lvl1, "SFX")
@@ -121,4 +120,4 @@ func _on_reel_5_reel_started() -> void:
 	#SoundManager.play(AK.EVENTS.REELSPIN)
 
 func _bonus_update(bonus_id:int) -> void:
-	print("updating bonus")
+	pass

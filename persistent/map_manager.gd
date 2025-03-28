@@ -15,7 +15,7 @@ func get_position_value(pos: Vector2i) -> int:
 
 ## Grabs the current map position
 func get_current_position_value() -> int:
-	print(map_position)
+	#print(map_position)
 	return get_position_value(map_position)
 
 ## Moves the current map position based on chosen movement method

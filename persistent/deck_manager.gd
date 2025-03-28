@@ -26,7 +26,6 @@ func _load_cards() -> void:
 		var card_res := ResourceLoader.load(deck_path + res) as CardResource
 		card_resources.set(card_res.card_id, card_res)
 	card_resources.sort()
-	print("DEBUG CHECK")
 
 # TODO: Write up the effects for the different cards.
 # Also be able to handle score additions based on what's been collected.
@@ -131,15 +130,13 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ONE:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.TWO
-						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
-						bonus_level_up.emit(Genum.BonusLevel.TWO)
+						GameGlobalEvents.level_up.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_evn = true
 				Genum.BonusLevel.TWO:
 					if !just_got_evn:
 						bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
-						added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
-						bonus_level_up.emit(Genum.BonusLevel.TWO)
+						GameGlobalEvents.level_up.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
 				Genum.BonusLevel.MAX:
 					print("Max level, no upgrade possible")
@@ -156,15 +153,13 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ONE:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.TWO
-						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
-						bonus_level_up.emit(Genum.BonusLevel.TWO)
+						GameGlobalEvents.level_up.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.TWO)
 						just_got_odd = true
 				Genum.BonusLevel.TWO:
 					if !just_got_odd:
 						bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
-						added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
-						bonus_level_up.emit(Genum.BonusLevel.MAX)
+						GameGlobalEvents.level_up.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
 						GameGlobalEvents.bonus_level_sound.emit(Genum.BonusLevel.MAX)
 				Genum.BonusLevel.MAX:
 					print("Max level, no upgrade possible")

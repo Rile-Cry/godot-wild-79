@@ -222,7 +222,7 @@ func create(source_file: String):
 	if _tileset_save_path != "":
 		var save_ret = ResourceSaver.save(_tileset, _tileset_save_path)
 		if save_ret == OK:
-			print("Successfully saved tileset to '" + _tileset_save_path + "'")
+			#print("Successfully saved tileset to '" + _tileset_save_path + "'")
 			for node in _base_node.find_children("*", "TileMapLayer"):
 				if node is TileMapLayer and node.tile_set.resource_path == "":
 					node.tile_set = ResourceLoader.load(_tileset_save_path)

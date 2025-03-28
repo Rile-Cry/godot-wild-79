@@ -16,7 +16,6 @@ func  _ready() -> void:
 		bonus_type_selector.add_item(str(bType))
 	for bLvl in Genum.BonusLevel :
 		bonus_level_selector.add_item(str(bLvl))
-		print(str(bLvl))
 		
 
 func _unhandled_key_input(event: InputEvent) -> void:

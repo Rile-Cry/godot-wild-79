@@ -71,7 +71,7 @@ func create(tiled_file_content: PackedByteArray, source_file_name: String):
 	if err == OK:
 		return _result
 	else:
-		print("Import aborted with ", err, " error.")
+		#print("Import aborted with ", err, " error.")
 		return null
 
 func simple_element(element_name: String, attribs: Dictionary):
