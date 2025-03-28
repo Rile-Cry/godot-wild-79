@@ -87,7 +87,7 @@ func _on_hero_switched() -> void:
 			Wwise.post_event_id(AK.EVENTS.WARRIOR, self)
 	
 	_update_highlight()
-	$UI.change_hero(current_class)
+	$UI.change_hero(current_class,up)
 
 func _update_highlight() -> void:
 	if state == Genum.PlayingState.PLAYING:

@@ -133,7 +133,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bip7v")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"arrows",
 "speed": 5.0
 }, {
 "frames": [{
@@ -410,7 +410,7 @@ stretch_mode = 2
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
-animation = &"new_animation"
+animation = &"arrows"
 autoplay = "warrior"
 centered = false
 

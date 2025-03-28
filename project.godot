@@ -21,13 +21,13 @@ buses/default_bus_layout="uid://dvhwf7bnk0os7"
 
 [autoload]
 
-WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 Global="*res://persistent/global.gd"
 GameGlobalEvents="*res://persistent/game_global_events.gd"
-SoundManager="*res://persistent/sound_manager.gd"
 ScreenManager="*res://persistent/screen_manager.gd"
-DeckManager="*res://persistent/deck_manager.gd"
 MapManager="*res://persistent/map_manager.gd"
+DeckManager="*res://persistent/deck_manager.gd"
+WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+SoundManager="*res://persistent/sound_manager.gd"
 
 [display]
 
@@ -67,6 +67,7 @@ folder_colors={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
 
@@ -76,3 +77,7 @@ common_user_settings/root_output_path="res://generated_soundbanks"
 project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
 common_user_settings/main_output/panning_rule=1
 common_advanced_settings/use_stream_cache=true
+project_settings/mac_platform_info="res://Wwise/resources/Mac.tres"
+project_settings/linux_platform_info="res://Wwise/resources/Linux.tres"
+project_settings/ios_platform_info="res://Wwise/resources/iOS.tres"
+project_settings/android_platform_info="res://Wwise/resources/Android.tres"
