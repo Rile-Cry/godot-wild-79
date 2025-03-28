@@ -41,15 +41,18 @@ grow_vertical = 2
 
 [node name="InfoButton" type="TextureButton" parent="."]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_lkcl6")
 texture_pressed = SubResource("AtlasTexture_edjx0")
 
 [node name="OptionsButton" type="TextureButton" parent="."]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_n1lxv")
 texture_pressed = SubResource("AtlasTexture_ijn6y")
 
 [node name="SwapButton" type="TextureButton" parent="."]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_nl7wd")
 texture_pressed = SubResource("AtlasTexture_asmfa")
