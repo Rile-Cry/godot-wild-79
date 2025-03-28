@@ -46,13 +46,13 @@ region = Rect2(32, 0, 32, 24)
 atlas = ExtResource("5_p2f5s")
 region = Rect2(64, 0, 32, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4667r"]
-atlas = ExtResource("5_p2f5s")
-region = Rect2(96, 0, 32, 24)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bip7v"]
 atlas = ExtResource("5_p2f5s")
 region = Rect2(128, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4667r"]
+atlas = ExtResource("5_p2f5s")
+region = Rect2(96, 0, 32, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddkd0"]
 atlas = ExtResource("4_x0wgd")
@@ -127,10 +127,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_aii0x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4667r")
+"texture": SubResource("AtlasTexture_bip7v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bip7v")
+"texture": SubResource("AtlasTexture_4667r")
 }],
 "loop": true,
 "name": &"arrows",
@@ -463,9 +463,6 @@ offset_bottom = 19.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="UpDownButton" parent="LowerButtonPanel/Buttons" index="2"]
-visible = false
-
 [node name="SwapButton" parent="LowerButtonPanel/Buttons" index="3"]
 action_mode = 0
 
@@ -478,7 +475,7 @@ stretch_mode = 2
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_b0qgs")
-animation = &"arrows"
+animation = &"warrior"
 autoplay = "warrior"
 centered = false
 
@@ -501,7 +498,7 @@ stretch_mode = 2
 position = Vector2(1, 1)
 scale = Vector2(0.6, 0.666666)
 sprite_frames = SubResource("SpriteFrames_p2f5s")
-animation = &"arrows"
+animation = &"warrior"
 autoplay = "warrior"
 centered = false
 

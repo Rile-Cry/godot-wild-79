@@ -30,25 +30,25 @@ func _on_score_changed() -> void:
 	
 func _card_history(card:CardResource) -> void:
 	var atlas_region = Rect2(card.card_texture_position.x*28,card.card_texture_position.y*16,28,16)
-	var temp_texture = AtlasTexture.new()
+	var temp_texture : AtlasTexture
 	#temp_texture.resource_local_to_scene = true
 	temp_texture = atlas.duplicate(true)
 	temp_texture.region = atlas_region
 	if !card_one_stored:
 		recent_one.texture = temp_texture
 		recent_one.visible = true
-		$Shadows/Card1.visible = true
+		#$Shadows/Card1.visible = true
 		card_one_stored = true
 	elif !card_two_stored and card_one_stored :
 		recent_two.texture = temp_texture
 		recent_two.visible = true
 		card_two_stored = true
-		$Shadows/Card2.visible = true
+		#$Shadows/Card2.visible = true
 	elif card_one_stored and card_two_stored and !card_three_stored:
 		recent_three.texture = temp_texture
 		recent_three.visible = true
 		card_three_stored = true
-		$Shadows/Card3.visible = true
+		#$Shadows/Card3.visible = true
 	elif card_three_stored :
 		recent_one.texture = recent_two.texture
 		recent_two.texture = recent_three.texture
