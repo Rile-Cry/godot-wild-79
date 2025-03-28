@@ -33,7 +33,6 @@ func _get_current_bonus() -> Vector2i :
 func _ready() -> void:
 	#update_bonus(Genum.BonusType.OOF, Genum.BonusLevel.MAX)
 	update_bonus(bonus, level)
-	update_bonus(3,2)
 	GameGlobalEvents.bonus_get.connect(update_bonus)
 
 func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> void:
@@ -44,11 +43,6 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 		show()
 		bonus_sprite.frame_coords = bonus_reference[bonus]
 		level_sprite.frame_coords = level_reference[level]
-		#GameGlobalEvents.bonus_level_sound.emit(level)
-		if level == Genum.BonusLevel.MAX: 
-			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
-			level_sprite.material.set_shader_parameter("angle",45)
-			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
-			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
+		GameGlobalEvents.bonus_level_sound.emit(level)
 	else:
 		hide()

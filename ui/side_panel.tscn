@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5jlmyoner85q"]
+[gd_scene load_steps=4 format=3 uid="uid://b5jlmyoner85q"]
 
-[ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="1_3ysk4"]
 [ext_resource type="Texture2D" uid="uid://d0bvu1d0udjrj" path="res://assets/images/Side-Panel.png" id="1_a3p0c"]
-[ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="1_rgkb0"]
 [ext_resource type="PackedScene" uid="uid://cfrp8rchhy0bo" path="res://ui/power_ups.tscn" id="2_qg7yf"]
 [ext_resource type="Script" uid="uid://mw738ytae2mi" path="res://ui/power_ups_container.gd" id="3_3ysk4"]
 
@@ -16,36 +14,17 @@ anchor_top = 0.4
 anchor_right = 0.175
 anchor_bottom = 0.939
 offset_left = 1.12
-offset_top = 1.0
-offset_right = 89.0
-offset_bottom = 163.98
-scale = Vector2(0.37, 0.37)
+offset_top = 2.0
+offset_bottom = -2.02
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Current Multipliers" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-z_index = 1
-material = ExtResource("1_rgkb0")
-custom_minimum_size = Vector2(140, 9)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_3ysk4")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "Current Multipliers"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PowerUps" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PowerUps" type="VBoxContainer" parent="MarginContainer"]
 z_index = 1
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 11
+theme_override_constants/separation = 6
 script = ExtResource("3_3ysk4")
 power_up_scene = ExtResource("2_qg7yf")
 

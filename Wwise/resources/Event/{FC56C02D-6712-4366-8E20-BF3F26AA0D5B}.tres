@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://c2n2cc3kq3mug"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "treasure"
+id = 3284038070
+guid = "{FC56C02D-6712-4366-8E20-BF3F26AA0D5B}"
+dummy = true

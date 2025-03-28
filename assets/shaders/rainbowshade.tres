@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_i8x7v")
-shader_parameter/oldColorBody1 = Color(1, 1, 1, 1)
+shader_parameter/oldColorBody1 = Color(0.0430392, 0.0430392, 0.0430392, 1)
 shader_parameter/oldColorBody2 = Color(0.681917, 0.202364, 0.201831, 1)
 shader_parameter/precision = 0.3
 shader_parameter/strength = 0.85
