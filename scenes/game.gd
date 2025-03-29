@@ -30,9 +30,11 @@ func play_bonus_sound(level:Genum.BonusLevel):
 		Genum.BonusLevel.ONE:
 			SoundManager.play_sound(Sounds.sfx_lvl1, "SFX")
 		Genum.BonusLevel.TWO:
-			SoundManager.play_sound_with_pitch(Sounds.sfx_lvl2,1.2, "SFX")
+			SoundManager.play_sound(Sounds.sfx_lvl2,"SFX")
 		Genum.BonusLevel.MAX:
-			SoundManager.play_sound_with_pitch(Sounds.sfx_lvl3,1.0, "SFX")
+			SoundManager.play_sound(Sounds.sfx_lvl3,"SFX")
+		Genum.BonusLevel.MAXSECRET:
+			SoundManager.play_sound(Sounds.sfx_lvlMaxSecret, "SFX")
 		
 func _first_round():
 	_set_reel_ids()

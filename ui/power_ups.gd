@@ -23,7 +23,8 @@ var bonus_reference : Dictionary[Genum.BonusType, Vector2i] = {
 var level_reference : Dictionary[Genum.BonusLevel, Vector2i] = {
 	Genum.BonusLevel.ONE : Vector2i(0, 1),
 	Genum.BonusLevel.TWO : Vector2i(1, 1),
-	Genum.BonusLevel.MAX : Vector2i(2, 1)
+	Genum.BonusLevel.MAX : Vector2i(2, 1),
+	Genum.BonusLevel.MAXSECRET : Vector2i(2, 1)
 }
 
 func _get_current_bonus() -> Vector2i :
@@ -41,6 +42,12 @@ func update_level(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 	if new_bonus == bonus:
 		level = new_level
 		level_sprite.frame_coords = level_reference[level]
+		GameGlobalEvents.bonus_level_sound.emit(level)
+		if level == Genum.BonusLevel.MAX or level == Genum.BonusLevel.MAXSECRET: 
+			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
+			level_sprite.material.set_shader_parameter("angle",45)
+			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
+			level_sprite.material.set_shader_parameter("sprite_sheet_rows",1)
 
 func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> void:
 	bonus = new_bonus
@@ -48,10 +55,10 @@ func update_bonus(new_bonus: Genum.BonusType, new_level: Genum.BonusLevel) -> vo
 	
 	if bonus != Genum.BonusType.NONE:
 		show()
+		GameGlobalEvents.bonus_level_sound.emit(level)
 		bonus_sprite.frame_coords = bonus_reference[bonus]
 		level_sprite.frame_coords = level_reference[level]
-		GameGlobalEvents.bonus_level_sound.emit(level)
-		if level == Genum.BonusLevel.MAX: 
+		if level == Genum.BonusLevel.MAX or level == Genum.BonusLevel.MAXSECRET: 
 			level_sprite.material = load("res://assets/shaders/rainbowshade.tres").duplicate(true)
 			level_sprite.material.set_shader_parameter("angle",45)
 			level_sprite.material.set_shader_parameter("sprite_sheet_columns",1)
