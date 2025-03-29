@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdeqg64hcirrw"]
+
+[ext_resource type="Texture2D" uid="uid://cdsqihhkfxwgl" path="res://assets/images/9-patch.png" id="1_5eixk"]
+[ext_resource type="Texture2D" uid="uid://v68s7i6emqru" path="res://assets/images/ui/Game-Over.png" id="2_j1fe5"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5eixk")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j1fe5")
+stretch_mode = 2

@@ -16,7 +16,7 @@ func _ready() -> void:
 	GameGlobalEvents.use_lever.connect(_on_lever_used)
 	GameGlobalEvents.switch_hero.connect(_on_hero_switched)
 	GameGlobalEvents.toggle_direction.connect(_on_direction_toggled)
-	
+	GameGlobalEvents.game_over.connect(_game_over)
 	
 
 	SoundManager.play_music(Sounds.music_menu, 0.0, "Music")
@@ -24,6 +24,9 @@ func _ready() -> void:
 	
 	
 	
+
+func _game_over():
+	pass
 
 func play_bonus_sound(level:Genum.BonusLevel):
 	match level:
