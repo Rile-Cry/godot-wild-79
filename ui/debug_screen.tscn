@@ -13,16 +13,15 @@ default_font_size = 8
 [node name="DebugScreen" type="CanvasLayer" node_paths=PackedStringArray("label", "restart_container", "restart_text", "restart_button", "apply_bonus_button", "bonus_type_selector", "bonus_level_selector")]
 layer = 2
 script = ExtResource("1_xklkw")
-label = NodePath("Control/Debug Label")
-restart_container = NodePath("Control/VFlowContainer/RestartSeedContainer")
-restart_text = NodePath("Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox")
-restart_button = NodePath("Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton")
-apply_bonus_button = NodePath("Control/VFlowContainer/VBoxContainer/ApplyBonusButton")
-bonus_type_selector = NodePath("Control/VFlowContainer/VBoxContainer/HBoxContainer/Bonus Type")
-bonus_level_selector = NodePath("Control/VFlowContainer/VBoxContainer/HBoxContainer/Bonus Level")
+label = NodePath("Debug_Items/Debug Label")
+restart_container = NodePath("Debug_Items/VFlowContainer/RestartSeedContainer")
+restart_text = NodePath("Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox")
+restart_button = NodePath("Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton")
+apply_bonus_button = NodePath("Debug_Items/VFlowContainer/BonusBox/ApplyBonusButton")
+bonus_type_selector = NodePath("Debug_Items/VFlowContainer/BonusBox/HBoxContainer/Bonus Type")
+bonus_level_selector = NodePath("Debug_Items/VFlowContainer/BonusBox/HBoxContainer/Bonus Level")
 
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="Debug_Items" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Debug Label" type="Label" parent="Control"]
+[node name="Debug Label" type="Label" parent="Debug_Items"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,27 +46,27 @@ theme_override_fonts/font = ExtResource("2_j2fff")
 theme_override_font_sizes/font_size = 8
 text = "Debug Mode"
 
-[node name="VFlowContainer" type="VFlowContainer" parent="Control"]
+[node name="VFlowContainer" type="VFlowContainer" parent="Debug_Items"]
 layout_mode = 0
-offset_right = 161.0
+offset_right = 364.0
 offset_bottom = 64.0
 scale = Vector2(0.4, 0.4)
 
-[node name="RestartSeedContainer" type="PanelContainer" parent="Control/VFlowContainer"]
+[node name="RestartSeedContainer" type="PanelContainer" parent="Debug_Items/VFlowContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VFlowContainer/RestartSeedContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Debug_Items/VFlowContainer/RestartSeedContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VFlowContainer/RestartSeedContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="SeedBox" type="TextEdit" parent="Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer"]
+[node name="SeedBox" type="TextEdit" parent="Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j2fff")
 theme_override_font_sizes/font_size = 8
@@ -78,26 +77,26 @@ scroll_fit_content_height = true
 scroll_fit_content_width = true
 caret_multiple = false
 
-[node name="RestartButton" type="Button" parent="Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j2fff")
 theme_override_font_sizes/font_size = 8
 text = "Restart"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VFlowContainer"]
+[node name="BonusBox" type="VBoxContainer" parent="Debug_Items/VFlowContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = SubResource("Theme_jkq6n")
 
-[node name="ApplyBonusButton" type="Button" parent="Control/VFlowContainer/VBoxContainer"]
+[node name="ApplyBonusButton" type="Button" parent="Debug_Items/VFlowContainer/BonusBox"]
 layout_mode = 2
 theme = SubResource("Theme_jkq6n")
 text = "Apply Bonus Level"
 icon = ExtResource("4_lvh41")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VFlowContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug_Items/VFlowContainer/BonusBox"]
 clip_contents = true
 custom_minimum_size = Vector2(75, 10)
 layout_mode = 2
@@ -105,12 +104,13 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = SubResource("Theme_jkq6n")
 
-[node name="Bonus Type" type="OptionButton" parent="Control/VFlowContainer/VBoxContainer/HBoxContainer"]
+[node name="Bonus Type" type="OptionButton" parent="Debug_Items/VFlowContainer/BonusBox/HBoxContainer"]
 custom_minimum_size = Vector2(75, 10)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = ExtResource("5_lvh41")
+clip_text = true
 selected = 0
 item_count = 2
 popup/item_0/text = "Bonus Type"
@@ -118,7 +118,7 @@ popup/item_0/id = 0
 popup/item_1/id = 1
 popup/item_1/separator = true
 
-[node name="Bonus Level" type="OptionButton" parent="Control/VFlowContainer/VBoxContainer/HBoxContainer"]
+[node name="Bonus Level" type="OptionButton" parent="Debug_Items/VFlowContainer/BonusBox/HBoxContainer"]
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -127,6 +127,6 @@ popup/item_0/id = 0
 popup/item_1/id = 1
 popup/item_1/separator = true
 
-[connection signal="text_changed" from="Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox" to="." method="_on_text_changed"]
-[connection signal="pressed" from="Control/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Control/VFlowContainer/VBoxContainer/ApplyBonusButton" to="." method="_on_apply_bonus_button_pressed"]
+[connection signal="text_changed" from="Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/SeedBox" to="." method="_on_text_changed"]
+[connection signal="pressed" from="Debug_Items/VFlowContainer/RestartSeedContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Debug_Items/VFlowContainer/BonusBox/ApplyBonusButton" to="." method="_on_apply_bonus_button_pressed"]

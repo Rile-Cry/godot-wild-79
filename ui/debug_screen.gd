@@ -22,10 +22,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_toggle"):
 		if not can_debug:
 			can_debug = true
-			label.show()
+			$Debug_Items.show()
 		else:
 			can_debug = false
-			label.hide()
+			$Debug_Items.hide()
 	
 	if can_debug:
 		if event.is_action_pressed("restart_run"):
