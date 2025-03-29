@@ -61,9 +61,9 @@ func _generate_weight_table() -> void:
 			weight_events.append(card_resource.card_weight)
 	
 	var weight_types := PackedFloat32Array([
-		5, # Numbers
-		1.5, # 7s
-		1, # Effects
+		1, # Numbers
+		1, # 7s
+		0, # Effects
 		0, # Events
 	])
 	

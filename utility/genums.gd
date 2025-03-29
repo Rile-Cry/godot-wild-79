@@ -4,7 +4,8 @@ enum BonusLevel {
 	ZERO,
 	ONE,
 	TWO,
-	MAX
+	MAX,
+	MAXSECRET
 }
 
 enum BonusType {
