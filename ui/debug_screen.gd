@@ -12,6 +12,7 @@ extends CanvasLayer
 var can_debug := false
 
 func  _ready() -> void:
+	$Debug_Items.hide()
 	for bType in Genum.BonusType :
 		bonus_type_selector.add_item(str(bType))
 	for bLvl in Genum.BonusLevel :

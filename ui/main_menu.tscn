@@ -94,14 +94,13 @@ script = ExtResource("2_8uxxo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -90.0
-offset_bottom = 58.0
-grow_horizontal = 0
-scale = Vector2(3.02, 3.02)
-pivot_offset = Vector2(90, 0)
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(-0.775, 0)
 texture = ExtResource("2_0dkrt")
 stretch_mode = 2
 
