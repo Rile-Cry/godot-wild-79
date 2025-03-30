@@ -121,7 +121,7 @@ func _on_options_button_pressed() -> void:
 
 func _on_game_over() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(game_over_screen, "position:y", 70,.25)
+	tween.tween_property(game_over_screen, "position:y", 0,.25)
 	tween.play()
 	disable_buttons()
 	await tween.finished
