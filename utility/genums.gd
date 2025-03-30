@@ -46,5 +46,6 @@ enum PlayingState {
 enum Vars {
 	MULTIPLIERS,
 	PULLS,
+	BASE_SCORE,
 	SCORE
 }

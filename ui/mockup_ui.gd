@@ -14,12 +14,14 @@ const POINTER = preload("res://assets/images/ui/pointer.png")
 @onready var infoButton = $LowerButtonPanel/Buttons/InfoButton
 @onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
 @onready var leverButton = $Lever/LeverButton
+@onready var game_over_screen = $GameOver
 
 var menuOpen = false
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(POINTER, Input.CURSOR_POINTING_HAND)
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
+	GameGlobalEvents.game_over.connect(_on_game_over)
 	direction_arrow.play("arrows",0)
 	disable_buttons()
 	
@@ -114,7 +116,15 @@ func _on_options_button_pressed() -> void:
 			enable_buttons()
 			arrow.visible = true
 			
-			
+
+func _on_game_over() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(game_over_screen, "position:y", 70,.25)
+	tween.play()
+	disable_buttons()
+	await tween.finished
+	get_tree().paused = true
+
 func _on_reel_finished() -> void:
 	enable_buttons()
 	lever_button.mouse_filter = Control.MOUSE_FILTER_STOP

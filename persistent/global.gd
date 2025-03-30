@@ -3,10 +3,14 @@ extends Node
 var rng := RandomNumberGenerator.new() # The generator for the RNG Numbers
 var _prior_runs : Array[int] = [] # Previous runs data
 var _global_vars : Dictionary = { # Global dictionary, has all the variables encapsulated for get/set access
-	Genum.Vars.MULTIPLIERS: [], # The collection of multipliers
+	Genum.Vars.MULTIPLIERS: 1, # The current multiplier
 	Genum.Vars.PULLS: 15, # The amount of pulls available to the player
-	Genum.Vars.SCORE: 0, # The score the player accrues as they play
+	Genum.Vars.BASE_SCORE: 0, # The base score the player has before multipliers
+	Genum.Vars.SCORE:0 # The total score, after multipliers
 }
+
+var debug_active := false
+
 var _move_weights : Array[float] = [1.0, 2.0]
 
 func _ready() -> void:
@@ -14,6 +18,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	GameGlobalEvents.exit_game.connect(_on_exit_game)
+	GameGlobalEvents.new_game.connect(new_run)
 
 ## The get function for accessing global variables.
 func get_var(variable: Genum.Vars, idx: int = 0):
@@ -49,7 +54,11 @@ func new_run(new_seed: int) -> void:
 	MapManager.generate_current_map()
 	set_var(Genum.Vars.SCORE, 0)
 	set_var(Genum.Vars.PULLS, 15)
+	set_var(Genum.Vars.BASE_SCORE, 0)
+	set_var(Genum.Vars.MULTIPLIERS, 1)
 	GameGlobalEvents.generation_complete.emit()
+	
+	get_tree().reload_current_scene()
 
 func _on_exit_game() -> void:
 	get_tree().quit()

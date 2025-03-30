@@ -1,4 +1,4 @@
-extends Node2D
+class_name Card extends Node2D
 
 @export var card_position := Vector2i(0, 0)
 @export var highlight_sprite : Sprite2D

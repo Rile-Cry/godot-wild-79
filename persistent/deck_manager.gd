@@ -11,6 +11,7 @@ var bonus_tracking : Dictionary[Genum.BonusType,Genum.BonusLevel]
 var odd_counter = 0
 var even_counter = 0
 var seven_counter = 0
+var sevens = false
 
 func _ready() -> void:
 	_load_cards()
@@ -52,8 +53,6 @@ func card_action() -> void:
 			odd_counter = 0
 		if current_card_id == 6:
 			seven_counter += 1
-		else: 
-			seven_counter = 0
 	elif current_card.card_type == Genum.CardType.EFFECT:
 		odd_counter = 0
 		even_counter = 0
@@ -66,7 +65,14 @@ func card_action() -> void:
 				Global.set_var(Genum.Vars.SCORE, score * 2)
 			"Bomb":
 				Global.set_var(Genum.Vars.SCORE, -50, true)
+				
+	if current_card_id != 6:
+		seven_counter = 0
+	
 	_add_to_deck(current_card)
+	
+
+	
 	card_collected.emit(current_card)
 	
 	Global.set_var(Genum.Vars.PULLS, -1, true)
@@ -124,17 +130,20 @@ func _bonus_check() -> void:
 	if card_chain[0] < 9 :
 		var even := true
 		var odd := true
+		sevens = false
 		
 		for card in card_chain:
 			## ODD offset because the #1 card is at location 0, i.e. #1 == 0, #3 == 2, e etc
 			var temp = card + 1
 			if temp % 2 == 1 :
 				even = false
-				
+				if temp % 7 == 0: sevens = true
+				else : sevens = false
 			elif temp % 2 == 0:
 				odd = false
+				sevens = false
 				
-				
+		if Global.debug_active : print(str(sevens) + " and sevens counter: " + str(seven_counter))
 		
 		if even and even_counter % 3 == 0:
 			match bonus_tracking[Genum.BonusType.EVN]:
@@ -201,7 +210,7 @@ func _bonus_check() -> void:
 		bonus_tracking[Genum.BonusType.OOF] = Genum.BonusLevel.MAX
 		added_bonus.emit(Genum.BonusType.OOF,Genum.BonusLevel.MAX)
 #	777 - Lvl1, Lvl2, LvlMAX
-	if seven_counter % 3 == 0:
+	if seven_counter % 3 == 0 and sevens:
 		if !bonus_tracking.has(Genum.BonusType.SEVENS) :
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.ONE
 			added_bonus.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.ONE)

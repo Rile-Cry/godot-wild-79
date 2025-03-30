@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://bi5sfmil46hsx"]
+[gd_resource type="Resource" script_class="EffectCardResource" load_steps=2 format=3 uid="uid://bi5sfmil46hsx"]
 
-[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_pscgp"]
+[ext_resource type="Script" uid="uid://3fwa4oilr838" path="res://mechanics/effect_card_resource.gd" id="1_pscgp"]
 
 [resource]
 script = ExtResource("1_pscgp")
+effect_name = &"Bar"
+effect_value = 20
+effect_text = "Adds $20 to Base Score"
 card_name = &"Bar"
 card_texture_position = Vector2i(3, 1)
 card_type = 1
 card_id = 12
 card_weight = 0.0
 card_weight_coefficient = 0.0
-metadata/_custom_type_script = "uid://bxpy5u73imb5d"

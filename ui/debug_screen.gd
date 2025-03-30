@@ -24,10 +24,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if not can_debug:
 			can_debug = true
 			$Debug_Items.show()
+			Global.debug_active = true
 		else:
 			can_debug = false
 			$Debug_Items.hide()
-	
+			Global.debug_active = false
 	if can_debug:
 		if event.is_action_pressed("restart_run"):
 			if restart_container:

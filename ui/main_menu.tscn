@@ -128,10 +128,10 @@ autoplay = "default"
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.852932
-anchor_top = 0.644444
-anchor_right = 0.852932
-anchor_bottom = 0.644444
+anchor_left = 0.86875
+anchor_top = 0.555556
+anchor_right = 0.86875
+anchor_bottom = 0.555556
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0

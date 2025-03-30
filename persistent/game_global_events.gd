@@ -16,7 +16,7 @@ signal bonus_level_sound
 signal game_over
 signal game_start
 signal generation_complete
-signal new_run
+signal new_game
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:

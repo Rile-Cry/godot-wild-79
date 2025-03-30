@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=74 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://pvrp8ecnoljs" path="res://assets/images/arrow.png" id="11_q0suo"]
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
 [ext_resource type="PackedScene" uid="uid://bmsvxorel3euq" path="res://ui/main_menu.tscn" id="14_b0qgs"]
+[ext_resource type="PackedScene" uid="uid://cdeqg64hcirrw" path="res://ui/game_over.tscn" id="14_ibtbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -565,7 +566,7 @@ autoplay = "default"
 frame_progress = 0.731681
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_p2f5s")]
-z_index = 999
+z_index = 600
 offset_left = 78.0
 offset_top = -80.555
 offset_right = 242.0
@@ -574,6 +575,11 @@ pivot_offset = Vector2(80, 45)
 
 [node name="MainMenu" parent="." instance=ExtResource("14_b0qgs")]
 pivot_offset = Vector2(160, 90)
+
+[node name="GameOver" parent="." instance=ExtResource("14_ibtbu")]
+z_index = 900
+offset_top = 181.0
+offset_bottom = 181.0
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]

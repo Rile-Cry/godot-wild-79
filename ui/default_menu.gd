@@ -31,7 +31,7 @@ func _on_sfx_changed(value: float) -> void:
 
 func _on_new_start_pressed() -> void:
 	get_tree().paused = false
-	#SoundManager.stop_all()
+	
 	Global._global_vars[Genum.Vars.MULTIPLIERS] = []
 	Global._global_vars[Genum.Vars.PULLS] = 15
 	Global._global_vars[Genum.Vars.SCORE] = 0
