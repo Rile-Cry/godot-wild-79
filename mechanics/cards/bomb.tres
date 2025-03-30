@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EffectCardResource" load_steps=2 format=3 uid="uid://dhg34kkxfs6mp"]
 
-[ext_resource type="Script" uid="uid://3fwa4oilr838" path="res://mechanics/effect_card_resource.gd" id="1_n5rqm"]
+[ext_resource type="Script" path="res://mechanics/effect_card_resource.gd" id="1_n5rqm"]
 
 [resource]
 script = ExtResource("1_n5rqm")
@@ -13,3 +13,4 @@ card_type = 1
 card_id = 11
 card_weight = 0.0
 card_weight_coefficient = 0.0
+metadata/_custom_type_script = "uid://bxpy5u73imb5d"

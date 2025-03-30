@@ -15,6 +15,7 @@ const POINTER = preload("res://assets/images/ui/pointer.png")
 @onready var swapButton = $LowerButtonPanel/Buttons/SwapButton
 @onready var leverButton = $Lever/LeverButton
 @onready var game_over_screen = $GameOver
+@onready var main_menu = $MainMenu
 
 var menuOpen = false
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 	GameGlobalEvents.game_over.connect(_on_game_over)
 	direction_arrow.play("arrows",0)
 	disable_buttons()
+	main_menu.visible = true
 	
 func disable_buttons():
 	infoButton.disabled = true

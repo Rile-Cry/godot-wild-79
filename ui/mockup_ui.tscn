@@ -574,6 +574,7 @@ offset_bottom = 0.444992
 pivot_offset = Vector2(80, 45)
 
 [node name="MainMenu" parent="." instance=ExtResource("14_b0qgs")]
+visible = false
 pivot_offset = Vector2(160, 90)
 
 [node name="GameOver" parent="." instance=ExtResource("14_ibtbu")]
