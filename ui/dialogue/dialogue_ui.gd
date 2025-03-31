@@ -24,6 +24,7 @@ func show_dialogue(text, options):
 		var button = Button.new()
 		button.text = option
 		button.add_theme_font_size_override("font_size", 8)
+		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		button.pressed.connect(_on_option_selected.bind(option))
 		dialogue_options.add_child(button)
 
