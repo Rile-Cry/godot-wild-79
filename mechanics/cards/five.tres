@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://ck615cdrurtvq"]
 
-[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_h5loc"]
+[ext_resource type="Script" uid="uid://tu3rcuged01i" path="res://mechanics/card_resource.gd" id="1_h5loc"]
 
 [resource]
 script = ExtResource("1_h5loc")
@@ -8,6 +8,6 @@ card_name = &"Five"
 card_texture_position = Vector2i(4, 0)
 card_type = 0
 card_id = 4
-card_weight = 1.0
+card_weight = 0.9
 card_weight_coefficient = 1.0
 metadata/_custom_type_script = "uid://bxpy5u73imb5d"
