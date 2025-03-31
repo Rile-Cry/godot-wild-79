@@ -1,40 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp5h22cx5r8ic"]
+[gd_scene load_steps=4 format=3 uid="uid://cp5h22cx5r8ic"]
 
 [ext_resource type="Texture2D" uid="uid://psa5kt32q275" path="res://assets/images/cashier.png" id="1_hp5mn"]
-[ext_resource type="Texture2D" uid="uid://cdsqihhkfxwgl" path="res://assets/images/9-patch.png" id="2_qxk7m"]
+[ext_resource type="Script" uid="uid://dpr7k5ho2igrg" path="res://scenes/cashier.gd" id="1_yvugg"]
+[ext_resource type="PackedScene" uid="uid://db7jmgybhiy4g" path="res://ui/dialogue/dialogue_ui.tscn" id="3_yvugg"]
 
 [node name="Cashier" type="Node2D"]
+script = ExtResource("1_yvugg")
 
 [node name="Cashier" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
 texture = ExtResource("1_hp5mn")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -50.0
-offset_right = 140.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(140, 25)
-texture = ExtResource("2_qxk7m")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+[node name="DialogueUI" parent="." instance=ExtResource("3_yvugg")]

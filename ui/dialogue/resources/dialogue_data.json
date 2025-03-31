@@ -1,0 +1,51 @@
+{
+	"cashier": {
+		"tree": [
+			{
+				"branch_id": "tutorial",
+				"dialogues": [
+					{
+						"state": "tutorial_1",
+						"text": "Welcome to Reel Runners! Do you want a quick overview of how to play?",
+						"options": {
+							"Yes": "tutorial_2",
+							"No": "take_loan"
+						}
+					},
+					{
+						"state": "tutorial_2",
+						"text": "You will be able to pull the lever a certain number of times, based on how much money you have.",
+						"options": {
+							"Continue": "tutorial_3"
+						}
+					},
+					{
+						"state": "tutorial_3",
+						"text": "Tutorial Continues...",
+						"options": {
+							"Continue": "tutorial_4"
+						}
+					}
+				]
+			},
+			{
+				"branch_id": "take_loan",
+				"dialogues": [
+					{
+						"state": "take_loan",
+						"text": "How much would you like to borrow?",
+						"options": {
+							"$100": "100",
+							"$500": "500",
+							"$1000": "1000"
+						}
+					}
+				]
+			},
+			{
+				"branch_id": "cashier_default",
+				"dialogues": []
+			},
+		]
+	}
+}
