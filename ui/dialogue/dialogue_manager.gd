@@ -33,9 +33,10 @@ func handle_dialogue_option(option):
 	npc.set_dialogue_state(next_state)
 	# Handle state transitions
 	if next_state == "end":
-		if npc.current_branch_index < npc.dialogue_resource.get_npc_dialogue(npc.npc_id).size() - 1:
-			npc.set_dialogue_branch(npc.current_branch_index + 1)
+		#if npc.current_branch_index < npc.dialogue_resource.get_npc_dialogue(npc.npc_id).size() - 1:
+			#npc.set_dialogue_branch(npc.current_branch_index + 1)
 		hide_dialogue()
+		GameGlobalEvents.transition_to_game.emit()
 	elif next_state == "exit":
 		npc.set_dialogue_state("start")
 		hide_dialogue()

@@ -16,6 +16,8 @@ const POINTER = preload("res://assets/images/ui/pointer.png")
 @onready var leverButton = $Lever/LeverButton
 @onready var game_over_screen = $GameOver
 @onready var main_menu = $MainMenu
+@onready var cashier: Node2D = $Cashier
+
 
 var menuOpen = false
 
@@ -23,9 +25,14 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(POINTER, Input.CURSOR_POINTING_HAND)
 	GameGlobalEvents.reel_over.connect(_on_reel_finished)
 	GameGlobalEvents.game_over.connect(_on_game_over)
+	GameGlobalEvents.main_menu_closed.connect(_transition_to_cashier)
 	direction_arrow.play("arrows",0)
 	disable_buttons()
 	main_menu.visible = true
+	
+
+func _transition_to_cashier():
+	cashier.start_dialogue()
 	
 func disable_buttons():
 	infoButton.disabled = true

@@ -17,6 +17,8 @@ signal game_over
 signal game_start
 signal generation_complete
 signal new_game
+signal main_menu_closed
+signal transition_to_game
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:

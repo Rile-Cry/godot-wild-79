@@ -11,11 +11,12 @@ var current_branch_index = 0
 
 
 func _ready() -> void:
-	SoundManager.play_music(Sounds.music_shop, 1.0, "Music")
+	#SoundManager.play_music(Sounds.music_shop, 1.0, "Music")
 	dialogue_resource.load_from_json("res://ui/dialogue/resources/dialogue_data.json")
 	# Initialize npc reference
 	dialogue_manager.npc = self
-	start_dialogue()
+	GameGlobalEvents.transition_to_game.connect(transition_to_game)
+	
 
 func start_dialogue():
 	var cashier_dialogues = dialogue_resource.get_npc_dialogue(npc_id)
@@ -34,7 +35,20 @@ func get_current_dialogue():
 
 func set_dialogue_branch(branch_index):
 	current_branch_index = branch_index
-	current_state = "tutorial"
+	current_state = "start"
 	
 func set_dialogue_state(state):
 	current_state = state
+
+func transition_to_game():
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "position:y", -50, .2)
+		tween.play()
+		await tween.finished
+		var tween1 = get_tree().create_tween()
+		SoundManager.play_music(Sounds.music_low, .75, "Music")
+		tween1.tween_property(self, "position:y", 200, .75)
+		tween1.play()
+		await tween1.finished
+		GameGlobalEvents.game_start.emit()
+		

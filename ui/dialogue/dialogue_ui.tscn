@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_4cdch")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 13
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 anchors_preset = 12

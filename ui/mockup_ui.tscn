@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://f8rskoeudmrb"]
+[gd_scene load_steps=75 format=3 uid="uid://f8rskoeudmrb"]
 
 [ext_resource type="PackedScene" uid="uid://0nq2yk2x4llr" path="res://ui/buttons.tscn" id="1_e8yy1"]
 [ext_resource type="Script" uid="uid://ckk3wqwj4nh57" path="res://ui/mockup_ui.gd" id="1_h5bjh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://1nk7rf35hxei" path="res://ui/default-menu.tscn" id="13_p2f5s"]
 [ext_resource type="PackedScene" uid="uid://bmsvxorel3euq" path="res://ui/main_menu.tscn" id="14_b0qgs"]
 [ext_resource type="PackedScene" uid="uid://cdeqg64hcirrw" path="res://ui/game_over.tscn" id="14_ibtbu"]
+[ext_resource type="PackedScene" uid="uid://cp5h22cx5r8ic" path="res://scenes/cashier.tscn" id="15_ibtbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0wgd"]
 atlas = ExtResource("4_x0wgd")
@@ -582,6 +583,10 @@ pivot_offset = Vector2(160, 90)
 z_index = 900
 offset_top = 181.0
 offset_bottom = 181.0
+
+[node name="Cashier" parent="." instance=ExtResource("15_ibtbu")]
+z_index = 1
+z_as_relative = false
 
 [connection signal="pressed" from="LowerButtonPanel/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="LowerButtonPanel/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
