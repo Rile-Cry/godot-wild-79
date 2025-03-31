@@ -23,33 +23,28 @@
 						"state": "tutorial_3",
 						"text": "Tutorial Continues...",
 						"options": {
-							"Continue": "end"
+							"Continue": "loan"
 						}
 					},
 					{
 						"state": "loan",
 						"text": "We will now proceed to the loan section",
 						"options": {
-							"Continue": "end"
+							"Continue": "loan1"
+						}
+					},
+					{
+						"state": "loan1",
+						"text": "How much would you like to borrow?",
+						"options": {
+							"$100": "end",
+							"$500": "end",
+							"$1000": "end"
 						}
 					},
 					{
 						"state": "end",
 						"text": "Have fun!"
-					}
-				]
-			},
-			{
-				"branch_id": "take_loan",
-				"dialogues": [
-					{
-						"state": "start",
-						"text": "How much would you like to borrow?",
-						"options": {
-							"$100": "100",
-							"$500": "500",
-							"$1000": "1000"
-						}
 					}
 				]
 			},
