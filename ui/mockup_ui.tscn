@@ -535,6 +535,8 @@ layer = -3
 
 [node name="SidePanel" parent="." instance=ExtResource("2_sdems")]
 layer = -1
+offset = Vector2(70, 0)
+transform = Transform2D(1, 0, 0, 1, 70, 0)
 
 [node name="Screen" parent="." instance=ExtResource("10_u42wy")]
 offset_left = 101.0

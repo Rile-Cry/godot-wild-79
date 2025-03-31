@@ -4,7 +4,6 @@ extends Control
 @export var side_panel_container : TabContainer
 @export var combo_box : VBoxContainer
 @export var guide_box : VBoxContainer
-@export var help_tree : Tree
 
 #func _ready() -> void:
 	#help_tree.add
