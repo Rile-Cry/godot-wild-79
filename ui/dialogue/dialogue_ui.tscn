@@ -47,7 +47,6 @@ theme = ExtResource("2_vl8is")
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_vl8is")
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

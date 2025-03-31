@@ -16,6 +16,6 @@ func load_from_json(file_path):
 # Return individual NPC dialogues
 func get_npc_dialogue(npc_id): 
 	if npc_id in dialogues:
-		return dialogues[npc_id]["trees"]
+		return dialogues[npc_id]["tree"]
 	else:
 		return []

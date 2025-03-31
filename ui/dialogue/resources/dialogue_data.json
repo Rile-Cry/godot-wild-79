@@ -5,11 +5,11 @@
 				"branch_id": "tutorial",
 				"dialogues": [
 					{
-						"state": "tutorial_1",
+						"state": "start",
 						"text": "Welcome to Reel Runners! Do you want a quick overview of how to play?",
 						"options": {
 							"Yes": "tutorial_2",
-							"No": "take_loan"
+							"No": "loan"
 						}
 					},
 					{
@@ -23,8 +23,19 @@
 						"state": "tutorial_3",
 						"text": "Tutorial Continues...",
 						"options": {
-							"Continue": "tutorial_4"
+							"Continue": "end"
 						}
+					},
+					{
+						"state": "loan",
+						"text": "We will now proceed to the loan section",
+						"options": {
+							"Continue": "end"
+						}
+					},
+					{
+						"state": "end",
+						"text": "Have fun!"
 					}
 				]
 			},
@@ -32,7 +43,7 @@
 				"branch_id": "take_loan",
 				"dialogues": [
 					{
-						"state": "take_loan",
+						"state": "start",
 						"text": "How much would you like to borrow?",
 						"options": {
 							"$100": "100",
