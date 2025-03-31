@@ -1,0 +1,260 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5mcnphucc6fp"]
+
+[ext_resource type="Theme" uid="uid://bnrly8ofgjk1a" path="res://assets/themes/game_theme.tres" id="1_m2wag"]
+[ext_resource type="Script" uid="uid://bh8rkmjb37t0k" path="res://ui/combo_guide.gd" id="1_nshhk"]
+[ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="2_nshhk"]
+
+[node name="Combo Guide" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -90.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_nshhk")
+
+[node name="Combo Names" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("1_m2wag")
+
+[node name="Name" type="RichTextLabel" parent="Combo Names"]
+z_index = 1
+clip_contents = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+bbcode_enabled = true
+text = "Name
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="List of Combos" type="VBoxContainer" parent="Combo Names/Name"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -4.75
+anchor_right = 1.0
+anchor_bottom = 20.25
+offset_top = 72.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ABC" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+bbcode_enabled = true
+text = "ABC"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="XYZ" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+bbcode_enabled = true
+text = "XYZ"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Alphabet" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+bbcode_enabled = true
+text = "Alphabet"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Evens" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Evens"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Odds" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Odds"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Even the Odds" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "EVEN THE ODDS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LCK-A" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "LCK-A"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LCK-B" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "LCK-B"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LUCKY" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "LUCKY
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BARTENDER" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "BARTENDER"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="OOF" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "OOF"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="777" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "777"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BONUS" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "BONUS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Details" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Info" type="RichTextLabel" parent="Details"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_m2wag")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Details"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Placeholder" type="RichTextLabel" parent="Details"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_m2wag")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "    Rewarded for acquiring a 1, 2, and 3 card in ascending or decending order.  Required for another combo. Has 3 Levels."
+fit_content = true
+scroll_active = false

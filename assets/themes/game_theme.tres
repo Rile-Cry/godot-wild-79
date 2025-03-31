@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=64 format=3 uid="uid://bnrly8ofgjk1a"]
+[gd_resource type="Theme" load_steps=65 format=3 uid="uid://bnrly8ofgjk1a"]
 
 [ext_resource type="FontFile" uid="uid://dhy0vb5dgh0pn" path="res://ui/fonts/dogica.ttf" id="1_rcrbt"]
 [ext_resource type="FontFile" uid="uid://bil021rbvj5de" path="res://ui/fonts/dogicabold.ttf" id="2_86alc"]
@@ -291,26 +291,27 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aceb1"]
+bg_color = Color(0.401, 0.401, 0.401, 0.829)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2f8i"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0.53)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aceb1"]
 content_margin_left = 3.0
@@ -576,21 +577,22 @@ PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_ad8p8")
 PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_ad8p8")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_dr6d6")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_ad8p8")
-RichTextLabel/colors/default_color = Color(0.678092, 0.186412, 0, 1)
-RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
-RichTextLabel/constants/line_separation = 0
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 1
 RichTextLabel/constants/outline_size = 0
 RichTextLabel/constants/shadow_offset_x = 0
 RichTextLabel/constants/shadow_offset_y = 0
 RichTextLabel/constants/shadow_outline_size = 0
-RichTextLabel/constants/table_h_separation = 1
-RichTextLabel/constants/table_v_separation = 3
-RichTextLabel/constants/text_highlight_h_padding = 3
-RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
 RichTextLabel/font_sizes/normal_font_size = 8
 RichTextLabel/fonts/bold_font = ExtResource("2_86alc")
 RichTextLabel/fonts/italics_font = ExtResource("3_l5fix")
 RichTextLabel/fonts/normal_font = ExtResource("1_rcrbt")
+RichTextLabel/styles/fill = SubResource("StyleBoxFlat_aceb1")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_o2f8i")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_aceb1")
 ScrollContainer/styles/focus = SubResource("StyleBoxFlat_o47kw")
@@ -637,7 +639,7 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_ad8p8")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_qpsti")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_0306f")
 TabContainer/styles/tabbar_background = SubResource("StyleBoxEmpty_w2god")
-VBoxContainer/constants/separation = 2
+VBoxContainer/constants/separation = 1
 Window/colors/title_color = Color(0, 0, 0, 1)
 Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
 Window/constants/close_h_offset = 0

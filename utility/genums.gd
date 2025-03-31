@@ -18,7 +18,7 @@ enum BonusType {
 	ETO,
 	LCKA,
 	LCKB,
-	LCK,
+	LUCKY,
 	BARTENDER,
 	OOF,
 	SEVENS,

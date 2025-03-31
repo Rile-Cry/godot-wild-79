@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://dhg34kkxfs6mp"]
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://d1jj4buwwqqwo"]
 
-[ext_resource type="Script" uid="uid://bxpy5u73imb5d" path="res://mechanics/card_resource.gd" id="1_n5rqm"]
+[ext_resource type="Script" uid="uid://tu3rcuged01i" path="res://mechanics/card_resource.gd" id="1_n5rqm"]
 
 [resource]
 script = ExtResource("1_n5rqm")
@@ -8,6 +8,5 @@ card_name = &"Bomb"
 card_texture_position = Vector2i(2, 1)
 card_type = 1
 card_id = 11
-card_weight = 0.2
+card_weight = 0.4
 card_weight_coefficient = 0.0
-metadata/_custom_type_script = "uid://bxpy5u73imb5d"

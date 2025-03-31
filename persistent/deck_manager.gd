@@ -40,6 +40,9 @@ func card_action() -> void:
 		SoundManager.play_sound(Sounds.sfx_pull_lost, "SFX")
 		Global.set_var(Genum.Vars.PULLS, -1, true)
 	elif current_card_id == 9:
+		odd_counter = 0
+		even_counter = 0
+		seven_counter = 0
 		SoundManager.play_sound(Sounds.sfx_pull_added, "SFX")
 		Global.set_var(Genum.Vars.PULLS, 2, true)
 	
@@ -199,8 +202,8 @@ func _bonus_check() -> void:
 		added_bonus.emit(Genum.BonusType.LCKB,Genum.BonusLevel.MAX)
 #	LCK - LvlMAX - TTT
 	if bonus_tracking.has(Genum.BonusType.LCKA) and bonus_tracking.has(Genum.BonusType.LCKB):
-		bonus_tracking[Genum.BonusType.LCK] = Genum.BonusLevel.MAXSECRET
-		added_bonus.emit(Genum.BonusType.LCK,Genum.BonusLevel.MAXSECRET)
+		bonus_tracking[Genum.BonusType.LUCKY] = Genum.BonusLevel.MAXSECRET
+		added_bonus.emit(Genum.BonusType.LUCKY,Genum.BonusLevel.MAXSECRET)
 #	BARTENDER - LvlMAX - BaBaBa
 	if card_chain[0] == DeckManager.card_resources[12].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[12].card_id :
 		bonus_tracking[Genum.BonusType.BARTENDER] = Genum.BonusLevel.MAX

@@ -33,7 +33,7 @@ texture = ExtResource("1_l531v")
 centered = false
 hframes = 13
 vframes = 2
-frame = 5
+frame = 8
 region_rect = Rect2(465, 1, 93, 11)
 
 [node name="LevelControl" type="Control" parent="HBoxContainer"]

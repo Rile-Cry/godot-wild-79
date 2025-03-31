@@ -14,7 +14,7 @@ var bonus_reference : Dictionary[Genum.BonusType, Vector2i] = {
 	Genum.BonusType.ETO : Vector2i(5, 0),
 	Genum.BonusType.LCKA : Vector2i(6, 0),
 	Genum.BonusType.LCKB : Vector2i(7, 0),
-	Genum.BonusType.LCK : Vector2i(8, 0),
+	Genum.BonusType.LUCKY : Vector2i(8, 0),
 	Genum.BonusType.BARTENDER : Vector2i(9, 0),
 	Genum.BonusType.OOF : Vector2i(10, 0),
 	Genum.BonusType.SEVENS : Vector2i(11, 0),
