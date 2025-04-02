@@ -28,18 +28,18 @@
 					},
 					{
 						"state": "loan",
-						"text": "We will now proceed to the loan section",
+						"text": "Now with that out of the way, let's talk about your loan...",
 						"options": {
 							"Continue": "loan1"
 						}
 					},
 					{
 						"state": "loan1",
-						"text": "How much would you like to borrow?",
+						"text": "How much risk are you willing to accept?",
 						"options": {
-							"$100": "end",
-							"$500": "end",
-							"$1000": "end"
+							"Low" : "end",
+							"Medium": "end",
+							"High": "end"
 						}
 					},
 					{

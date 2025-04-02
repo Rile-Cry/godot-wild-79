@@ -1,8 +1,18 @@
-[gd_resource type="Theme" load_steps=65 format=3 uid="uid://bnrly8ofgjk1a"]
+[gd_resource type="Theme" load_steps=69 format=3 uid="uid://bnrly8ofgjk1a"]
 
 [ext_resource type="FontFile" uid="uid://dhy0vb5dgh0pn" path="res://ui/fonts/dogica.ttf" id="1_rcrbt"]
 [ext_resource type="FontFile" uid="uid://bil021rbvj5de" path="res://ui/fonts/dogicabold.ttf" id="2_86alc"]
 [ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="3_l5fix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86alc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5fix"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap76v"]
+bg_color = Color(0.47788, 0.47788, 0.47788, 0.332)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptph"]
+bg_color = Color(0.904, 0.904, 0.904, 0.315)
 
 [sub_resource type="Image" id="Image_86alc"]
 data = {
@@ -515,6 +525,22 @@ default_base_scale = 0.5
 default_font = ExtResource("1_rcrbt")
 default_font_size = 8
 HBoxContainer/constants/separation = 2
+ItemList/colors/font_color = Color(0.65, 0.65, 0.65, 1)
+ItemList/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
+ItemList/colors/font_hovered_selected_color = Color(1, 1, 1, 1)
+ItemList/colors/font_outline_color = Color(0, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(1, 1, 1, 1)
+ItemList/colors/guide_color = Color(0.7, 0.7, 0.7, 0.25)
+ItemList/constants/h_separation = 0
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 0
+ItemList/constants/outline_size = 3
+ItemList/constants/v_separation = 4
+ItemList/fonts/font = ExtResource("1_rcrbt")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_86alc")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_l5fix")
+ItemList/styles/selected = SubResource("StyleBoxFlat_ap76v")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_2ptph")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 8
 Label/fonts/font = ExtResource("1_rcrbt")

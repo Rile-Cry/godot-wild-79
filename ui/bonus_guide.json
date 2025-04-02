@@ -1,0 +1,15 @@
+{
+	"ABC": "\tRewarded for acquiring a 1, 2, and 3 card in ascending or decending order.  Required for another combo.  Has 3 Levels.  Gives [color=green]$[/color][color=yellow]25[/color] at Lv1, [color=green]$[/color][color=yellow]75[/color] at Lv2 and [color=green]$[/color][color=yellow]150[/color] at LvMAX.",
+	"XYZ": "\tRewarded for acquiring a 4, 5, and 6 card in ascending or decending order.  Required for another combo.  Has 3 Levels.  Gives [color=green]$[/color][color=yellow]25[/color] at Lv1, [color=green]$[/color][color=yellow]75[/color] at Lv2 and [color=green]$[/color][color=yellow]150[/color] at LvMAX.",
+	"ALPHABET": "\tSECRET COMBO: Rewarded for getting a LvMAX ABC and XYZ combo.  Awards a [color=green]$[/color][color=yellow]500[/color] and a [color=red]2x[/color] Score Multiplier.",
+	"ODD": "\tRewarded for acquiring three ODD cards in a row.  Required for another combo.  Has 3 Levels. Gives [color=green]$[/color][color=yellow]25[/color] at Lv1, [color=green]$[/color][color=yellow]75[/color] at Lv2 and [color=green]$[/color][color=yellow]150[/color] at LvMAX.",
+	"EVEN": "\tRewarded for acquiring three EVEN cards in a row.  Required for another combo.  Has 3 Levels. Gives [color=green]$[/color][color=yellow]25[/color] at Lv1, [color=green]$[/color][color=yellow]75[/color] at Lv2 and [color=green]$[/color][color=yellow]150[/color] at LvMAX.",
+	"EVEN THE ODDS": "\tSECRET COMBO: Rewarded for acquiring LvMAX with both EVEN and ODD bonuses.  Awards [color=green]$[/color][color=yellow]500[/color] and a [color=red]2x[/color] Score Multiplier.",
+	"SEVENS": "\tRewarded for acquiring three 7 cards in a row.  Required for another combo.  Has 3 Levels. Gives [color=green]$[/color][color=yellow]25[/color] at Lv1, [color=green]$[/color][color=yellow]75[/color] at Lv2 and [color=green]$[/color][color=yellow]150[/color] at LvMAX.",
+	"LCK-A": "\tRewarded for acquiring a TREASURE, BAR,and then another TREASURE card.  Required for another combo.  Has 1 Level.  Awards [color=green]$[/color][color=yellow]100[/color].",
+	"LCK-B": "\tRewarded for acquiring a TREASURE, any NUMBER, and then another TREASURE card.  Required for another combo.  Has 1 Level.  Awards [color=green]$[/color][color=yellow]100[/color].",
+	"LUCKY": "\tRewarded for acquiring both LCK-A and LCK-B LvMax.  Awards [color=green]$[/color][color=yellow]300[/color].",
+	"BARTENDER": "\tRewarded for acquiring three BAR cards in a row.  Has 3 levels.  Awards [color=green]$[/color][color=yellow]150[/color] at each level.",
+	"OOF": "\tSECRET COMBO: Rewarded for acquiring three BOMB cards in a row.  Awards [color=green]$[/color][color=yellow]150[/color], and please don't do this to yourself again.",
+	"BONUS": "\tRewarded for acquiring an additional SEVENS combo after attaining SEVENS LvMAX and LUCKY LvMAX.  Awards [color=green]$[/color][color=yellow]500[/color]."
+}

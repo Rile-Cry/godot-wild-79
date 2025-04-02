@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	hide_dialogue()
+
 	
 # Show dialogue box
 func show_dialogue(text, options):
@@ -24,14 +25,17 @@ func show_dialogue(text, options):
 		var button = Button.new()
 		button.text = option
 		button.add_theme_font_size_override("font_size", 8)
+		button.size.max(Vector2(100,12))
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		button.pressed.connect(_on_option_selected.bind(option))
 		dialogue_options.add_child(button)
-
+		
 # Hide dialogue
 func hide_dialogue():
 	nine_patch_rect.visible = false
 
 # Handle response selection
 func _on_option_selected(option):
+	if option == "Low" or "Medium" or "High":
+		GameGlobalEvents.difficulty_select.emit(option)
 	get_parent().handle_dialogue_option(option)

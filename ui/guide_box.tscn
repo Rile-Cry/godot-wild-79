@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5mcnphucc6fp"]
+[gd_scene load_steps=5 format=3 uid="uid://c5mcnphucc6fp"]
 
 [ext_resource type="Theme" uid="uid://bnrly8ofgjk1a" path="res://assets/themes/game_theme.tres" id="1_m2wag"]
 [ext_resource type="Script" uid="uid://bh8rkmjb37t0k" path="res://ui/combo_guide.gd" id="1_nshhk"]
+[ext_resource type="JSON" path="res://ui/bonus_guide.json" id="2_im162"]
 [ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="2_nshhk"]
 
-[node name="Combo Guide" type="HBoxContainer"]
+[node name="Combo Guide" type="HBoxContainer" node_paths=PackedStringArray("combo_list", "detailBox", "combo_ItemList")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -90.0
-offset_bottom = -94.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_nshhk")
+combo_list = NodePath("Combo Names/Name/List of Combos")
+detailBox = NodePath("Details/Placeholder")
+combo_ItemList = NodePath("Combo Names/ItemList")
+combo_text_file = ExtResource("2_im162")
 
 [node name="Combo Names" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -35,6 +39,7 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="List of Combos" type="VBoxContainer" parent="Combo Names/Name"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -4.75
@@ -70,7 +75,7 @@ text = "XYZ"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Alphabet" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+[node name="ALPHABET" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
 z_index = 1
 clip_contents = false
 layout_mode = 2
@@ -78,25 +83,11 @@ focus_mode = 1
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_m2wag")
 bbcode_enabled = true
-text = "Alphabet"
+text = "ALPHABET"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Evens" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
-z_index = 1
-clip_contents = false
-layout_mode = 2
-focus_mode = 1
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_m2wag")
-theme_override_fonts/normal_font = ExtResource("2_nshhk")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "Evens"
-fit_content = true
-horizontal_alignment = 1
-
-[node name="Odds" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+[node name="EVEN" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
 z_index = 1
 clip_contents = false
 layout_mode = 2
@@ -106,11 +97,25 @@ theme = ExtResource("1_m2wag")
 theme_override_fonts/normal_font = ExtResource("2_nshhk")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "Odds"
+text = "EVEN"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Even the Odds" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+[node name="ODD" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2wag")
+theme_override_fonts/normal_font = ExtResource("2_nshhk")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "ODD"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="EVEN THE ODDS" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
 z_index = 1
 clip_contents = false
 layout_mode = 2
@@ -162,8 +167,7 @@ theme = ExtResource("1_m2wag")
 theme_override_fonts/normal_font = ExtResource("2_nshhk")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "LUCKY
-"
+text = "LUCKY"
 fit_content = true
 horizontal_alignment = 1
 
@@ -195,7 +199,7 @@ text = "OOF"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="777" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
+[node name="SEVENS" type="RichTextLabel" parent="Combo Names/Name/List of Combos"]
 z_index = 1
 clip_contents = false
 layout_mode = 2
@@ -205,7 +209,7 @@ theme = ExtResource("1_m2wag")
 theme_override_fonts/normal_font = ExtResource("2_nshhk")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "777"
+text = "SEVENS"
 fit_content = true
 horizontal_alignment = 1
 
@@ -222,6 +226,19 @@ bbcode_enabled = true
 text = "BONUS"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="Combo Names"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_m2wag")
+auto_width = true
+auto_height = true
+text_overrun_behavior = 0
+wraparound_items = false
+same_column_width = true
+fixed_column_width = 105
+icon_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Details" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(120, 0)
@@ -258,3 +275,5 @@ bbcode_enabled = true
 text = "    Rewarded for acquiring a 1, 2, and 3 card in ascending or decending order.  Required for another combo. Has 3 Levels."
 fit_content = true
 scroll_active = false
+
+[connection signal="item_selected" from="Combo Names/ItemList" to="." method="_on_item_list_item_selected"]
