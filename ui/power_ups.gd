@@ -33,8 +33,8 @@ func _get_current_bonus() -> Vector2i :
 # TODO: In the parent scene, make adjustments to fit text within the info panel
 func _ready() -> void:
 	#update_bonus(Genum.BonusType.OOF, Genum.BonusLevel.MAX)
-	update_bonus(bonus, level)
-	update_bonus(3,2)
+	#update_bonus(bonus, level)
+	#update_bonus(3,2)
 	GameGlobalEvents.bonus_get.connect(update_bonus)
 	GameGlobalEvents.level_up.connect(update_level)
 	
