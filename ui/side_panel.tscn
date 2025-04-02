@@ -119,14 +119,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Combo Guide Box" parent="Control/Margin Container/vBox Container/TabContainer/Guide" instance=ExtResource("7_ue6wc")]
 layout_mode = 0
 anchors_preset = 0
-anchor_right = 0.0
+anchor_left = 0.0185185
+anchor_right = 0.981481
 anchor_bottom = 0.0
 offset_top = 17.0
-offset_right = 220.0
-offset_bottom = 368.0
+offset_bottom = 365.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.98, 0.98)
+dragging_enabled = false
+dragger_visibility = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect#SidePanel" type="TextureRect" parent="Control"]
 show_behind_parent = true

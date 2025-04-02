@@ -1,11 +1,11 @@
-extends HBoxContainer
+extends VSplitContainer
 
 @export var combo_list : VBoxContainer
 @export var detailBox : RichTextLabel
 @export var combo_ItemList :ItemList
 @export var combo_text_file:JSON
-var loader = JsonLoader.new()
-var loaded_bonus_data = {}
+@onready var loader = JsonLoader.new()
+@onready var loaded_bonus_data = {}
 
 
 var combos:Array
@@ -13,10 +13,16 @@ var combos:Array
 var details : Dictionary[Genum.BonusType,String]
 
 func _ready() -> void:
-
+	
+	
+	
 	for rtl in combo_list.get_children() :
 		combo_ItemList.add_item(rtl.text,null,true)
-		
+
+	for item in combo_ItemList.item_count :
+		combo_ItemList.set_item_tooltip_enabled(item,false)
+	
+	
 	loaded_bonus_data = loader.load_from_json(combo_text_file.resource_path)
 
 
