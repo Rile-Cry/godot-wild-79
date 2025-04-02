@@ -24,6 +24,7 @@ var sfx_button4 : AudioStream = preload("res://assets/sfx/button4.wav")
 var sfx_button5 : AudioStream = preload("res://assets/sfx/button5.wav")
 var sfx_button6 : AudioStream = preload("res://assets/sfx/button6.wav")
 var sfx_buttons = [sfx_button1, sfx_button2, sfx_button3, sfx_button4, sfx_button5, sfx_button6]
+var sfx_defeat : AudioStream = preload("res://assets/sfx/defeat.wav")
 
 var music_menu : AudioStream = preload("res://assets/music/openingToMenu.mp3")
 var music_low : AudioStream = preload("res://assets/music/lowIn.mp3")
