@@ -14,7 +14,7 @@ func _ready() -> void:
 	#SoundManager.play_music(Sounds.music_shop, 1.0, "Music")
 	dialogue_resource.load_from_json("res://ui/dialogue/resources/dialogue_data.json")
 	# Initialize npc reference
-	dialogue_manager.npc = self
+	dialogue_manager._npc = self
 	GameGlobalEvents.transition_to_game.connect(transition_to_game)
 	
 

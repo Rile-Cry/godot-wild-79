@@ -2,16 +2,17 @@ extends Node2D
 
 @onready var dialogue_ui: Control = $DialogueUI
 
-var npc: Node = null
+var _npc: Node2D = null
 
 # Show dialogue with data
 func show_dialogue(npc, text = "", options = {}):
+	_npc = npc
 	if text != "":
 		# Show empty box
 		dialogue_ui.show_dialogue(text, options)
 	else:
 		# Show populated data
-		var dialogue = npc.get_current_dialogue()
+		var dialogue = _npc.get_current_dialogue()
 		print(dialogue)
 		if dialogue == null:
 			return
@@ -24,13 +25,13 @@ func hide_dialogue():
 # Dialogue state management
 func handle_dialogue_option(option):
 	# Get current dialogue branch
-	var current_dialogue = npc.get_current_dialogue()
+	var current_dialogue = _npc.get_current_dialogue()
 	if current_dialogue == null:
 		return
 	
 	# Update state
 	var next_state = current_dialogue["options"].get(option, "start")
-	npc.set_dialogue_state(next_state)
+	_npc.set_dialogue_state(next_state)
 	
 	## IF-ELSE VERSON
 	 #Handle state transitions
@@ -52,7 +53,7 @@ func handle_dialogue_option(option):
 			hide_dialogue()
 			GameGlobalEvents.transition_to_game.emit()
 		"exit":
-			npc.set_dialogue_state("start")
+			_npc.set_dialogue_state("start")
 			hide_dialogue()
 		_: ## This is the "default" i.e. else of an if-else
-			show_dialogue(npc)
+			show_dialogue(_npc)
