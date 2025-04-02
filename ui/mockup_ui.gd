@@ -133,6 +133,8 @@ func _on_game_over() -> void:
 	disable_buttons()
 	await tween.finished
 	get_tree().paused = true
+	SoundManager.stop_music(.5)
+	SoundManager.play_sound(Sounds.sfx_defeat, "SFX")
 
 func _on_reel_finished() -> void:
 	enable_buttons()
