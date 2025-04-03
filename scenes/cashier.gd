@@ -25,6 +25,10 @@ func start_dialogue():
 	dialogue_manager.show_dialogue(self)
 	
 
+func grab_option_result(option:String) -> void:
+	if option == "Low" or "Medium" or "High":
+		GameGlobalEvents.difficulty_select.emit(option)
+
 func get_current_dialogue():
 	var cashier_dialogues = dialogue_resource.get_npc_dialogue(npc_id)
 	if current_branch_index < cashier_dialogues.size():

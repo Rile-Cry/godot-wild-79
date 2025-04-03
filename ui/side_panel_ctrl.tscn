@@ -1,0 +1,174 @@
+[gd_scene load_steps=9 format=3 uid="uid://1lt8suq7ud47"]
+
+[ext_resource type="Script" uid="uid://b1bsm63hsht0l" path="res://ui/side_panel.gd" id="1_q4m0w"]
+[ext_resource type="Theme" uid="uid://bnrly8ofgjk1a" path="res://assets/themes/game_theme.tres" id="2_oa3i7"]
+[ext_resource type="Material" uid="uid://c68xly4nixgr2" path="res://assets/shaders/rainbowshade.tres" id="3_mmdnu"]
+[ext_resource type="FontFile" uid="uid://cislsq01vdcyu" path="res://ui/fonts/dogicapixel.ttf" id="4_3ldpm"]
+[ext_resource type="Script" uid="uid://mw738ytae2mi" path="res://ui/power_ups_container.gd" id="5_v6fva"]
+[ext_resource type="PackedScene" uid="uid://cfrp8rchhy0bo" path="res://ui/power_ups.tscn" id="6_xxy7o"]
+[ext_resource type="PackedScene" uid="uid://c5mcnphucc6fp" path="res://ui/guide_box.tscn" id="7_ss8li"]
+[ext_resource type="Texture2D" uid="uid://d0bvu1d0udjrj" path="res://assets/images/Side-Panel.png" id="8_pemxc"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("tab_container", "combo_box", "guide_box")]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q4m0w")
+tab_container = NodePath("Margin Container/vBox Container/TabContainer")
+combo_box = NodePath("Margin Container/vBox Container/TabContainer/Combos")
+guide_box = NodePath("Margin Container/vBox Container/TabContainer/Guide")
+
+[node name="Margin Container" type="MarginContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.411111
+anchor_right = 0.178125
+anchor_bottom = 0.933333
+offset_right = 162.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="vBox Container" type="VBoxContainer" parent="Margin Container"]
+layout_mode = 2
+focus_mode = 2
+theme = ExtResource("2_oa3i7")
+theme_override_constants/separation = 1
+
+[node name="TabContainer" type="TabContainer" parent="Margin Container/vBox Container"]
+layout_mode = 2
+focus_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_oa3i7")
+tab_alignment = 1
+current_tab = 0
+clip_tabs = false
+tabs_visible = false
+tabs_rearrange_group = 0
+
+[node name="Combos" type="TabBar" parent="Margin Container/vBox Container/TabContainer"]
+layout_mode = 2
+focus_next = NodePath("../Guide")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+current_tab = 0
+tab_alignment = 1
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+tab_count = 2
+tab_0/title = "Combos"
+tab_0/disabled = true
+tab_1/title = "Guide"
+metadata/_tab_index = 0
+
+[node name="Combos" type="VBoxContainer" parent="Margin Container/vBox Container/TabContainer/Combos"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0001
+offset_bottom = 33.0001
+
+[node name="Current Multipliers" type="RichTextLabel" parent="Margin Container/vBox Container/TabContainer/Combos/Combos"]
+z_index = 1
+material = ExtResource("3_mmdnu")
+clip_contents = false
+custom_minimum_size = Vector2(140, 12)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_3ldpm")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Current Multipliers"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="PowerUps" type="VBoxContainer" parent="Margin Container/vBox Container/TabContainer/Combos/Combos"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 11
+script = ExtResource("5_v6fva")
+power_up_scene = ExtResource("6_xxy7o")
+
+[node name="Guide" type="TabBar" parent="Margin Container/vBox Container/TabContainer"]
+visible = false
+layout_mode = 2
+focus_previous = NodePath("../Combos")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+current_tab = 1
+tab_alignment = 1
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+tab_count = 2
+tab_0/title = "Combos"
+tab_1/title = "Guide"
+tab_1/disabled = true
+metadata/_tab_index = 1
+
+[node name="Hint" type="RichTextLabel" parent="Margin Container/vBox Container/TabContainer/Guide"]
+z_index = 1
+clip_contents = false
+layout_mode = 2
+anchor_top = 1.73334
+anchor_right = 1.0
+anchor_bottom = 1.73334
+offset_top = 2.0
+offset_bottom = 13.0
+theme = ExtResource("2_oa3i7")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("4_3ldpm")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Select an item to read its details."
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Combo Guide Box" parent="Margin Container/vBox Container/TabContainer/Guide" instance=ExtResource("7_ss8li")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0185185
+anchor_right = 0.981481
+anchor_bottom = 0.0
+offset_top = 17.0
+offset_bottom = 365.0
+grow_horizontal = 1
+grow_vertical = 1
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect#SidePanel" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 31.1111
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_pemxc")
+expand_mode = 3
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true

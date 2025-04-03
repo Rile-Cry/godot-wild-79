@@ -31,6 +31,7 @@ func handle_dialogue_option(option):
 	
 	# Update state
 	var next_state = current_dialogue["options"].get(option, "start")
+	_npc.grab_option_result(option)
 	_npc.set_dialogue_state(next_state)
 	
 	## IF-ELSE VERSON

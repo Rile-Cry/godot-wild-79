@@ -36,6 +36,4 @@ func hide_dialogue():
 
 # Handle response selection
 func _on_option_selected(option):
-	if option == "Low" or "Medium" or "High":
-		GameGlobalEvents.difficulty_select.emit(option)
 	get_parent().handle_dialogue_option(option)
