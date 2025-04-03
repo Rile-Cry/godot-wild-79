@@ -14,16 +14,80 @@
 					},
 					{
 						"state": "tutorial_2",
-						"text": "You will be able to pull the lever a certain number of times, based on how much money you have.",
+						"text": "Our Reel Runner machine has just a few simple rules to get you started.",
 						"options": {
 							"Continue": "tutorial_3"
 						}
 					},
 					{
 						"state": "tutorial_3",
-						"text": "Tutorial Continues...",
+						"text": "First, is the Reel itself, giving that a good click will set everything into motion.",
 						"options": {
-							"Continue": "loan"
+							"Continue": "tutorial_4"
+						}
+					},
+					{
+						"state": "tutorial_4",
+						"text": "Below that, are the control buttons.  These will allow the player to interact with the machine.",
+						"options": {
+							"Continue": "tutorial_5"
+						}
+					},
+					{
+						"state": "tutorial_5",
+						"text": "Clicking Info will bring out an info panel, showing your current combos (we'll get to those in a second).",
+						"options": {
+							"Continue": "tutorial_6"
+						}
+					},
+					{
+						"state": "tutorial_6",
+						"text": "Clicking Options will bring up the options menu, allowing the player to adjust some basic settings on the machine.",
+						"options": {
+							"Continue": "tutorial_7"
+						}
+					},
+					{
+						"state": "tutorial_7",
+						"text": "Clicking the circular arrow button, or SWAP button, will allow the player to choose a new payline, circling through the different heroes attacks.",
+						"options": {
+							"Continue": "tutorial_8"
+						}
+					},
+					{
+						"state": "tutorial_8",
+						"text": "Before we go any further, would you like to hear about building combos? Or would you like to pick a risk and get started?",
+						"options": {
+							"Explain combos, please.": "tutorial_9",
+							"Lets talk risk!": "loan"
+						}
+					},
+					{
+						"state": "tutorial_9",
+						"text": "To build a combo, the player will have to make use of the mechanics we talked about earlier.",
+						"options": {
+							"Continue": "tutorial_10",
+						}
+					},
+					{
+						"state": "tutorial_10",
+						"text": "Using the SWAP button, select a path you would like to follow, choosing carefully.  For example, 7,7,7.  This awards the SEVENS bonus.",
+						"options": {
+							"Oh neat, is there anything else?": "tutorial_11",
+						}
+					},
+					{
+						"state": "tutorial_11",
+						"text": "At the top of the INFO panel, there is a GUIDE tab, clicking on this will display a list of known combos to seek out.",
+						"options": {
+							"Okay, is there still more?!": "tutorial_12",
+						}
+					},
+					{
+						"state": "tutorial_12",
+						"text": "Next to the GUIDE tab is a CARDS tab that explains each of the different cards.  You can learn about the different EFFECT cards there",
+						"options": {
+							"Alright, lets get started!" : "loan",
 						}
 					},
 					{
