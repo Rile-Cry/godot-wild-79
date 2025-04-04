@@ -13,6 +13,8 @@ var even_counter = 0
 var seven_counter = 0
 var sevens = false
 
+
+
 func _ready() -> void:
 	_load_cards()
 	_initialize_bonuses()
@@ -121,10 +123,12 @@ func _bonus_check() -> void:
 	if card_chain == [0, 1, 2] or card_chain == [2, 1, 0]:
 		bonus_tracking[Genum.BonusType.ABC] = Genum.BonusLevel.ONE
 		added_bonus.emit(Genum.BonusType.ABC,Genum.BonusLevel.ONE)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ABC.lvl1.score,true)
 	## XYZ - DONE
 	if card_chain == [5, 4, 3] or card_chain == [3, 4, 5]:
 		bonus_tracking[Genum.BonusType.XYZ] = Genum.BonusLevel.ONE
 		added_bonus.emit(Genum.BonusType.XYZ,Genum.BonusLevel.ONE)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.XYZ.lvl1.score,true)
 	
 	else:
 		pass
@@ -153,12 +157,15 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ZERO:
 					bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.ONE
 					added_bonus.emit(Genum.BonusType.EVN,Genum.BonusLevel.ONE)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.EVEN.lvl1.score, true)
 				Genum.BonusLevel.ONE:
 					bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.TWO
 					GameGlobalEvents.level_up.emit(Genum.BonusType.EVN,Genum.BonusLevel.TWO)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.EVEN.lvl2.score, true)
 				Genum.BonusLevel.TWO:
 					bonus_tracking[Genum.BonusType.EVN] = Genum.BonusLevel.MAX
 					GameGlobalEvents.level_up.emit(Genum.BonusType.EVN,Genum.BonusLevel.MAX)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.EVEN.lvl3.score, true)
 				Genum.BonusLevel.MAX:
 					print("Max level, no upgrade possible")
 			
@@ -168,12 +175,15 @@ func _bonus_check() -> void:
 				Genum.BonusLevel.ZERO:
 					bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.ONE
 					added_bonus.emit(Genum.BonusType.ODD,Genum.BonusLevel.ONE)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ODD.lvl1.score, true)
 				Genum.BonusLevel.ONE:
 					bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.TWO
 					GameGlobalEvents.level_up.emit(Genum.BonusType.ODD,Genum.BonusLevel.TWO)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ODD.lvl2.score, true)
 				Genum.BonusLevel.TWO:
 					bonus_tracking[Genum.BonusType.ODD] = Genum.BonusLevel.MAX
 					GameGlobalEvents.level_up.emit(Genum.BonusType.ODD,Genum.BonusLevel.MAX)
+					Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ODD.lvl3.score, true)
 				Genum.BonusLevel.MAX:
 					print("Max level, no upgrade possible")
 		
@@ -183,43 +193,55 @@ func _bonus_check() -> void:
 		if bonus_tracking.has(Genum.BonusType.ABC) and bonus_tracking.has(Genum.BonusType.XYZ) :
 			bonus_tracking[Genum.BonusType.ALPHABET] = Genum.BonusLevel.MAXSECRET
 			added_bonus.emit(Genum.BonusType.ALPHABET,Genum.BonusLevel.MAXSECRET)
+			Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ALPHABET.lvl3.score, true)
 		## ETO - DONE
 		if bonus_tracking.has(Genum.BonusType.ODD) and bonus_tracking.has(Genum.BonusType.EVN) :
 			if bonus_tracking[Genum.BonusType.ODD] == Genum.BonusLevel.MAX and bonus_tracking[Genum.BonusType.EVN] == Genum.BonusLevel.MAX:
 				bonus_tracking[Genum.BonusType.ETO] = Genum.BonusLevel.MAXSECRET
 				added_bonus.emit(Genum.BonusType.ETO,Genum.BonusLevel.MAXSECRET)
+				Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.ETO.lvl3.score, true)
 		## BONUS
 		if bonus_tracking.has(Genum.BonusType.SEVENS) and bonus_tracking[Genum.BonusType.SEVENS] == Genum.BonusLevel.MAX :
 			bonus_tracking[Genum.BonusType.BONUS] = Genum.BonusLevel.MAX
 			added_bonus.emit(Genum.BonusType.BONUS,Genum.BonusLevel.MAX)
+			Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.BONUS.lvl3.score, true)
 #	LCK-A - Lvl1 - TBaT 
 	if card_chain[0] == DeckManager.card_resources[9].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[9].card_id :
 		bonus_tracking[Genum.BonusType.LCKA] = Genum.BonusLevel.MAX
 		added_bonus.emit(Genum.BonusType.LCKA,Genum.BonusLevel.MAX)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.LCK_A.lvl1.score, true)
 #	LCK-B - Lvl1 - TNUMT
 	if card_chain[0] == DeckManager.card_resources[9].card_id and card_chain[1] <= DeckManager.card_resources[8].card_id and card_chain[2] == DeckManager.card_resources[9].card_id :
 		bonus_tracking[Genum.BonusType.LCKB] = Genum.BonusLevel.MAX
 		added_bonus.emit(Genum.BonusType.LCKB,Genum.BonusLevel.MAX)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.LCK_B.lvl1.score, true)
 #	LCK - LvlMAX - TTT
 	if bonus_tracking.has(Genum.BonusType.LCKA) and bonus_tracking.has(Genum.BonusType.LCKB):
 		bonus_tracking[Genum.BonusType.LUCKY] = Genum.BonusLevel.MAXSECRET
 		added_bonus.emit(Genum.BonusType.LUCKY,Genum.BonusLevel.MAXSECRET)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.LUCKY.lvl3.score, true)
 #	BARTENDER - LvlMAX - BaBaBa
+# TODO be able to get BARTENDER 3 TIMES
 	if card_chain[0] == DeckManager.card_resources[12].card_id and card_chain[1] == DeckManager.card_resources[12].card_id and card_chain[2] == DeckManager.card_resources[12].card_id :
 		bonus_tracking[Genum.BonusType.BARTENDER] = Genum.BonusLevel.MAX
 		added_bonus.emit(Genum.BonusType.BARTENDER,Genum.BonusLevel.MAX)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.BARTENDER.lvl3.score, true)
 #	OOF - LvlMAX - BoBoBo
 	if card_chain[0] == DeckManager.card_resources[11].card_id and card_chain[1] == DeckManager.card_resources[11].card_id and card_chain[2] == DeckManager.card_resources[11].card_id :
 		bonus_tracking[Genum.BonusType.OOF] = Genum.BonusLevel.MAX
 		added_bonus.emit(Genum.BonusType.OOF,Genum.BonusLevel.MAX)
+		Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.OOF.lvl3.score, true)
 #	777 - Lvl1, Lvl2, LvlMAX
 	if seven_counter % 3 == 0 and sevens:
 		if !bonus_tracking.has(Genum.BonusType.SEVENS) :
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.ONE
 			added_bonus.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.ONE)
+			Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.SEVENS.lvl1.score, true)
 		elif bonus_tracking[Genum.BonusType.SEVENS] == 1:
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.TWO
 			GameGlobalEvents.level_up.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.TWO)
+			Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.SEVENS.lvl2.score, true)
 		elif bonus_tracking[Genum.BonusType.SEVENS] == 2:
 			bonus_tracking[Genum.BonusType.SEVENS] = Genum.BonusLevel.MAX
 			GameGlobalEvents.level_up.emit(Genum.BonusType.SEVENS,Genum.BonusLevel.MAX)
+			Global.set_var(Genum.Vars.SCORE, Global.bonus_effects.SEVENS.lvl3.score, true)

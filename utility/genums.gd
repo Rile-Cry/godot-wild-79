@@ -31,6 +31,7 @@ enum CardType {
 	EVENT
 }
 
+
 enum Classes {
 	WARRIOR,
 	ROGUE,

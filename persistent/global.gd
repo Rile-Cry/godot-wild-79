@@ -9,6 +9,119 @@ var _global_vars : Dictionary = { # Global dictionary, has all the variables enc
 	Genum.Vars.SCORE:0 # The total score, after multipliers
 }
 
+var bonus_effects : Dictionary = {
+	ABC = {
+		lvl1 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	XYZ = {
+		lvl1 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	ALPHABET = {
+		lvl3 = {
+			score = 500,
+			mult = 2
+		}
+	},
+	EVEN = {
+		lvl1 = {
+			score = 25,
+			mult = 0
+		},
+		lvl2 = {
+			score = 75,
+			mult = 0
+		},
+		lvl3 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	ODD = {
+		lvl1 = {
+			score = 25,
+			mult = 0
+		},
+		lvl2 = {
+			score = 75,
+			mult = 0
+		},
+		lvl3 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	ETO = {
+		lvl3 = {
+			score = 500,
+			mult = 2
+		}
+	},
+	LCK_A = {
+		lvl1 = {
+			score = 100,
+			mult = 0
+		}
+	},
+	LCK_B = {
+		lvl1 = {
+			score = 100,
+			mult = 0
+		}
+	},
+	LUCKY = {
+		lvl3 = {
+			score = 300,
+			mult = 0
+		}
+	},
+	BARTENDER = {
+		lvl1 = {
+			score = 150,
+			mult = 0
+		},
+		lvl2 = {
+			score = 150,
+			mult = 0
+		},
+		lvl3 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	OOF = {
+		lvl3 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	SEVENS = {
+		lvl1 = {
+			score = 25,
+			mult = 0
+		},
+		lvl2 = {
+			score = 75,
+			mult = 0
+		},
+		lvl3 = {
+			score = 150,
+			mult = 0
+		}
+	},
+	BONUS = {
+		lvl3 = {
+			score = 500,
+			mult = 0
+		}
+	}
+}
+
 var debug_active := false
 
 var _move_weights : Array[float] = [1.0, 2.0]
